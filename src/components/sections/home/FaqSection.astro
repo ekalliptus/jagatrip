@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+
+const faqs = (await getCollection('faqs'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">FAQ (FREQUENTLY ASKED QUESTIONS)</h2>
+      <p class="text-xl md:text-2xl text-gray-500 font-medium">Ada Pertanyaan? Kami Jawab Semuanya di Sini.</p>
+    </div>
+    <div class="space-y-6">
+      {faqs.map((faq) => (
+        <div class="bg-jaga-bg p-8 rounded-[1.5rem] shadow-sm border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Q: {faq.data.question}</h3>
+          <p class="text-gray-700 text-lg font-medium leading-relaxed">A: {faq.data.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
