@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code & Superpowers
+.claude/
+.superpowers/
+
+# internal docs (specs, plans)
+docs/
+
+# source materials (not for repo)
+Jagatrip Materi Lp #2.pdf
