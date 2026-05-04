@@ -1,11 +1,11 @@
 ---
 const problems = [
-  'Sekolahmu sudah bagus, tapi kamu ngerasa ada yang kurang, dan nggak tau harus mulai dari mana?',
-  'Kamu pengen sistem pendidikan yang lebih modern, tapi referensinya terbatas dan tidak bisa keluar dari "zona nyaman" yang itu-itu aja?',
-  'Sudah banyak seminar dan pelatihan, tapi hasilnya belum mengubah kualitas sekolahmu secara nyata?',
-  'Kamu ingin tahu bagaimana sekolah-sekolah terbaik dunia membangun budaya belajar yang kuat, tapi akses ke mereka terasa sangat jauh?',
-  'Siswa dan guru butuh inspirasi baru, tapi kamu sendiri bingung harus mencari inspirasi itu ke mana?',
-  'Ingin mengadopsi praktik terbaik dari sekolah internasional, tapi tidak punya networking yang tepat untuk memulainya?',
+  'Sekolahmu sudah bagus — tapi kamu ngerasa ada yang kurang dan nggak tahu harus mulai dari mana.',
+  'Kamu pengen sistem pendidikan yang lebih modern, tapi referensinya terbatas dan tidak bisa keluar dari "zona nyaman" yang itu-itu aja.',
+  'Sudah banyak seminar dan pelatihan, tapi hasilnya belum mengubah kualitas sekolahmu secara nyata.',
+  'Kamu ingin tahu bagaimana sekolah-sekolah terbaik dunia membangun budaya belajar yang kuat — tapi akses ke mereka terasa sangat jauh.',
+  'Siswa dan guru butuh inspirasi baru — tapi kamu sendiri bingung harus mencari inspirasi itu ke mana.',
+  'Ingin mengadopsi praktik terbaik sekolah internasional, tapi tidak punya networking yang tepat untuk memulainya.',
 ];
 ---
 
@@ -18,22 +18,22 @@ const problems = [
     <div class="space-y-4 mb-16">
       {problems.map((problem) => (
         <div class="flex items-start bg-jaga-bg border border-gray-100 p-6 md:p-8 rounded-2xl hover:shadow-md transition-shadow duration-300">
-          <span class="text-jaga-orange text-2xl mr-5 mt-1 flex-shrink-0">⚠️</span>
+          <span class="text-jaga-orange font-black text-xl mr-5 mt-0.5 shrink-0">✓</span>
           <p class="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">{problem}</p>
         </div>
       ))}
     </div>
 
-    <div class="text-center max-w-4xl mx-auto">
-      <p class="text-2xl md:text-3xl text-gray-800 font-medium mb-8">
-        Kalau jawabanmu "IYA" maka kamu perlu ikut event ini <br/>
-        <span class="text-jaga-orange font-black text-4xl block mt-4">JAGATRIP TO MALAYSIA - THAILAND<br/>24 - 28 Juni 2026</span>
+    <div class="bg-gray-900 text-white text-center py-6 px-8 rounded-2xl mb-8">
+      <p class="text-xl md:text-2xl font-bold">
+        Kalau jawabanmu <span class="text-jaga-orange">"IYA"</span> — maka kamu perlu ikut <strong>JAGATRIP To Malaysia &amp; Thailand, 24–28 Juni 2026</strong>
       </p>
-      <div class="p-10 md:p-12 bg-gradient-to-br from-jaga-orange to-orange-500 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-        <p class="text-2xl md:text-3xl font-bold leading-relaxed relative z-10 italic">
-          "Karena ilmu yang paling mahal bukan yang ada di buku teks — melainkan yang tersimpan di balik tembok sekolah-sekolah terbaik yang jarang dibuka untuk umum."
-        </p>
-      </div>
+    </div>
+
+    <div class="p-10 md:p-12 bg-linear-to-br from-jaga-orange to-orange-500 rounded-3xl text-white shadow-2xl">
+      <p class="text-xl md:text-2xl font-bold leading-relaxed italic text-center">
+        "Karena ilmu yang paling mahal bukan yang ada di buku teks — melainkan yang tersimpan di balik tembok sekolah-sekolah terbaik yang jarang dibuka untuk umum."
+      </p>
     </div>
   </div>
 </section>
