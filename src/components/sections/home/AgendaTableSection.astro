@@ -31,6 +31,11 @@ const destinationDisplay: Record<string, string> = {
   'jogja': 'Jogja',
   'triple-country-asean': '3 Negara (MY, TH, SG)',
 };
+
+function formatIDRShort(n: number): string {
+  if (n >= 1_000_000) return `Rp ${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1).replace('.', ',')}Jt`;
+  return `Rp ${n.toLocaleString('id-ID')}`;
+}
 ---
 
 <section id="agenda" class="py-24 bg-jaga-bg" aria-labelledby="agenda-heading">
@@ -52,6 +57,7 @@ const destinationDisplay: Record<string, string> = {
               <th class="py-5 px-6 font-bold text-sm uppercase tracking-wider">Destinasi</th>
               <th class="py-5 px-6 font-bold text-sm uppercase tracking-wider text-center">Durasi</th>
               <th class="py-5 px-6 font-bold text-sm uppercase tracking-wider">Fokus Program</th>
+              <th class="py-5 px-6 font-bold text-sm uppercase tracking-wider text-right whitespace-nowrap">Harga Mulai</th>
             </tr>
           </thead>
           <tbody class="text-gray-700 divide-y divide-gray-100">
@@ -82,6 +88,23 @@ const destinationDisplay: Record<string, string> = {
                     )}
                   </td>
                   <td class="py-5 px-6 leading-relaxed font-medium align-top text-gray-600">{trip.data.focus}.</td>
+                  <td class="py-5 px-6 align-top text-right">
+                    {trip.data.pricing?.earlyBird ? (
+                      <div>
+                        <p class="font-black text-jaga-orange text-base whitespace-nowrap">
+                          {formatIDRShort(trip.data.pricing.earlyBird)}
+                        </p>
+                        <p class="text-xs text-gray-400 mt-0.5">/ orang · mulai</p>
+                        {trip.data.slug === 'malaysia-thailand' && (
+                          <a href="/harga" class="text-xs text-jaga-orange hover:underline font-bold mt-1 block">
+                            Lihat semua harga →
+                          </a>
+                        )}
+                      </div>
+                    ) : (
+                      <span class="text-gray-400 text-sm">—</span>
+                    )}
+                  </td>
                 </tr>
               );
             })}

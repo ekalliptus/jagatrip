@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/layout/Nav.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingWA from '../components/layout/FloatingWA.astro';
+import { SITE, waLink } from '../data/site';
+import { breadcrumbSchema } from '../data/schemas/breadcrumb';
+
+const wa = waLink('Malaysia-Thailand', '24-28 Juni 2026');
+const waConsult = waLink('Konsultasi Harga');
+
+const extraSchemas = [
+  breadcrumbSchema([{ name: 'Daftar Harga', url: `${SITE.url}/harga` }]),
+];
+
+// ── Pricing data from Google Sheets ──────────────────────────────────────────
+// Source: HARGA JUAL FIX TRIP JUNI (40 Peserta + 5 Panitia)
+// Note: Provinsi dalam rentang Rp300rb disamakan ke harga tertinggi
+
+type PriceRow = { no: number; cities: string[]; price: string; priceNum: number };
+
+const hargaJualJuni: PriceRow[] = [
+  { no: 1,  cities: ['Padang', 'Pekanbaru'],                                                                       price: 'Rp 6.600.000',  priceNum: 6600000 },
+  { no: 2,  cities: ['Aceh (BTJ)', 'Batam', 'Medan', 'Palembang (PLM)'],                                           price: 'Rp 7.500.000',  priceNum: 7500000 },
+  { no: 3,  cities: ['Jakarta', 'Pontianak'],                                                                       price: 'Rp 7.900.000',  priceNum: 7900000 },
+  { no: 4,  cities: ['Bali (Denpasar)', 'Balikpapan (BPN)', 'Semarang (SRG)', 'Surabaya'],                         price: 'Rp 8.600.000',  priceNum: 8600000 },
+  { no: 5,  cities: ['Jogja (YIA)', 'Makassar (UPG)'],                                                             price: 'Rp 8.800.000',  priceNum: 8800000 },
+  { no: 6,  cities: ['Lampung (TKG)'],                                                                             price: 'Rp 10.200.000', priceNum: 10200000 },
+  { no: 7,  cities: ['Pangkal Pinang (PGK)', 'Tarakan (TRK)'],                                                     price: 'Rp 11.500.000', priceNum: 11500000 },
+  { no: 8,  cities: ['Lombok (LOP)'],                                                                              price: 'Rp 11.800.000', priceNum: 11800000 },
+  { no: 9,  cities: ['Banjarmasin (BDJ)', 'Bengkulu (BKS)'],                                                       price: 'Rp 12.500.000', priceNum: 12500000 },
+  { no: 10, cities: ['NTT (Kupang / KOE)'],                                                                        price: 'Rp 13.000.000', priceNum: 13000000 },
+  { no: 11, cities: ['Palu (PLW)'],                                                                                price: 'Rp 13.900.000', priceNum: 13900000 },
+  { no: 12, cities: ['Maluku / Ambon (AMQ)', 'Palangkaraya (PKY)'],                                                price: 'Rp 15.200.000', priceNum: 15200000 },
+  { no: 13, cities: ['Gorontalo (GTO)', 'Sorong (SOQ)'],                                                           price: 'Rp 16.800.000', priceNum: 16800000 },
+  { no: 14, cities: ['Kendari (KDI)'],                                                                             price: 'Rp 18.900.000', priceNum: 18900000 },
+  { no: 15, cities: ['Jayapura (DJJ)'],                                                                            price: 'Rp 20.700.000', priceNum: 20700000 },
+];
+
+// Harga Per Provinsi — same fare structure, displayed per individual city
+const hargaPerProvinsi: PriceRow[] = hargaJualJuni.flatMap(row =>
+  row.cities.map((city, i) => ({
+    no: i === 0 ? row.no : undefined as unknown as number,
+    cities: [city],
+    price: row.price,
+    priceNum: row.priceNum,
+  }))
+);
+
+// Harga Tiket — breakdown summary (gateway tiers)
+type TicketRow = { tier: string; gateway: string; price: string };
+const hargaTiket: TicketRow[] = [
+  { tier: 'Termurah',    gateway: 'Padang / Pekanbaru',           price: 'Rp 6.600.000' },
+  { tier: 'Sumatera',    gateway: 'Aceh, Batam, Medan, Palembang', price: 'Rp 7.500.000' },
+  { tier: 'Jawa Barat',  gateway: 'Jakarta / Pontianak',           price: 'Rp 7.900.000' },
+  { tier: 'Jawa & Bali', gateway: 'Bali, Balikpapan, Semarang, Surabaya', price: 'Rp 8.600.000' },
+  { tier: 'Jawa Tengah', gateway: 'Jogja (YIA) / Makassar',        price: 'Rp 8.800.000' },
+  { tier: 'Lampung',     gateway: 'Lampung (TKG)',                  price: 'Rp 10.200.000' },
+  { tier: 'Kalimantan',  gateway: 'Pangkal Pinang / Tarakan',       price: 'Rp 11.500.000' },
+  { tier: 'Lombok',      gateway: 'Lombok (LOP)',                   price: 'Rp 11.800.000' },
+  { tier: 'Kalimantan Selatan', gateway: 'Banjarmasin / Bengkulu',  price: 'Rp 12.500.000' },
+  { tier: 'NTT',         gateway: 'Kupang (KOE)',                   price: 'Rp 13.000.000' },
+  { tier: 'Sulawesi Tengah', gateway: 'Palu (PLW)',                 price: 'Rp 13.900.000' },
+  { tier: 'Maluku',      gateway: 'Ambon / Palangkaraya',           price: 'Rp 15.200.000' },
+  { tier: 'Sulawesi Utara', gateway: 'Gorontalo / Sorong',          price: 'Rp 16.800.000' },
+  { tier: 'Sulawesi Tenggara', gateway: 'Kendari (KDI)',            price: 'Rp 18.900.000' },
+  { tier: 'Papua',       gateway: 'Jayapura (DJJ)',                 price: 'Rp 20.700.000' },
+];
+
+const tabs = [
+  { id: 'trip-juni',    label: 'Harga Jual Juni 2026' },
+  { id: 'per-provinsi', label: 'Per Provinsi' },
+  { id: 'tiket',        label: 'Ringkasan Tiket' },
+];
+---
+
+<BaseLayout
+  title="Daftar Harga JAGATRIP — Malaysia-Thailand Juni 2026"
+  description="Daftar harga lengkap program JAGATRIP Malaysia-Thailand 24-28 Juni 2026 per kota keberangkatan. Harga mulai Rp6.600.000/orang all-in."
+  extraSchemas={extraSchemas}
+>
+  <Nav />
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-jaga-bg">
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <span class="inline-block py-2 px-5 rounded-full bg-jaga-orange/10 text-jaga-orange font-bold text-sm mb-6 tracking-widest uppercase shadow-sm">
+          Malaysia & Thailand · 24–28 Juni 2026
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight mb-6">
+          Daftar Harga Program
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
+          Harga bervariasi sesuai kota keberangkatan. Semua paket <strong class="text-gray-900">All-in</strong> —
+          tiket pesawat PP sudah termasuk dalam paket.
+        </p>
+        <!-- Key stats -->
+        <div class="inline-flex flex-wrap gap-4 justify-center">
+          <div class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-semibold text-gray-700 shadow-sm">
+            📅 Early Bird s/d 10 Juni 2026
+          </div>
+          <div class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-semibold text-gray-700 shadow-sm">
+            ✈️ 15 Kota Keberangkatan
+          </div>
+          <div class="bg-jaga-orange text-white rounded-full px-5 py-2 text-sm font-bold shadow-sm">
+            🔥 Mulai Rp 6.600.000
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING TABLE SECTION -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-6">
+
+        <!-- Tab nav -->
+        <div class="flex flex-wrap gap-2 mb-10 border-b border-gray-200 pb-0" id="tab-nav">
+          {tabs.map((tab, i) => (
+            <button
+              type="button"
+              data-tab={tab.id}
+              class={`tab-btn px-6 py-3 font-bold text-sm rounded-t-xl border border-b-0 transition-colors ${i === 0 ? 'bg-jaga-orange text-white border-jaga-orange' : 'bg-white text-gray-600 border-gray-200 hover:text-jaga-orange'}`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <!-- Tab 1: Harga Jual Juni -->
+        <div id="panel-trip-juni" class="tab-panel">
+          <div class="mb-6">
+            <p class="text-gray-500 text-sm leading-relaxed bg-orange-50 border border-orange-200 rounded-xl px-5 py-3">
+              <strong class="text-jaga-orange">CATATAN:</strong> Kapasitas 40 peserta + 5 panitia.
+              Harga dalam satu tier yang berbeda ≤ Rp300.000 disamakan ke harga tertinggi.
+              Meeting point: KLIA (Kuala Lumpur International Airport).
+            </p>
+          </div>
+          <div class="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-900 text-white">
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider w-12">#</th>
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider">Provinsi / Kota Keberangkatan</th>
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider text-right whitespace-nowrap">Harga / Peserta</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                {hargaJualJuni.map((row) => (
+                  <tr class="hover:bg-orange-50/50 transition-colors">
+                    <td class="py-4 px-5 text-gray-400 font-medium text-sm">{row.no}</td>
+                    <td class="py-4 px-5">
+                      <div class="flex flex-wrap gap-2">
+                        {row.cities.map(city => (
+                          <span class="inline-block bg-jaga-bg border border-gray-100 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
+                            {city}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                    <td class="py-4 px-5 text-right">
+                      <span class="text-lg font-black text-jaga-orange">{row.price}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Per Provinsi -->
+        <div id="panel-per-provinsi" class="tab-panel hidden">
+          <div class="mb-6">
+            <p class="text-gray-500 text-sm leading-relaxed bg-orange-50 border border-orange-200 rounded-xl px-5 py-3">
+              <strong class="text-jaga-orange">CATATAN:</strong> Tampilan per kota individual.
+              Harga sudah all-in termasuk tiket pesawat PP dari kota asal ke KLIA.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {hargaJualJuni.map((row) => (
+              row.cities.map(city => (
+                <div class="bg-jaga-bg border border-gray-100 rounded-2xl p-5 flex items-center justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <p class="font-bold text-gray-900 text-sm">{city}</p>
+                    <p class="text-xs text-gray-400 mt-0.5">All-in · Termasuk pesawat PP</p>
+                  </div>
+                  <p class="font-black text-jaga-orange text-base ml-4 shrink-0">{row.price}</p>
+                </div>
+              ))
+            ))}
+          </div>
+        </div>
+
+        <!-- Tab 3: Ringkasan Tiket -->
+        <div id="panel-tiket" class="tab-panel hidden">
+          <div class="mb-6">
+            <p class="text-gray-500 text-sm leading-relaxed bg-orange-50 border border-orange-200 rounded-xl px-5 py-3">
+              <strong class="text-jaga-orange">CATATAN:</strong> Ringkasan harga per wilayah/gateway utama.
+              Harga sudah termasuk tiket pesawat round-trip ke KLIA (Kuala Lumpur International Airport).
+            </p>
+          </div>
+          <div class="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-900 text-white">
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider">Wilayah</th>
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider">Gateway / Bandara</th>
+                  <th class="py-4 px-5 font-bold text-sm uppercase tracking-wider text-right">Harga / Peserta</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                {hargaTiket.map((row) => (
+                  <tr class="hover:bg-orange-50/50 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900 text-sm">{row.tier}</td>
+                    <td class="py-4 px-5 text-gray-600 text-sm">{row.gateway}</td>
+                    <td class="py-4 px-5 text-right">
+                      <span class="text-lg font-black text-jaga-orange">{row.price}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-14 bg-gray-900 rounded-4xl p-10 md:p-12 text-center text-white">
+          <h2 class="text-2xl md:text-3xl font-black mb-3">Mau Daftar atau Ada Pertanyaan?</h2>
+          <p class="text-gray-300 mb-8 text-base leading-relaxed">
+            Tim kami siap membantu. Chat langsung untuk konfirmasi kota keberangkatanmu dan amankan kursi sebelum penuh.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-jaga-orange hover:bg-jaga-orange-600 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 whitespace-nowrap"
+            >
+              💬 Daftar Sekarang
+            </a>
+            <a
+              href={waConsult}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold text-lg px-10 py-4 rounded-full transition-all whitespace-nowrap"
+            >
+              Tanya Harga Kotamu
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <FloatingWA />
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLDivElement>('.tab-panel');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-jaga-orange', 'text-white', 'border-jaga-orange');
+        b.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+      });
+      btn.classList.add('bg-jaga-orange', 'text-white', 'border-jaga-orange');
+      btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+
+      panels.forEach(p => p.classList.add('hidden'));
+      document.getElementById(`panel-${target}`)?.classList.remove('hidden');
+    });
+  });
+</script>

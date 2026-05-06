@@ -19,8 +19,8 @@ segmenPasar:
   - "Pengawas Pendidikan"
 gradient: "--color-grad-msia"
 pricing:
-  earlyBird: 7900000
-  normal: 8250000
+  earlyBird: 6600000
+  normal: 7900000
   dpPercentage: 50
 hero:
   title: "JAGATRIP TO MALAYSIA-THAILAND"
