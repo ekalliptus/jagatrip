@@ -8,7 +8,7 @@ import { SITE } from '../data/site';
  * 3. Deploy → New deployment → Web app → Execute as: Me, Who has access: Anyone
  * 4. Copy URL deployment → paste di sini
  */
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/GANTI_DENGAN_DEPLOYMENT_ID/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
 
 export function initRegistrationForm(): void {
   const form = document.getElementById('daftar-form') as HTMLFormElement | null;
