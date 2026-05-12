@@ -136,7 +136,8 @@ function setupSheet() {
   // Create Summary sheet
   createSummarySheet(ss);
 
-  // Add filter
+  // Add filter (hapus dulu kalau sudah ada)
+  if (sheet.getFilter()) sheet.getFilter().remove();
   sheet.getRange(1, 1, 1, HEADERS.length).createFilter();
 
   SpreadsheetApp.flush();
