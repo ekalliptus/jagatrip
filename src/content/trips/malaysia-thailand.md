@@ -34,9 +34,9 @@ itinerary:
     theme: "ARRIVAL & ORIENTATION DAY"
     activities:
       - "Keberangkatan dari Indonesia — meeting point KLIA"
-      - "Check-in Hotel Bintang 3 di Kuala Lumpur (My Hotel @ Bukit Bintang)"
-      - "Makan malam (di hotel)"
-      - "Waktu bebas"
+      - "Check-in Hotel di Kuala Lumpur"
+      - "Istirahat"
+      - "Seminar Internasional"
       - "Istirahat"
   - day: 2
     date: 2026-06-25
@@ -44,37 +44,33 @@ itinerary:
     theme: "SEKOLAH & BENCHMARKING DAY (MALAYSIA)"
     activities:
       - "Briefing pagi dan pembagian merchandise"
-      - "Kunjungan KV Shah Alam"
-      - "Kunjungan KV Sungai Buloh (Selangor)"
-      - "Kunjungan KV Kuala Selangor"
+      - "Kunjungan ke Sekolah-Sekolah di Malaysia"
       - "Masjid Sultan Ibrahim & Central Market (tentative)"
   - day: 3
     date: 2026-06-26
     dayName: Kamis
     theme: "NETWORKING DAY"
     activities:
-      - "Checkout hotel"
       - "Explore Petronas"
       - "Perjalanan ke Thailand"
-      - "Makan malam di hotel"
+      - "Imigrasi"
       - "Istirahat"
   - day: 4
     date: 2026-06-27
     dayName: Jumat
     theme: "SEKOLAH & INSIGHT DAY (THAILAND)"
     activities:
-      - "Kunjungan Sekolah Sangkhom Wittaya Islamic School"
-      - "Kunjungan ke Darul Hikmah Narathiwat"
+      - "Kunjungan Sekolah di Thailand"
       - "Sayonara & komitmen aksi nyata"
-      - "Asean Night Bazaar"
-      - "Perjalanan ke KLIA"
+      - "City Tour Thailand"
   - day: 5
     date: 2026-06-28
     dayName: Sabtu
-    theme: "CLOSING & HOMECOMING DAY"
+    theme: "EDUTOUR & HOMECOMING DAY"
     activities:
-      - "Sayonara seluruh peserta"
-      - "Perjalanan pulang ke Indonesia"
+      - "Perjalanan ke Malaysia"
+      - "Kunjungan ke Universitas di KL Perlis"
+      - "City Tour x Sayonara kepulangan ke Indonesia"
 benefits:
   - icon: "✈️"
     text: "Merasakan langsung suasana dan kultur sekolah di negara kunjungan (Malaysia & Thailand)"
