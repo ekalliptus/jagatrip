@@ -1,16 +1,9 @@
 ---
 import { SITE } from '../../../data/site';
 
-function pkgWaLink(pkgName: string): string {
-  const msg = `Halo admin, saya mau daftar ${pkgName} — JAGATRIP Malaysia-Thailand (24-28 Juni 2026). Mohon info lebih lanjut. Terimakasih.`;
-  return `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
-}
+const waLink = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo admin, saya mau daftar JAGATRIP Malaysia-Thailand (24-28 Juni 2026). Mohon info lebih lanjut. Terimakasih.')}`;
 
-type IncItem = { icon: string; label: string; desc: string; excluded?: boolean };
-type ExcItem = { icon: string; label: string };
-
-// Items shared across all packages
-const baseIncludes: IncItem[] = [
+const includes = [
   { icon: '🏨', label: 'HOTEL', desc: 'Penginapan nyaman selama 4 malam' },
   { icon: '🍽️', label: '11x MAKAN', desc: 'Termasuk sarapan, makan siang, dan makan malam pilihan' },
   { icon: '🥂', label: 'WELCOME DRINK', desc: 'Minuman sambutan di hari pertama' },
@@ -20,81 +13,17 @@ const baseIncludes: IncItem[] = [
   { icon: '🎁', label: 'DOOR PRIZE', desc: 'Hadiah menarik untuk peserta beruntung' },
   { icon: '🥇', label: 'SERTIFIKAT RESMI', desc: 'Sertifikat benchmarking internasional dari PT Jagatrip Mitra Edukasi' },
   { icon: '📸', label: 'DOKUMENTASI', desc: 'Foto dan video profesional selama perjalanan' },
-  { icon: '🗺️', label: 'CITY TOUR', desc: 'Tur kota Kuala Lumpur & Hatyai' },
+  { icon: '🗺️', label: 'CITY TOUR', desc: 'Tur kota KL, Hatyai, KL Perlis' },
   { icon: '👨‍🏫', label: 'TOUR LEADER PROFESIONAL', desc: 'Pendamping berpengalaman selama perjalanan' },
   { icon: '🛡️', label: 'ASURANSI PERJALANAN', desc: 'Perlindungan selama program berlangsung' },
 ];
 
-type Package = {
-  id: string;
-  name: string;
-  tagline: string;
-  price: string;
-  color: string;
-  wa: string;
-  includes: IncItem[];
-  excludes: ExcItem[];
-};
-
-const packages: Package[] = [
-  {
-    id: 'hemat',
-    name: 'Paket Hemat',
-    tagline: 'Tanpa tiket pesawat',
-    price: 'Rp 4.600.000',
-    color: 'bg-green-600',
-    wa: pkgWaLink('Paket Hemat'),
-    includes: [
-      { icon: '✈️', label: 'TIKET PESAWAT', desc: 'Tidak termasuk — peserta atur sendiri', excluded: true },
-      ...baseIncludes,
-    ],
-    excludes: [
-      { icon: '🛂', label: 'Paspor' },
-      { icon: '✈️', label: 'Tiket pesawat (peserta atur sendiri)' },
-      { icon: '🧳', label: 'Bagasi tambahan' },
-      { icon: '🛍️', label: 'Pengeluaran pribadi (cth: laundry, jajan, oleh-oleh)' },
-      { icon: '🗺️', label: 'Biaya tambahan tour wisata di luar jadwal resmi' },
-      { icon: '🛏️', label: 'Single Supplement: biaya tambahan bagi peserta yang ingin tidur sendiri' },
-    ],
-  },
-  {
-    id: 'moderate',
-    name: 'Paket Moderate',
-    tagline: '+ Tiket pesawat',
-    price: 'Rp 9.200.000',
-    color: 'bg-jaga-orange',
-    wa: pkgWaLink('Paket Moderate'),
-    includes: [
-      { icon: '✈️', label: 'TIKET PESAWAT', desc: 'Round-trip flight ke KLIA (PP)' },
-      ...baseIncludes,
-    ],
-    excludes: [
-      { icon: '🛂', label: 'Paspor' },
-      { icon: '🧳', label: 'Bagasi tambahan' },
-      { icon: '🛍️', label: 'Pengeluaran pribadi (cth: laundry, jajan, oleh-oleh)' },
-      { icon: '🗺️', label: 'Biaya tambahan tour wisata di luar jadwal resmi' },
-      { icon: '🛏️', label: 'Single Supplement: biaya tambahan bagi peserta yang ingin tidur sendiri' },
-    ],
-  },
-  {
-    id: 'lengkap',
-    name: 'Paket Lengkap',
-    tagline: '+ Tiket pesawat + Bagasi 20 kg',
-    price: 'Rp 10.500.000',
-    color: 'bg-gray-900',
-    wa: pkgWaLink('Paket Lengkap'),
-    includes: [
-      { icon: '✈️', label: 'TIKET PESAWAT', desc: 'Round-trip flight ke KLIA (PP)' },
-      { icon: '🧳', label: 'BAGASI 20 KG', desc: 'Bagasi tambahan 20 kg sudah termasuk' },
-      ...baseIncludes,
-    ],
-    excludes: [
-      { icon: '🛂', label: 'Paspor' },
-      { icon: '🛍️', label: 'Pengeluaran pribadi (cth: laundry, jajan, oleh-oleh)' },
-      { icon: '🗺️', label: 'Biaya tambahan tour wisata di luar jadwal resmi' },
-      { icon: '🛏️', label: 'Single Supplement: biaya tambahan bagi peserta yang ingin tidur sendiri' },
-    ],
-  },
+const excludes = [
+  { icon: '🛂', label: 'Paspor' },
+  { icon: '🧳', label: 'Bagasi tambahan' },
+  { icon: '🛍️', label: 'Pengeluaran pribadi (cth: laundry, jajan, oleh-oleh)' },
+  { icon: '🗺️', label: 'Biaya tambahan tour wisata di luar jadwal resmi' },
+  { icon: '🛏️', label: 'Single Supplement: biaya tambahan bagi peserta yang ingin tidur sendiri' },
 ];
 ---
 
@@ -105,92 +34,58 @@ const packages: Package[] = [
         Kamu Tinggal Hadir dan Belajar
       </h2>
       <p class="text-2xl md:text-3xl font-bold text-jaga-orange">
-        Karena Semua Kegiatan sudah Include:
+        Karena Semua sudah Include:
       </p>
     </div>
 
-    <!-- Package tabs -->
-    <div class="flex flex-wrap justify-center gap-2 mb-10">
-      {packages.map((pkg, i) => (
-        <button
-          type="button"
-          data-pkg={pkg.id}
-          class={`pkg-btn px-5 md:px-8 py-3 font-black text-sm md:text-base rounded-full transition-all ${
-            i === 0
-              ? 'bg-gray-900 text-white shadow-lg scale-105'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          {pkg.name}
-        </button>
+    <!-- Price header -->
+    <div class="bg-gray-900 text-white rounded-3xl p-6 md:p-8 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-white/70 mb-1">Harga</p>
+        <p class="text-4xl md:text-5xl font-black">Rp 7.000.000 <span class="text-lg font-bold text-white/70">/ orang</span></p>
+      </div>
+      <a
+        href={waLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-jaga-orange hover:bg-jaga-orange-600 text-white font-black text-sm px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all shrink-0"
+      >
+        Daftar Sekarang →
+      </a>
+    </div>
+
+    <!-- Include items -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-10">
+      {includes.map((item, i) => (
+        <div class={`flex items-start bg-jaga-bg p-5 rounded-xl border border-gray-100${i === includes.length - 1 && includes.length % 2 !== 0 ? ' sm:col-span-2 sm:max-w-sm sm:mx-auto' : ''}`}>
+          <span class="text-2xl mr-4 shrink-0">{item.icon}</span>
+          <div>
+            <p class="text-gray-900 font-bold leading-tight">{item.label}</p>
+            <p class="text-gray-500 text-sm mt-0.5">{item.desc}</p>
+          </div>
+        </div>
       ))}
     </div>
 
-    <!-- Package panels -->
-    {packages.map((pkg, i) => (
-      <div
-        id={`pkg-${pkg.id}`}
-        class:list={['pkg-panel', i !== 0 && 'hidden']}
-      >
-        <!-- Price + tagline header -->
-        <div class={`${pkg.color} text-white rounded-3xl p-6 md:p-8 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left`}>
-          <div>
-            <p class="text-sm font-bold uppercase tracking-widest text-white/70 mb-1">{pkg.name}</p>
-            <p class="text-3xl md:text-4xl font-black">{pkg.price} <span class="text-lg font-bold text-white/70">/ orang</span></p>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="bg-white/20 border border-white/30 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full">
-              {pkg.tagline}
-            </span>
-            <a
-              href={pkg.wa}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bg-white text-gray-900 font-black text-sm px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors shrink-0"
-            >
-              Daftar →
-            </a>
-          </div>
-        </div>
-
-        <!-- Include items -->
-        <div class="grid sm:grid-cols-2 gap-4 mb-10">
-          {pkg.includes.map((item, idx) => (
-            <div class={`flex items-start p-5 rounded-xl border ${
-              item.excluded
-                ? 'bg-red-50/30 border-red-100 opacity-60'
-                : 'bg-jaga-bg border-gray-100'
-            }${idx === pkg.includes.length - 1 && pkg.includes.length % 2 !== 0 ? ' sm:col-span-2 sm:max-w-sm sm:mx-auto' : ''}`}>
-              <span class="text-2xl mr-4 shrink-0">{item.icon}</span>
-              <div>
-                <p class={`font-bold leading-tight ${item.excluded ? 'text-red-400 line-through' : 'text-gray-900'}`}>{item.label}</p>
-                <p class={`text-sm mt-0.5 ${item.excluded ? 'text-red-400' : 'text-gray-500'}`}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Exclude -->
-        <div class="mb-8">
-          <div class="text-center mb-5">
-            <span class="inline-block bg-red-50 border border-red-200 text-red-700 font-black text-xs md:text-sm uppercase tracking-[0.25em] px-5 py-2 rounded-full">
-              ⚠️ Exclude
-            </span>
-            <p class="mt-2 text-gray-500 text-sm">
-              Hal-hal berikut <strong class="text-gray-900">tidak termasuk</strong> dalam paket:
-            </p>
-          </div>
-          <ul class="grid sm:grid-cols-2 gap-3">
-            {pkg.excludes.map((item) => (
-              <li class="flex items-start gap-3 bg-red-50/40 border border-red-100 rounded-xl px-4 py-3">
-                <span class="text-xl shrink-0">{item.icon}</span>
-                <span class="text-gray-700 text-sm md:text-base font-medium leading-relaxed">{item.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <!-- Exclude -->
+    <div class="mb-8">
+      <div class="text-center mb-5">
+        <span class="inline-block bg-red-50 border border-red-200 text-red-700 font-black text-xs md:text-sm uppercase tracking-[0.25em] px-5 py-2 rounded-full">
+          ⚠️ Exclude
+        </span>
+        <p class="mt-2 text-gray-500 text-sm">
+          Hal-hal berikut <strong class="text-gray-900">tidak termasuk</strong> dalam paket:
+        </p>
       </div>
-    ))}
+      <ul class="grid sm:grid-cols-2 gap-3">
+        {excludes.map((item) => (
+          <li class="flex items-start gap-3 bg-red-50/40 border border-red-100 rounded-xl px-4 py-3">
+            <span class="text-xl shrink-0">{item.icon}</span>
+            <span class="text-gray-700 text-sm md:text-base font-medium leading-relaxed">{item.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
 
     <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6">
       <p class="text-gray-800 text-base leading-relaxed text-center">
@@ -201,21 +96,3 @@ const packages: Package[] = [
     </div>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll<HTMLButtonElement>('.pkg-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.pkg;
-
-      document.querySelectorAll('.pkg-btn').forEach(b => {
-        b.classList.remove('bg-gray-900', 'text-white', 'shadow-lg', 'scale-105');
-        b.classList.add('bg-gray-100', 'text-gray-600');
-      });
-      btn.classList.add('bg-gray-900', 'text-white', 'shadow-lg', 'scale-105');
-      btn.classList.remove('bg-gray-100', 'text-gray-600');
-
-      document.querySelectorAll('.pkg-panel').forEach(p => p.classList.add('hidden'));
-      document.getElementById(`pkg-${target}`)?.classList.remove('hidden');
-    });
-  });
-</script>
