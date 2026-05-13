@@ -58,9 +58,10 @@ const waConsult = waLink('Konsultasi Gratis');
       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
         <a
           href="#daftar"
-          class="inline-block bg-jaga-orange hover:bg-jaga-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_rgba(255,107,53,0.3)] hover:shadow-[0_15px_40px_rgba(255,107,53,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center"
+          class="group inline-flex items-center gap-2 bg-jaga-orange hover:bg-jaga-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_rgba(255,107,53,0.3)] hover:shadow-[0_15px_40px_rgba(255,107,53,0.4)] transition-all duration-300 transform hover:-translate-y-1"
         >
-          Daftar Sekarang →
+          Daftar Sekarang
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
         <a
           href={waConsult}
