@@ -141,7 +141,19 @@ function setupSummarySheet(ss) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-// UPDATE SUMMARY — dipanggil setiap doPost & bisa manual
+// ON EDIT TRIGGER — auto-update Summary saat edit manual di Pendaftaran
+// ═══════════════════════════════════════════════════════════════════════
+
+function onEdit(e) {
+  if (!e) return;
+  var sheetName = e.source.getActiveSheet().getName();
+  if (sheetName === SHEET_NAME) {
+    updateSummary();
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// UPDATE SUMMARY — dipanggil oleh doPost, onEdit, dan bisa manual
 // ═══════════════════════════════════════════════════════════════════════
 
 function updateSummary() {
