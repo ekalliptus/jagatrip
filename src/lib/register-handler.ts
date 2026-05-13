@@ -43,12 +43,13 @@ export function initRegisterForm(): void {
     ];
     for (const field of required) {
       if (!payload[field]) {
-        showStatus('error', `Mohon lengkapi semua field wajib (*). Field "${field.replace(/_/g, ' ')}" belum diisi.`);
+        showStatus('error', `Mohon lengkapi field "${field.replace(/_/g, ' ')}".`);
         return;
       }
     }
 
-    if (btn) { btn.disabled = true; btn.textContent = 'Mengirim data & file...'; }
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Mengupload data & dokumen...'; }
+    showStatus('info', 'Sedang mengirim data dan mengupload dokumen. Mohon tunggu...');
 
     try {
       // Proses file uploads → base64
@@ -68,7 +69,26 @@ export function initRegisterForm(): void {
         }
       }
 
-      // Build WA message
+      showStatus('info', 'Mengupload ke server... Jangan tutup halaman ini.');
+
+      // POST ke Apps Script — AWAIT sampai selesai (file besar butuh waktu)
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({
+          _sheet: 'Registrasi',
+          ...payload,
+          timestamp: new Date().toISOString(),
+          source: window.location.href,
+        }),
+      });
+
+      // Meta Pixel
+      if (window.fbq) window.fbq('track', 'CompleteRegistration');
+
+      showStatus('success', '✅ Data berhasil dikirim! Mengalihkan ke WhatsApp...');
+
+      // Build WA message & redirect
       const msg = [
         'Halo admin JAGATRIP 👋',
         '',
@@ -86,26 +106,9 @@ export function initRegisterForm(): void {
         'Mohon konfirmasi registrasi saya. Terima kasih! 🙏',
       ].join('\n');
 
-      const waUrl = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
-
-      // POST ke Apps Script
-      fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          _sheet: 'Registrasi',
-          ...payload,
-          timestamp: new Date().toISOString(),
-          source: window.location.href,
-        }),
-      }).catch(() => {});
-
-      // Meta Pixel
-      if (window.fbq) window.fbq('track', 'CompleteRegistration');
-
-      // Redirect ke WA
-      setTimeout(() => { window.location.href = waUrl; }, 300);
+      setTimeout(() => {
+        window.location.href = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
+      }, 1000);
 
     } catch {
       showStatus('error', 'Gagal mengirim. Coba lagi atau hubungi admin via WhatsApp.');
@@ -113,10 +116,15 @@ export function initRegisterForm(): void {
     }
   });
 
-  function showStatus(type: 'success' | 'error', msg: string): void {
+  function showStatus(type: 'success' | 'error' | 'info', msg: string): void {
     if (!statusEl) return;
     statusEl.textContent = msg;
-    statusEl.className = `text-sm text-center mt-3 font-medium ${type === 'success' ? 'text-green-600' : 'text-red-600'}`;
+    const colors = {
+      success: 'text-green-600',
+      error: 'text-red-600',
+      info: 'text-blue-600',
+    };
+    statusEl.className = `text-sm text-center mt-3 font-medium ${colors[type]}`;
     statusEl.classList.remove('hidden');
   }
 }
