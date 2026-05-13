@@ -281,6 +281,16 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
   :global(.reg-fade) {
     animation: reg-fade 0.4s ease-out both;
   }
+  @keyframes reg-shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+  :global(.reg-shake) {
+    animation: reg-shake 0.5s ease-out;
+  }
 </style>
 
 <script>

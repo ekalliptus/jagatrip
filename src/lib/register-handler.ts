@@ -48,17 +48,43 @@ export function initRegisterForm(): void {
       if (typeof val === 'string') payload[key] = val.trim();
     });
 
-    // Validasi required
-    const required = [
-      'nama_lengkap', 'nama_panggilan', 'alamat', 'wa', 'email',
-      'no_paspor', 'expired_paspor',
-      'kota_asal', 'bandara', 'punya_tiket',
-      'ukuran_kaos', 'teman_sekamar', 'alergi',
-      'status_bayar', 'instansi', 'jabatan', 'motivasi',
+    // Validasi required — scroll ke field kosong pertama
+    const required: [string, string][] = [
+      ['nama_lengkap', 'Nama Lengkap'],
+      ['nama_panggilan', 'Nama Panggilan'],
+      ['alamat', 'Alamat Domisili'],
+      ['wa', 'No. WhatsApp'],
+      ['email', 'Email'],
+      ['no_paspor', 'Nomor Paspor'],
+      ['expired_paspor', 'Masa Berlaku Paspor'],
+      ['kota_asal', 'Kota Asal'],
+      ['bandara', 'Bandara Keberangkatan'],
+      ['punya_tiket', 'Status Tiket'],
+      ['ukuran_kaos', 'Ukuran Kaos'],
+      ['teman_sekamar', 'Teman Sekamar'],
+      ['alergi', 'Riwayat Alergi/Penyakit'],
+      ['status_bayar', 'Status Pembayaran'],
+      ['instansi', 'Instansi/Sekolah'],
+      ['jabatan', 'Jabatan'],
+      ['motivasi', 'Motivasi Ikut Trip'],
     ];
-    for (const field of required) {
+    // File required
+    const requiredFiles: [string, string][] = [
+      ['file_paspor', 'Upload Paspor'],
+      ['file_ktp', 'Upload KTP'],
+      ['file_bukti_transfer', 'Upload Bukti Transfer'],
+    ];
+
+    for (const [field, label] of required) {
       if (!payload[field]) {
-        showStatus('error', `Mohon lengkapi field "${field.replace(/_/g, ' ')}".`);
+        highlightField(field, label);
+        return;
+      }
+    }
+    for (const [field, label] of requiredFiles) {
+      const input = form.querySelector<HTMLInputElement>(`input[name="${field}"]`);
+      if (!input?.files?.length) {
+        highlightField(field, label);
         return;
       }
     }
@@ -138,6 +164,34 @@ export function initRegisterForm(): void {
       showStatus('error', 'Gagal mengirim. Coba lagi atau hubungi admin via WhatsApp.');
     }
   });
+
+  function highlightField(fieldName: string, label: string): void {
+    // Cari element input/select/textarea
+    const el = form!.querySelector<HTMLElement>(`[name="${fieldName}"]`);
+    if (!el) return;
+
+    // Scroll ke field
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Highlight border merah + shake
+    el.classList.add('!border-red-500', 'reg-shake');
+    setTimeout(() => el.classList.remove('reg-shake'), 600);
+
+    // Focus
+    setTimeout(() => el.focus(), 400);
+
+    // Hapus highlight saat user mulai isi
+    const clearHighlight = () => {
+      el.classList.remove('!border-red-500');
+      el.removeEventListener('input', clearHighlight);
+      el.removeEventListener('change', clearHighlight);
+    };
+    el.addEventListener('input', clearHighlight);
+    el.addEventListener('change', clearHighlight);
+
+    // Warning message di bawah tombol
+    showStatus('error', `⚠️ "${label}" belum diisi. Silakan lengkapi field di atas.`);
+  }
 
   function sleep(ms: number): Promise<void> {
     return new Promise(r => setTimeout(r, ms));
