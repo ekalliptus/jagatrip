@@ -141,7 +141,19 @@ function setupSummarySheet(ss) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-// UPDATE SUMMARY — dipanggil setiap doPost & bisa manual
+// ON EDIT TRIGGER — auto-update Summary saat edit manual di Pendaftaran
+// ═══════════════════════════════════════════════════════════════════════
+
+function onEdit(e) {
+  if (!e) return;
+  var sheetName = e.source.getActiveSheet().getName();
+  if (sheetName === SHEET_NAME) {
+    updateSummary();
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// UPDATE SUMMARY — dipanggil oleh doPost, onEdit, dan bisa manual
 // ═══════════════════════════════════════════════════════════════════════
 
 function updateSummary() {
@@ -196,42 +208,107 @@ function updateSummary() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// FILE UPLOAD HELPER — simpan base64 ke Google Drive
+// ═══════════════════════════════════════════════════════════════════════
+
+function saveFile(base64, fileName, mimeType) {
+  if (!base64) return '';
+  try {
+    var folder = getDriveFolder();
+    var blob = Utilities.newBlob(Utilities.base64Decode(base64), mimeType, fileName);
+    var file = folder.createFile(blob);
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    return file.getUrl();
+  } catch (err) {
+    Logger.log('File upload error: ' + err);
+    return 'UPLOAD_ERROR';
+  }
+}
+
+function getDriveFolder() {
+  var folderName = 'JAGATRIP_Registrasi_Files';
+  var folders = DriveApp.getFoldersByName(folderName);
+  return folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// SETUP REGISTRASI SHEET — jalankan setupRegistrasiSheet() sekali
+// ═══════════════════════════════════════════════════════════════════════
+
+var REG_SHEET_NAME = 'Registrasi';
+var REG_HEADERS = [
+  'No', 'Timestamp', 'Nama Lengkap', 'Nama Panggilan', 'Alamat',
+  'WhatsApp', 'Email', 'No Paspor', 'Expired Paspor',
+  'File Paspor', 'File KTP',
+  'Kota Asal', 'Bandara', 'Punya Tiket',
+  'Ukuran Kaos', 'Teman Sekamar', 'Alergi/Penyakit',
+  'Bukti Transfer', 'Status Bayar',
+  'Instansi', 'Jabatan', 'Instagram', 'Motivasi',
+  'Status', 'Source'
+];
+
+function setupRegistrasiSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(REG_SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(REG_SHEET_NAME);
+
+  sheet.clear();
+  sheet.getRange(1, 1, 1, REG_HEADERS.length).setValues([REG_HEADERS]);
+  sheet.getRange(1, 1, 1, REG_HEADERS.length)
+    .setBackground('#0F172A')
+    .setFontColor('#FFFFFF')
+    .setFontWeight('bold')
+    .setFontSize(10)
+    .setHorizontalAlignment('center')
+    .setVerticalAlignment('middle')
+    .setWrap(true);
+  sheet.setRowHeight(1, 40);
+  sheet.setFrozenRows(1);
+
+  // Column widths
+  var widths = {1:40, 2:140, 3:180, 4:120, 5:200, 6:140, 7:180, 8:120, 9:120,
+                10:100, 11:100, 12:120, 13:140, 14:100, 15:80, 16:150, 17:180,
+                18:100, 19:100, 20:180, 21:120, 22:120, 23:250, 24:100, 25:200};
+  for (var c in widths) sheet.setColumnWidth(parseInt(c), widths[c]);
+
+  // Status dropdown
+  var statusRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(['Baru', 'Terverifikasi', 'Confirmed', 'Batal'], true)
+    .setAllowInvalid(false).build();
+  sheet.getRange(2, 24, 998, 1).setDataValidation(statusRule).setHorizontalAlignment('center');
+
+  // Zebra
+  var dataRange = sheet.getRange(2, 1, 998, REG_HEADERS.length);
+  dataRange.setFontSize(10).setVerticalAlignment('middle').setWrap(true);
+  var rule = SpreadsheetApp.newConditionalFormatRule()
+    .whenFormulaSatisfied('=ISEVEN(ROW())')
+    .setBackground('#F0F9FF')
+    .setRanges([dataRange]).build();
+  sheet.setConditionalFormatRules([rule]);
+
+  if (sheet.getFilter()) sheet.getFilter().remove();
+  sheet.getRange(1, 1, 1, REG_HEADERS.length).createFilter();
+
+  Logger.log('✅ Sheet Registrasi siap!');
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // API ENDPOINTS
 // ═══════════════════════════════════════════════════════════════════════
 
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(SHEET_NAME);
-    if (!sheet) sheet = ss.getActiveSheet();
-
     var data = JSON.parse(e.postData.contents);
-    var lastRow = sheet.getLastRow();
-    var no = lastRow <= 1 ? 1 : lastRow;
+    var targetSheet = data._sheet || SHEET_NAME;
 
-    sheet.appendRow([
-      no,
-      data.timestamp ? new Date(data.timestamp) : new Date(),
-      data.nama || '',
-      data.email || '',
-      data.wa || '',
-      data.jabatan || '',
-      data.sekolah || '',
-      data.kota_asal || '',
-      data.kota_berangkat || '',
-      data.program || '',
-      data.peserta || '',
-      data.catatan || '',
-      'Baru',
-      data.source || '',
-    ]);
+    // ── Route: Registrasi ──
+    if (targetSheet === 'Registrasi') {
+      return handleRegistrasi(ss, data);
+    }
 
-    // Update summary otomatis
-    updateSummary();
-
-    return ContentService
-      .createTextOutput(JSON.stringify({ status: 'ok', row: no }))
-      .setMimeType(ContentService.MimeType.JSON);
+    // ── Route: Pendaftaran (default) ──
+    return handlePendaftaran(ss, data);
 
   } catch (err) {
     return ContentService
@@ -240,12 +317,69 @@ function doPost(e) {
   }
 }
 
+function handlePendaftaran(ss, data) {
+  var sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) sheet = ss.getActiveSheet();
+
+  var lastRow = sheet.getLastRow();
+  var no = lastRow <= 1 ? 1 : lastRow;
+
+  sheet.appendRow([
+    no,
+    data.timestamp ? new Date(data.timestamp) : new Date(),
+    data.nama || '', data.email || '', data.wa || '',
+    data.jabatan || '', data.sekolah || '', data.kota_asal || '',
+    data.kota_berangkat || '', data.program || '', data.peserta || '',
+    data.catatan || '', 'Baru', data.source || '',
+  ]);
+
+  updateSummary();
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: 'ok', sheet: SHEET_NAME, row: no }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function handleRegistrasi(ss, data) {
+  var sheet = ss.getSheetByName(REG_SHEET_NAME);
+  if (!sheet) {
+    setupRegistrasiSheet();
+    sheet = ss.getSheetByName(REG_SHEET_NAME);
+  }
+
+  var lastRow = sheet.getLastRow();
+  var no = lastRow <= 1 ? 1 : lastRow;
+
+  // Upload files ke Drive
+  var linkPaspor = saveFile(data.file_paspor, 'paspor_' + (data.nama_lengkap || no) + '_' + (data.file_paspor_name || 'file'), data.file_paspor_type || 'image/jpeg');
+  var linkKtp = saveFile(data.file_ktp, 'ktp_' + (data.nama_lengkap || no) + '_' + (data.file_ktp_name || 'file'), data.file_ktp_type || 'image/jpeg');
+  var linkBukti = saveFile(data.file_bukti_transfer, 'bukti_' + (data.nama_lengkap || no) + '_' + (data.file_bukti_transfer_name || 'file'), data.file_bukti_transfer_type || 'image/jpeg');
+
+  sheet.appendRow([
+    no,
+    data.timestamp ? new Date(data.timestamp) : new Date(),
+    data.nama_lengkap || '', data.nama_panggilan || '', data.alamat || '',
+    data.wa || '', data.email || '',
+    data.no_paspor || '', data.expired_paspor || '',
+    linkPaspor, linkKtp,
+    data.kota_asal || '', data.bandara || '', data.punya_tiket || '',
+    data.ukuran_kaos || '', data.teman_sekamar || '', data.alergi || '',
+    linkBukti, data.status_bayar || '',
+    data.instansi || '', data.jabatan || '', data.instagram || '', data.motivasi || '',
+    'Baru', data.source || '',
+  ]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: 'ok', sheet: REG_SHEET_NAME, row: no }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 function doGet() {
   return ContentService
     .createTextOutput(JSON.stringify({
       status: 'ok',
       service: 'JAGATRIP Registration API',
-      sheet: SHEET_NAME,
+      sheets: [SHEET_NAME, REG_SHEET_NAME],
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
