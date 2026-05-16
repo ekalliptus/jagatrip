@@ -42,7 +42,6 @@ export function initNavActiveState(): void {
 
   // Map setiap section id ke href yang sesuai di nav
   const sectionToHref: Record<string, string> = {
-    'agenda':  '/#agenda',
     'why':     '/#why',
     'pricing': '/#pricing',
   };
