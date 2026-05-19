@@ -312,6 +312,11 @@ function doPost(e) {
       return handleGenericLead(ss, 'LP1_Nonformal', data);
     }
 
+    // ── Route: LP2_Promo ──
+    if (targetSheet === 'LP2_Promo') {
+      return handleGenericLead(ss, 'LP2_Promo', data);
+    }
+
     // ── Route: Pendaftaran (default) ──
     return handlePendaftaran(ss, data);
 
@@ -423,7 +428,7 @@ function doGet() {
     .createTextOutput(JSON.stringify({
       status: 'ok',
       service: 'JAGATRIP Registration API',
-      sheets: [SHEET_NAME, REG_SHEET_NAME, 'LP1_Nonformal'],
+      sheets: [SHEET_NAME, REG_SHEET_NAME, 'LP1_Nonformal', 'LP2_Promo'],
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
