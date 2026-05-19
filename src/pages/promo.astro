@@ -4,7 +4,6 @@ import Footer from '../components/layout/Footer.astro';
 import { SITE } from '../data/site';
 
 const waPromo = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP! 👋\n\nSaya tertarik dengan program Edutrip Malaysia-Thailand Juni 2026.\n(Dari halaman: LP Promo)\n\nMohon info lebih lanjut. Terima kasih!')}`;
-const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP! 👋\n\nSaya mau LOCK slot Edutrip Malaysia-Thailand Juni 2026 Rp6.500.000.\n(Dari halaman: LP Promo)\n\nMohon info pembayaran. Terima kasih!')}`;
 ---
 
 <BaseLayout
@@ -38,7 +37,7 @@ const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo J
             <span class="lp2-new">Rp 6.500.000</span>
           </div>
           <span class="lp2-save">HEMAT RP 500.000 · 10 SLOT PERTAMA</span>
-          <a href="/#pricing" class="lp2-btn-primary">📝 DAFTAR SEKARANG →</a>
+          <a href="#lp2-form" class="lp2-btn-primary">📝 DAFTAR SEKARANG →</a>
           <a href={waPromo} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa" style="margin-top:10px;">💬 Konsultasi via WhatsApp</a>
           <p class="lp2-btn-sub">Konsultasi langsung ke <strong>Admin: {SITE.waDisplay}</strong></p>
           <div class="lp2-trust">
@@ -109,20 +108,21 @@ const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo J
       </div>
     </section>
 
-    <!-- FINAL OFFER -->
-    <section class="lp2-section lp2-final">
+    <!-- FINAL OFFER + FORM -->
+    <section class="lp2-section lp2-final" id="lp2-form">
       <div class="lp2-inner" style="text-align:center;max-width:720px;">
         <h2>Ini Momen Anda Untuk Mulai.</h2>
-        <p class="lp2-lead" style="color:rgba(255,255,255,0.92);">10 slot hanya untuk pendaftar tercepat. Setelah penuh, harga balik ke Rp 7.000.000.</p>
+        <p class="lp2-lead" style="color:rgba(255,255,255,0.92);">Isi form → data Anda tersimpan → konfirmasi admin via WhatsApp dalam 1×24 jam.</p>
 
-        <div class="lp2-final-box">
-          <div class="lp2-final-price">
-            <del>Rp 7.000.000</del>
-            <span class="lp2-fnow">Rp 6.500.000</span>
-          </div>
-          <p class="lp2-final-save">↑ HEMAT RP 500.000 SEKARANG JUGA</p>
-          <a href="/#pricing" class="lp2-btn-primary" style="margin-top:16px;">📝 DAFTAR SEKARANG →</a>
-          <a href={waLock} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa" style="margin-top:10px;">💬 Konsultasi via WhatsApp</a>
+        <div class="lp2-form-card">
+          <form id="lp2-promo-form" novalidate>
+            <div class="lp2-fg"><label>Nama Lengkap *</label><input name="nama" type="text" required placeholder="Nama lengkap Anda"></div>
+            <div class="lp2-fg"><label>No. WhatsApp *</label><input name="wa" type="tel" required inputmode="numeric" placeholder="081234567890"></div>
+
+            <button type="submit">Kirim & Lanjut ke WhatsApp →</button>
+            <div id="lp2-promo-status" class="lp2-form-status hidden"></div>
+            <p class="lp2-form-note">🔒 Data Anda aman. Setelah submit, Anda akan diarahkan ke WhatsApp admin.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -207,6 +207,21 @@ const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo J
   .lp2-fnow { font-size:clamp(40px,6vw,52px); font-weight:900; color:var(--lp-primary); letter-spacing:-2px; line-height:1; }
   .lp2-final-save { color:var(--lp-red); font-weight:800; font-size:14px; margin-bottom:16px; text-align:center; }
 
+  .lp2-form-bg { background:var(--lp-navy); color:white; }
+  .lp2-form-eyebrow { color:var(--lp-yellow); font-weight:800; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .lp2-form-lead { font-size:17px; color:rgba(255,255,255,0.75); max-width:600px; margin:0 auto; }
+  .lp2-form-card { background:white; border-radius:20px; padding:28px; color:#1A1A1A; }
+  .lp2-fg { margin-bottom:12px; }
+  .lp2-fg label { display:block; font-size:12px; font-weight:700; color:#374151; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px; text-align:left; }
+  .lp2-fg input { width:100%; padding:12px 14px; border:2px solid #E5E7EB; border-radius:10px; font-size:15px; transition:border-color 0.2s; background:white; }
+  .lp2-fg input:focus { outline:none; border-color:var(--lp-primary); }
+  .lp2-form-card button { width:100%; padding:16px; background:var(--lp-primary); color:white; border:none; border-radius:999px; font-weight:900; font-size:16px; cursor:pointer; margin-top:8px; transition:all 0.2s; }
+  .lp2-form-card button:hover { background:#c44e10; }
+  .lp2-form-card button:disabled { opacity:0.6; cursor:wait; }
+  .lp2-form-status { margin-top:10px; font-size:14px; text-align:center; font-weight:600; }
+  .lp2-form-note { text-align:center; margin-top:12px; font-size:12px; color:var(--lp-gray); }
+  .hidden { display:none; }
+
   @media (max-width:768px) {
     .lp2-pain-grid { grid-template-columns:1fr; }
     .lp2-cr { grid-template-columns:1.2fr 0.9fr 0.9fr; }
@@ -215,3 +230,41 @@ const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo J
     .lp2-hero { padding:100px 16px 48px; }
   }
 </style>
+
+<script>
+  import { SITE } from '../data/site';
+
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
+
+  const form = document.getElementById('lp2-promo-form') as HTMLFormElement | null;
+  if (form) {
+    const btn = form.querySelector('button')!;
+    const status = document.getElementById('lp2-promo-status')!;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const payload: Record<string, string> = {};
+      data.forEach((v, k) => { payload[k] = v.toString().trim(); });
+
+      if (!payload.nama || !payload.wa) {
+        status.textContent = '⚠️ Lengkapi semua field wajib (*)';
+        status.style.color = '#DC2626';
+        status.classList.remove('hidden');
+        return;
+      }
+
+      btn.disabled = true; btn.textContent = '⏳ Mengirim...';
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors',
+        body: JSON.stringify({ _sheet: 'LP2_Promo', ...payload, timestamp: new Date().toISOString(), source: window.location.href }),
+      }).catch(() => {});
+
+      const msg = `Halo JAGATRIP! 👋\n\nSaya ${payload.nama}, tertarik daftar Edutrip Malaysia-Thailand Juni 2026.\n(Dari halaman: LP Promo)\n\nMohon konfirmasi pendaftaran saya. Terima kasih!`;
+      setTimeout(() => {
+        window.location.href = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
+      }, 300);
+    });
+  }
+</script>
