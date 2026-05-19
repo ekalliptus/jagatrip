@@ -1,12 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingWA from '../components/layout/FloatingWA.astro';
 import { SITE } from '../data/site';
 
-const waEB = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP, saya mau DAFTAR Edutrip Malaysia-Thailand 24-28 Juni 2026 - Rp6.500.000')}`;
-const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP, saya LOCK slot Edutrip Malaysia-Thailand Juni 2026 Rp6.500.000. Mohon info pembayaran.')}`;
-const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo admin JAGATRIP! 👋\n\nNama saya [Isi Nama Anda], saya tertarik dengan program Edutrip Malaysia-Thailand Juni 2026.\n\nMohon info lebih lanjut. Terima kasih!')}`;
+const waPromo = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP! 👋\n\nSaya tertarik dengan program Edutrip Malaysia-Thailand Juni 2026.\n(Dari halaman: LP Promo)\n\nMohon info lebih lanjut. Terima kasih!')}`;
+const waLock = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP! 👋\n\nSaya mau LOCK slot Edutrip Malaysia-Thailand Juni 2026 Rp6.500.000.\n(Dari halaman: LP Promo)\n\nMohon info pembayaran. Terima kasih!')}`;
 ---
 
 <BaseLayout
@@ -19,6 +17,7 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
     <section class="lp2-hero">
       <div class="lp2-hero-inner">
         <div class="lp2-pill"><span class="lp2-pulse"></span> EDUTRIP MALAYSIA – THAILAND · 24–28 JUNI 2026</div>
+        <p class="lp2-bench">Ekspedisi Benchmarking Internasional</p>
 
         <h1>Pulang Bawa <mark>Sertifikat Internasional</mark>, Network Baru, & Perspektif Yang Beda — Cuma <span class="lp2-hl">Rp 6,5 Juta</span>.</h1>
 
@@ -39,12 +38,12 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
             <span class="lp2-new">Rp 6.500.000</span>
           </div>
           <span class="lp2-save">HEMAT RP 500.000 · 10 SLOT PERTAMA</span>
-          <a href={waEB} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa">💬 DAFTAR SEKARANG VIA WHATSAPP →</a>
-          <p class="lp2-btn-sub">Klik → langsung ke <strong>Admin: {SITE.waDisplay}</strong></p>
+          <a href="/#pricing" class="lp2-btn-primary">📝 DAFTAR SEKARANG →</a>
+          <a href={waPromo} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa" style="margin-top:10px;">💬 Konsultasi via WhatsApp</a>
+          <p class="lp2-btn-sub">Konsultasi langsung ke <strong>Admin: {SITE.waDisplay}</strong></p>
           <div class="lp2-trust">
             <span>✓ Sertifikat resmi</span>
             <span>✓ Halal-friendly</span>
-            <span>✓ All-in</span>
           </div>
         </div>
       </div>
@@ -68,8 +67,8 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
         <h2>Daftar 1x, dapat 8 value langsung.</h2>
         <p class="lp2-lead">Setiap item sudah disusun dari pengalaman puluhan kali ekspedisi pendidikan.</p>
         <div class="lp2-stack">
-          <div class="lp2-si"><span class="lp2-sn">1</span><div><strong>Hotel 4 Malam di 3 Kota</strong><br><small>KL, Hatyai, Perlis. Semua muslim-friendly.</small></div></div>
-          <div class="lp2-si"><span class="lp2-sn">2</span><div><strong>11x Makan Halal + Welcome Drink</strong><br><small>Tidak perlu pikirin makanan.</small></div></div>
+          <div class="lp2-si"><span class="lp2-sn">1</span><div><strong>Hotel 5 Hari 4 Malam di 4 Kota</strong><br><small>KL, Hatyai, KL Perlis, Penang.</small></div></div>
+          <div class="lp2-si"><span class="lp2-sn">2</span><div><strong>12x Makan Halal + Welcome Drink</strong></div></div>
           <div class="lp2-si"><span class="lp2-sn">3</span><div><strong>Akses 5 Sekolah + 1 Universitas</strong><br><small>Dialog langsung sama manajemen sekolah.</small></div></div>
           <div class="lp2-si"><span class="lp2-sn">4</span><div><strong>Seminar Internasional + Workshop</strong><br><small>Sharing session dengan praktisi pendidikan.</small></div></div>
           <div class="lp2-si"><span class="lp2-sn">5</span><div><strong>Transport Lengkap + Tour Guide</strong><br><small>Van/bus pariwisata + tour guide profesional.</small></div></div>
@@ -103,7 +102,7 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
         <div class="lp2-faq-list">
           <details class="lp2-faq"><summary>Apakah harga sudah termasuk tiket pesawat?</summary><p>Belum. Harga Rp 6.500.000 untuk paket darat. Tiket pesawat PP bisa Anda book sendiri atau kami bantu rekomendasikan.</p></details>
           <details class="lp2-faq"><summary>Bagaimana sistem pembayaran?</summary><p>Transfer ke rekening resmi PT Jagatrip Mitra Edukasi. Admin kirim nomor rekening setelah konsultasi.</p></details>
-          <details class="lp2-faq"><summary>Bisa booking DP dulu?</summary><p>Bisa. DP minimal diinformasikan admin saat konsultasi. Pelunasan H-30.</p></details>
+          <details class="lp2-faq"><summary>Bisa booking DP dulu?</summary><p>Bisa. DP minimal diinformasikan admin saat konsultasi.</p></details>
           <details class="lp2-faq"><summary>Saya tidak punya kenalan, takut tidak nyambung?</summary><p>Justru ini momen networking. Mayoritas peserta praktisi pendidikan dari seluruh Indonesia.</p></details>
           <details class="lp2-faq"><summary>Apa langkah setelah daftar via WhatsApp?</summary><p>1) Admin balas max 1 jam. 2) Konsultasi. 3) Transfer. 4) Bukti transfer. 5) Grup WA peserta. 6) Technical Meeting Zoom. 7) Berangkat.</p></details>
         </div>
@@ -122,8 +121,8 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
             <span class="lp2-fnow">Rp 6.500.000</span>
           </div>
           <p class="lp2-final-save">↑ HEMAT RP 500.000 SEKARANG JUGA</p>
-          <a href={waLock} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa" style="margin-top:16px;">💬 LOCK SLOT SAYA SEKARANG →</a>
-          <p style="margin-top:12px;font-size:13px;color:#6B7280;">Tinggal klik tombol di atas. Tidak perlu isi form panjang.</p>
+          <a href="/#pricing" class="lp2-btn-primary" style="margin-top:16px;">📝 DAFTAR SEKARANG →</a>
+          <a href={waLock} target="_blank" rel="noopener noreferrer" class="lp2-btn-wa" style="margin-top:10px;">💬 Konsultasi via WhatsApp</a>
         </div>
       </div>
     </section>
@@ -131,7 +130,6 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
   </main>
 
   <Footer />
-  <FloatingWA />
 </BaseLayout>
 
 <style>
@@ -156,6 +154,9 @@ const waAsk = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo ad
   .lp2-old { font-size:22px; color:var(--lp-gray); text-decoration:line-through; font-weight:700; }
   .lp2-new { font-size:clamp(36px,6vw,52px); font-weight:900; color:var(--lp-primary); letter-spacing:-2px; line-height:1; }
   .lp2-save { display:block; width:fit-content; margin:0 auto 18px; background:#FEE2E2; color:var(--lp-red); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:800; }
+  .lp2-bench { font-size:clamp(14px,2vw,17px); font-weight:700; color:var(--lp-primary); letter-spacing:1px; margin-bottom:12px; }
+  .lp2-btn-primary { display:block; background:var(--lp-primary); color:white; padding:18px 24px; border-radius:14px; text-decoration:none; font-weight:900; font-size:clamp(15px,2.5vw,18px); box-shadow:0 12px 32px rgba(232,97,31,0.35); transition:all 0.2s; text-align:center; }
+  .lp2-btn-primary:hover { transform:translateY(-2px); }
   .lp2-btn-wa { display:block; background:linear-gradient(135deg,#25D366,#128C7E); color:white; padding:18px 24px; border-radius:14px; text-decoration:none; font-weight:900; font-size:clamp(15px,2.5vw,18px); box-shadow:0 12px 32px rgba(37,211,102,0.45); transition:all 0.2s; text-align:center; }
   .lp2-btn-wa:hover { transform:translateY(-2px); }
   .lp2-btn-sub { text-align:center; margin-top:10px; font-size:13px; color:var(--lp-gray); }
