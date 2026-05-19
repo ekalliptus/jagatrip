@@ -1,10 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingWA from '../components/layout/FloatingWA.astro';
 import { SITE } from '../data/site';
-
-const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGATRIP, saya mau daftar Edutrip Malaysia-Thailand Juni 2026')}`;
 ---
 
 <BaseLayout
@@ -16,41 +13,11 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
     <!-- HERO -->
     <section class="lp-hero">
       <div class="lp-hero-inner">
-        <div>
-          <span class="lp-tag">🔥 SLOT TERBATAS</span>
-          <h1>Jalan-jalan? <br><span class="lp-glow">Lewat aja.</span><br>Ini ekspedisi yang bikin lo upgrade.</h1>
-          <p class="lp-sub">Ngetrip 5 hari ke Malaysia & Thailand bareng founder yang udah keliling 30+ negara. Mampir ke 5 sekolah internasional, dapet networking real, plus city tour yang bukan cuma foto-foto doang.</p>
-          <div class="lp-ctas">
-            <a href="#lp-form" class="lp-btn-primary">📝 Daftar Sekarang</a>
-            <a href="#lp-itin" class="lp-btn-secondary">Liat Detailnya Dulu</a>
-          </div>
+        <img src="/hero-nonformal.webp" alt="JAGATRIP Edutrip Malaysia-Thailand 5D4N — Ekspedisi Benchmarking Internasional, 24-28 Juni 2026" class="lp-hero-img" width="1080" height="1080" />
+        <div class="lp-ctas">
+          <a href="/#pricing" class="lp-btn-primary">📝 Daftar Sekarang</a>
+          <a href="#lp-itin" class="lp-btn-secondary">Liat Detailnya Dulu</a>
         </div>
-
-        <div class="lp-card-wrap">
-          <div class="lp-card">
-            <div class="lp-card-bg">
-              <div class="lp-card-bg-content">
-                <span class="lp-badge">24–28 JUNI 2026</span>
-                <h3>Edutrip<br>Malaysia ↔ Thailand</h3>
-              </div>
-            </div>
-            <div class="lp-card-meta">
-              <div><span class="num">5</span><span class="lbl">Hari 4 Malam</span></div>
-              <div><span class="num">5</span><span class="lbl">Sekolah Visit</span></div>
-              <div><span class="num">2</span><span class="lbl">Negara</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="lp-stats">
-      <div class="lp-stats-inner">
-        <div><span class="sn">30+</span><span class="sl">Negara dikunjungi tim JAGATRIP</span></div>
-        <div><span class="sn">5</span><span class="sl">Sekolah & Universitas Visit</span></div>
-        <div><span class="sn">100%</span><span class="sl">Halal-friendly & Muslim Tour</span></div>
-        <div><span class="sn">2</span><span class="sl">Negara dalam 1 perjalanan</span></div>
       </div>
     </section>
 
@@ -58,15 +25,15 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
     <section class="lp-section">
       <div class="lp-inner">
         <span class="lp-eyebrow">KENAPA HARUS IKUT</span>
-        <h2>Bukan trip biasa. Ini investasi lo buat naik kelas.</h2>
-        <p class="lp-lead">Lupain konsep tour yang cuma drop-off ke spot foto. Di sini lo dapet pengalaman yang nempel.</p>
+        <h2>Bukan trip biasa. Ini investasi Anda buat naik kelas.</h2>
+        <p class="lp-lead">Lupain konsep tour yang cuma drop-off ke spot foto. Di sini Anda dapet pengalaman yang nempel.</p>
         <div class="lp-why-grid">
-          <div class="lp-why-card"><div class="lp-wi">🏫</div><h3>Masuk Langsung ke Sekolah</h3><p>5 study visit ke sekolah & universitas di Selangor, Narathiwat, dan KL Perlis.</p></div>
+          <div class="lp-why-card"><div class="lp-wi">🏫</div><h3>Masuk Langsung ke Sekolah</h3><p>6 study visit ke sekolah & universitas di Selangor, Narathiwat, dan KL Perlis.</p></div>
           <div class="lp-why-card"><div class="lp-wi">🎤</div><h3>Workshop Eksklusif</h3><p>Sesi belajar langsung dari praktisi pendidikan internasional.</p></div>
           <div class="lp-why-card"><div class="lp-wi">🤝</div><h3>Networking Beneran</h3><p>Ketemu sesama kepala sekolah, guru, dan praktisi pendidikan dari Indonesia & mancanegara.</p></div>
-          <div class="lp-why-card"><div class="lp-wi">🏙️</div><h3>City Tour Bermakna</h3><p>Petronas, Central Market KL, Hatyai night bazaar — semua disusun biar lo belajar konteksnya.</p></div>
+          <div class="lp-why-card"><div class="lp-wi">🏙️</div><h3>City Tour Bermakna</h3><p>KL - Putrajaya - Hatyai - Kuala Perlis - Penang — semua disusun biar Anda belajar konteksnya.</p></div>
           <div class="lp-why-card"><div class="lp-wi">📜</div><h3>Sertifikat Resmi</h3><p>Sertifikat JAGATRIP buat portofolio pengembangan kapasitas.</p></div>
-          <div class="lp-why-card"><div class="lp-wi">✈️</div><h3>All-Halal Vibes</h3><p>Hotel, makanan, sampe waktu sholat — semua udah dipikirin. Tinggal duduk manis.</p></div>
+          <div class="lp-why-card"><div class="lp-wi">🕌</div><h3>All-Halal Vibes</h3><p>Hotel, makanan, sampai waktu sholat — semua udah dipikirin. Tinggal duduk manis.</p></div>
         </div>
       </div>
     </section>
@@ -74,14 +41,14 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
     <!-- ITINERARY -->
     <section class="lp-section lp-itin-bg" id="lp-itin">
       <div class="lp-inner">
-        <span class="lp-eyebrow">5 HARI YANG BAKAL BIKIN LO MIKIR</span>
+        <span class="lp-eyebrow">5 HARI YANG BAKAL BIKIN ANDA MIKIR, TAPI JADI LANGKAH AWAL BUAT LEVEL UP!</span>
         <h2>Itinerary singkatnya.</h2>
         <div class="lp-itin-wrap">
           <div class="lp-itin-card"><div class="lp-iday">DAY 1</div><div class="lp-idate">24 Juni</div><h4>Mendarat di KL + Seminar Internasional</h4><ul><li>Penjemputan di KLIA</li><li>Check-in Hotel</li><li>Seminar internasional</li></ul></div>
           <div class="lp-itin-card"><div class="lp-iday">DAY 2</div><div class="lp-idate">25 Juni</div><h4>3 Sekolah Selangor</h4><ul><li>KV Shah Alam</li><li>KV Sungai Buloh</li><li>KV Kuala Selangor</li><li>Central Market / Putrajaya</li></ul></div>
           <div class="lp-itin-card"><div class="lp-iday">DAY 3</div><div class="lp-idate">26 Juni</div><h4>Petronas + Crossing ke Thailand</h4><ul><li>Petronas Twin Towers</li><li>Border crossing</li><li>Hatyai</li></ul></div>
-          <div class="lp-itin-card"><div class="lp-iday">DAY 4</div><div class="lp-idate">27 Juni</div><h4>2 Sekolah Thailand + City Tour</h4><ul><li>Sangkhom Wittaya School</li><li>Darul Hikmah Narathiwat</li><li>ASEAN Night Bazaar</li></ul></div>
-          <div class="lp-itin-card"><div class="lp-iday">DAY 5</div><div class="lp-idate">28 Juni</div><h4>Universitas + Pulang</h4><ul><li>Crossing balik ke Malaysia</li><li>Universitas di KL Perlis</li><li>City Tour & Sayonara</li></ul></div>
+          <div class="lp-itin-card"><div class="lp-iday">DAY 4</div><div class="lp-idate">27 Juni</div><h4>2 Sekolah Thailand + City Tour</h4><ul><li>Sangkhom Wittaya School</li><li>Darul Hikmah Narathiwat</li><li>ATY Tour Hatyai</li></ul></div>
+          <div class="lp-itin-card"><div class="lp-iday">DAY 5</div><div class="lp-idate">28 Juni</div><h4>Universitas + Pulang</h4><ul><li>Crossing balik ke Malaysia</li><li>Universitas Antarabangsa Syed Sirajudin KL Perlis</li><li>City Tour Penang & Sayonara</li></ul></div>
         </div>
       </div>
     </section>
@@ -90,7 +57,7 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
     <section class="lp-section" id="lp-pricing">
       <div class="lp-inner" style="text-align:center;">
         <span class="lp-eyebrow">INVESTASI PERJALANAN</span>
-        <h2>Sekali bayar, lima hari yang ngubah cara lo lihat dunia pendidikan.</h2>
+        <h2>Sekali bayar, lima hari yang ngubah cara Anda lihat dunia pendidikan.</h2>
 
         <div class="lp-price-card">
           <div class="lp-price-head">
@@ -108,14 +75,14 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
               <li>Hotel 4 malam (Kuala Lumpur, Hatyai, Perlis)</li>
               <li>11x makan halal + welcome drink</li>
               <li>Transport van/bus pariwisata + tour guide profesional</li>
-              <li>Akses 5 sekolah & 1 universitas + seminar internasional</li>
+              <li>Akses 6 sekolah & universitas + seminar internasional</li>
               <li>Workshop eksklusif praktisi pendidikan</li>
               <li>Merchandise: kaos, ID card, notebook, totebag</li>
               <li>Sertifikat resmi JAGATRIP</li>
               <li>Door prize & lomba journaling/vlog/essay</li>
             </ul>
 
-            <a href="#lp-form" class="lp-btn-primary" style="display:block;text-align:center;width:100%;">📝 Daftar Sekarang</a>
+            <a href="/#pricing" class="lp-btn-primary" style="display:block;text-align:center;width:100%;">📝 Daftar Sekarang</a>
             <p class="lp-price-note">Slot terbatas. Begitu 10 slot habis, harga normal Rp 7.000.000.</p>
           </div>
         </div>
@@ -127,34 +94,18 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
       <div class="lp-inner" style="max-width:640px;">
         <div style="text-align:center;margin-bottom:32px;">
           <span class="lp-eyebrow">📝 DAFTAR SEKARANG</span>
-          <h2>Amankan kursi lo sebelum kehabisan.</h2>
-          <p class="lp-lead">Isi form → data lo tersimpan → admin hubungi via WhatsApp dalam 1×24 jam.</p>
+          <h2>Amankan kursi Anda sebelum kehabisan.</h2>
+          <p class="lp-lead">Isi form → data Anda tersimpan → konfirmasi admin via WhatsApp dalam 1×24 jam.</p>
         </div>
 
         <div class="lp-form-card">
           <form id="lp-nf-form" novalidate>
-            <div class="lp-fg"><label>Nama Lengkap *</label><input name="nama" type="text" required placeholder="Nama lo siapa?"></div>
+            <div class="lp-fg"><label>Nama Lengkap *</label><input name="nama" type="text" required placeholder="Nama lengkap Anda"></div>
             <div class="lp-fg"><label>No. WhatsApp *</label><input name="wa" type="tel" required inputmode="numeric" placeholder="081234567890"></div>
-            <div class="lp-fg"><label>Email *</label><input name="email" type="email" required placeholder="email@lo.com"></div>
-            <div class="lp-fg"><label>Jabatan / Status *</label>
-              <select name="jabatan" required>
-                <option value="">— Pilih —</option>
-                <option>Pelajar SMP/SMA</option>
-                <option>Mahasiswa</option>
-                <option>Guru / Pendidik</option>
-                <option>Kepala Sekolah</option>
-                <option>Owner Yayasan</option>
-                <option>Orang Tua</option>
-                <option>Lainnya</option>
-              </select>
-            </div>
-            <div class="lp-fg"><label>Sekolah / Instansi *</label><input name="sekolah" type="text" required placeholder="cth: SMA Negeri 1 Semarang"></div>
-            <div class="lp-fg"><label>Kota Asal *</label><input name="kota_asal" type="text" required placeholder="cth: Jakarta"></div>
-            <div class="lp-fg"><label>Pesan (opsional)</label><textarea name="catatan" rows="2" placeholder="Ada yang mau ditanyain dulu?"></textarea></div>
 
             <button type="submit">Kirim & Lanjut ke WhatsApp →</button>
             <div id="lp-nf-status" class="lp-form-status hidden"></div>
-            <p class="lp-form-note">🔒 Data lo aman. Setelah submit, lo akan diarahkan ke WhatsApp admin.</p>
+            <p class="lp-form-note">🔒 Data Anda aman. Setelah submit, Anda akan diarahkan ke WhatsApp admin.</p>
           </form>
         </div>
       </div>
@@ -166,8 +117,8 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
         <span class="lp-eyebrow" style="text-align:center;display:block;">FAQ</span>
         <h2 style="text-align:center;">Pertanyaan yang sering masuk DM.</h2>
         <div class="lp-faq-list">
-          <details class="lp-faq"><summary>Tiket pesawat udah include nggak?</summary><p>Belum. Harga Rp 6.500.000 itu untuk paket darat — hotel, makan, transport, sekolah, dll. Tiket pesawat PP dari kota asal lo bisa book sendiri atau kita bantuin rekomendasi.</p></details>
-          <details class="lp-faq"><summary>Kalau gue nggak punya temen ikutan gimana?</summary><p>Justru ini momen lo buat ketemu lingkaran baru. 100% peserta bilang networkingnya jauh lebih kuat dari yang mereka kira.</p></details>
+          <details class="lp-faq"><summary>Tiket pesawat udah include nggak?</summary><p>Belum. Harga Rp 6.500.000 itu untuk paket darat — hotel, makan, transport, sekolah, dll. Tiket pesawat PP dari kota asal Anda bisa book sendiri atau kita bantuin rekomendasi.</p></details>
+          <details class="lp-faq"><summary>Kalau saya nggak punya temen ikutan gimana?</summary><p>Justru ini momen Anda buat ketemu lingkaran baru. 100% peserta bilang networkingnya jauh lebih kuat dari yang mereka kira.</p></details>
           <details class="lp-faq"><summary>Aman buat muslim?</summary><p>Aman banget. Semua makanan halal, hotel muslim-friendly, jadwal disesuaikan sama waktu sholat.</p></details>
           <details class="lp-faq"><summary>Bisa request city tour tambahan?</summary><p>Itinerary udah cukup padat di 5 hari, tapi kalau ada permintaan khusus dari group besar (15+ orang), bisa kita diskusiin.</p></details>
         </div>
@@ -178,46 +129,28 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
     <section class="lp-section lp-final-cta">
       <div class="lp-inner" style="text-align:center;">
         <h2>Jangan tunggu "nanti" yang nggak pernah datang.</h2>
-        <p class="lp-lead" style="color:rgba(255,255,255,0.9);margin:0 auto 32px;">Satu langkah daftar. Satu perjalanan yang ngubah hidup lo.</p>
-        <a href="#lp-form" class="lp-btn-final">📝 Gas, Daftar Sekarang</a>
+        <p class="lp-lead" style="color:rgba(255,255,255,0.9);margin:0 auto 32px;">Satu langkah daftar. Satu perjalanan yang ngubah hidup Anda.</p>
+        <a href="/#pricing" class="lp-btn-final">📝 Daftar Sekarang</a>
       </div>
     </section>
 
   </main>
 
   <Footer />
-  <FloatingWA />
 </BaseLayout>
 
 <style>
   .lp-nf { --lp-primary: #E8611F; --lp-navy: #0A1F44; --lp-cream: #FFF8F0; --lp-yellow: #FFD23F; --lp-gray: #6B7280; }
 
-  .lp-hero { padding:48px 24px 80px; background:linear-gradient(135deg,var(--lp-cream),#FFE8D6); }
-  .lp-hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; }
-  .lp-tag { display:inline-block; background:var(--lp-navy); color:var(--lp-yellow); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:700; margin-bottom:20px; }
-  .lp-hero h1 { font-size:clamp(32px,5vw,52px); font-weight:900; line-height:1.08; color:var(--lp-navy); letter-spacing:-1.5px; margin-bottom:20px; }
-  .lp-glow { background:linear-gradient(135deg,var(--lp-primary),#c44e10); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .lp-sub { font-size:17px; color:var(--lp-gray); margin-bottom:28px; max-width:520px; }
-  .lp-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+  .lp-hero { padding:48px 24px 40px; background:linear-gradient(135deg,var(--lp-cream),#FFE8D6); }
+  .lp-hero-inner { max-width:600px; margin:0 auto; text-align:center; }
+  .lp-hero-img { width:100%; height:auto; border-radius:20px; box-shadow:0 20px 60px rgba(10,31,68,0.15); margin-bottom:28px; }
+  .lp-ctas { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
   .lp-btn-primary { background:var(--lp-primary); color:white; padding:16px 32px; border-radius:999px; text-decoration:none; font-weight:800; font-size:16px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(232,97,31,0.35); transition:all 0.25s; }
   .lp-btn-primary:hover { transform:translateY(-2px); }
   .lp-btn-secondary { background:transparent; color:var(--lp-navy); padding:16px 28px; border-radius:999px; text-decoration:none; font-weight:700; font-size:16px; border:2px solid var(--lp-navy); transition:all 0.2s; }
   .lp-btn-secondary:hover { background:var(--lp-navy); color:white; }
 
-  .lp-card-wrap { position:relative; }
-  .lp-card { background:white; border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(10,31,68,0.15); }
-  .lp-card-bg { height:220px; background:linear-gradient(135deg,var(--lp-primary),var(--lp-navy)); border-radius:16px; position:relative; overflow:hidden; margin-bottom:20px; }
-  .lp-card-bg-content { position:absolute; bottom:24px; left:24px; color:white; }
-  .lp-badge { display:inline-block; background:var(--lp-yellow); color:var(--lp-navy); padding:4px 12px; border-radius:999px; font-size:11px; font-weight:800; margin-bottom:8px; }
-  .lp-card-bg-content h3 { font-size:24px; font-weight:900; line-height:1.1; }
-  .lp-card-meta { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; text-align:center; }
-  .lp-card-meta .num { font-size:22px; font-weight:900; color:var(--lp-primary); display:block; }
-  .lp-card-meta .lbl { font-size:11px; color:var(--lp-gray); font-weight:600; }
-
-  .lp-stats { background:var(--lp-navy); padding:32px 24px; color:white; }
-  .lp-stats-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center; }
-  .sn { font-size:36px; font-weight:900; color:var(--lp-yellow); display:block; line-height:1; }
-  .sl { font-size:13px; opacity:0.85; margin-top:4px; }
 
   .lp-section { padding:80px 24px; }
   .lp-inner { max-width:1100px; margin:0 auto; }
@@ -284,12 +217,10 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
   .lp-btn-final:hover { transform:translateY(-3px); }
 
   @media (max-width:900px) {
-    .lp-hero-inner { grid-template-columns:1fr; gap:40px; }
-    .lp-stats-inner { grid-template-columns:repeat(2,1fr); }
     .lp-why-grid { grid-template-columns:1fr; }
     .lp-itin-wrap { grid-template-columns:1fr; }
     .lp-section { padding:56px 20px; }
-    .lp-hero { padding:100px 20px 60px; }
+    .lp-hero { padding:100px 20px 40px; }
   }
 </style>
 
@@ -309,7 +240,7 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
       const payload: Record<string, string> = {};
       data.forEach((v, k) => { payload[k] = v.toString().trim(); });
 
-      if (!payload.nama || !payload.wa || !payload.email || !payload.jabatan || !payload.sekolah || !payload.kota_asal) {
+      if (!payload.nama || !payload.wa) {
         status.textContent = '⚠️ Lengkapi semua field wajib (*)';
         status.style.color = '#DC2626';
         status.classList.remove('hidden');
@@ -323,7 +254,7 @@ const wa = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent('Halo JAGAT
         body: JSON.stringify({ _sheet: 'LP1_Nonformal', ...payload, timestamp: new Date().toISOString(), source: window.location.href }),
       }).catch(() => {});
 
-      const msg = `Halo JAGATRIP! 👋\n\nSaya ${payload.nama} dari ${payload.sekolah} (${payload.kota_asal}).\nSaya tertarik daftar Edutrip Malaysia-Thailand Juni 2026.\n\nMohon info lebih lanjut. Terima kasih!`;
+      const msg = `Halo JAGATRIP! 👋\n\nSaya ${payload.nama}.\nSaya tertarik daftar Edutrip Malaysia-Thailand Juni 2026.\n(Dari halaman: LP Nonformal)\n\nMohon info lebih lanjut. Terima kasih!`;
       setTimeout(() => {
         window.location.href = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
       }, 300);
