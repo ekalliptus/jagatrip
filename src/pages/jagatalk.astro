@@ -48,7 +48,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="jt-sub">Saatnya dengar cerita jujur, angka riil, dan pengalaman nyata langsung dari mahasiswa Indonesia yang sedang berjuang di sana. Tanpa sensor, tanpa clickbait.</p>
           <div class="jt-hero-ctas">
             <a class="jt-btn-primary" href="https://forms.gle/placeholder" target="_blank">🎯 Amankan Kursi Gratis Saya Sekarang!</a>
-            <a class="jt-btn-secondary" href="#about">Lihat Semua Topik</a>
           </div>
           <p style="margin-top:20px; font-size:13px; color:var(--jt-gray);"><strong style="color:var(--jt-charcoal);">100% Gratis</strong> · Online via Zoom · Sertifikat untuk peserta hadir</p>
         </div>
@@ -348,8 +347,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .accent-orange { color:var(--jt-orange); }
   .jt-sub { font-size:18px; color:var(--jt-gray); margin-bottom:32px; max-width:520px; }
   .jt-hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
-  .jt-btn-primary { background:var(--jt-primary); color:white; padding:16px 32px; border-radius:999px; text-decoration:none; font-weight:800; font-size:16px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(14,124,134,0.35); transition:all 0.25s; }
-  .jt-btn-primary:hover { transform:translateY(-2px); }
+  .jt-btn-primary { background:var(--jt-primary); color:white; padding:16px 28px; border-radius:16px; text-decoration:none; font-weight:800; font-size:clamp(14px,2vw,16px); display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 8px 24px rgba(14,124,134,0.35); transition:all 0.25s; text-align:center; line-height:1.3; }
+  .jt-btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(14,124,134,0.45); }
   .jt-btn-secondary { background:white; color:var(--jt-charcoal); padding:16px 28px; border-radius:999px; text-decoration:none; font-weight:700; font-size:16px; border:2px solid var(--jt-charcoal); transition:all 0.2s; }
   .jt-btn-secondary:hover { background:var(--jt-charcoal); color:white; }
 
