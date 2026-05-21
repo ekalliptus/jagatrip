@@ -44,7 +44,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="jt-hero-inner">
         <div>
           <div class="jt-hero-tag"><span class="jt-dot"></span> WEBINAR GRATIS · SETIAP MINGGU</div>
-          <h1>Mau Kuliah di Luar Negeri Tapi <span class="accent-teal">Bingung Mulai dari Mana?</span> <span class="accent-orange">Dapatkan Cerita Jujur & Strategi Riil Langsung dari Mereka yang Sudah di Sana.</span></h1>
+          <h1>Mau Kuliah di Luar Negeri Tapi <span class="accent-teal">Bingung Mulai dari Mana?</span></h1>
+          <p class="jt-hero-sub2"><span class="accent-orange">Dapatkan Cerita Jujur & Strategi Riil Langsung dari Mereka yang Sudah di Sana.</span></p>
           <p class="jt-sub">Saatnya dengar cerita jujur, angka riil, dan pengalaman nyata langsung dari mahasiswa Indonesia yang sedang berjuang di sana. Tanpa sensor, tanpa clickbait.</p>
           <div class="jt-hero-ctas">
             <a class="jt-btn-primary" href="https://forms.gle/placeholder" target="_blank">🎯 Amankan Kursi Gratis Saya Sekarang!</a>
@@ -345,7 +346,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-hero h1 { font-size:clamp(36px,5.5vw,60px); font-weight:900; line-height:1.02; margin-bottom:22px; color:var(--jt-charcoal); letter-spacing:-2px; }
   .accent-teal { color:var(--jt-primary); }
   .accent-orange { color:var(--jt-orange); }
-  .jt-sub { font-size:18px; color:var(--jt-gray); margin-bottom:32px; max-width:520px; }
+  .jt-hero-sub2 { font-size:clamp(18px,3vw,24px); font-weight:700; margin-bottom:16px; max-width:520px; line-height:1.3; }
+  .jt-sub { font-size:17px; color:var(--jt-gray); margin-bottom:32px; max-width:520px; }
   .jt-hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
   .jt-btn-primary { background:var(--jt-primary); color:white; padding:16px 28px; border-radius:16px; text-decoration:none; font-weight:800; font-size:clamp(14px,2vw,16px); display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 8px 24px rgba(14,124,134,0.35); transition:all 0.25s; text-align:center; line-height:1.3; }
   .jt-btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(14,124,134,0.45); }
