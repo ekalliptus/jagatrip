@@ -55,7 +55,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div style="position:relative;">
           <div class="jt-hero-card">
-            <div class="jt-hero-card-bg">
+            <div class="jt-hero-card-bg" style="background:url('/hero-jagatalk.webp') center/cover no-repeat;">
               <span class="jt-hero-card-tag">🚀 EPISODE PERDANA – SLOT TERBATAS!</span>
               <div class="jt-hero-card-title">
                 <div class="ep">JAGATALK #01</div>
@@ -103,42 +103,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <!-- FEATURED WEBINAR -->
     <section class="jt-section jt-featured" id="daftar">
-      <div class="jt-inner">
-        <div class="jt-featured-card">
-          <span class="jt-eyebrow" style="color:var(--jt-yellow);">EPISODE PERDANA</span>
-          <h2 style="color:white;">JAGATALK #01: Mengupas Realita & Rahasia Kuliah di Malaysia</h2>
-          <div class="jt-featured-grid">
-            <div class="jt-featured-info">
-              <p>Mulai dari proses pendaftaran, biaya hidup realistis di KL, jalur beasiswa, sampai cara adaptasi sebagai mahasiswa Indonesia di Malaysia. Real talk, no clickbait.</p>
-              <div class="jt-feat-meta-grid">
-                <div class="jt-feat-meta"><span class="ico">📅</span><div><div class="lbl">Tanggal</div><div class="val">Senin, 25 Mei 2026</div></div></div>
-                <div class="jt-feat-meta"><span class="ico">🕢</span><div><div class="lbl">Waktu</div><div class="val">19.30 – 21.00 WIB</div></div></div>
-                <div class="jt-feat-meta"><span class="ico">💻</span><div><div class="lbl">Platform</div><div class="val">Live via Zoom Meeting</div></div></div>
-                <div class="jt-feat-meta"><span class="ico">🎫</span><div><div class="lbl">Biaya</div><div class="val">GRATIS</div></div></div>
-              </div>
-              <ul class="jt-feat-benefits">
-                <li>Cara apply kuliah Malaysia (timeline & dokumen)</li>
-                <li>Biaya hidup mahasiswa di Kuala Lumpur — angka jujur</li>
-                <li>Beasiswa & jalur affordable yang sering missed</li>
-                <li>Tips adaptasi & sesi Q&A langsung dengan narasumber</li>
-              </ul>
-              <div class="jt-feat-cta-wrap">
-                <a target="_blank" class="jt-feat-cta" href="https://forms.gle/placeholder">📝 Daftar via Google Form</a>
-                <a target="_blank" class="jt-feat-cta outline" href="https://wa.me/6281128506576?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia">💬 Konsultasi via WhatsApp</a>
-              </div>
-            </div>
-            <div class="jt-featured-visual">
-              <div class="flag">🇲🇾</div>
-              <div class="episode">EPISODE 01</div>
-              <h4>KULIAH DI<br>MALAYSIA</h4>
-              <div class="jt-date-block">
-                <div class="day">SENIN</div>
-                <div class="num">25</div>
-                <div class="month">MEI 2026</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="jt-inner" style="text-align:center;">
+        <img src="/jagatalk-present.webp" alt="JAGATALK #01: Mengupas Realita & Rahasia Kuliah di Malaysia" class="jt-featured-img" />
       </div>
     </section>
 
@@ -152,26 +118,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="jt-nara-card">
             <div class="jt-nara-avatar">👨‍🎓</div>
             <h3>Rafie Fadhillah Fatroni</h3>
-            <div class="jt-nara-univ">Universiti Utara Malaysia (UUM)</div>
+            <div class="jt-nara-univ">Universiti Utara Malaysia (UUM) — Malaysia</div>
           </div>
           <div class="jt-nara-card">
             <div class="jt-nara-avatar">👨‍💼</div>
             <h3>Abqary Nasution</h3>
-            <div class="jt-nara-univ">Malaya University</div>
+            <div class="jt-nara-univ">Malaya University — Malaysia</div>
           </div>
           <div class="jt-nara-card">
             <div class="jt-nara-avatar">🧑‍🎓</div>
             <h3>Ismail Musyafa</h3>
-            <div class="jt-nara-univ">National Dong Hwa University</div>
+            <div class="jt-nara-univ">National Dong Hwa University — Taiwan</div>
           </div>
           <div class="jt-nara-card">
             <div class="jt-nara-avatar">👨‍🏫</div>
             <h3>Mohammad Yasin Fitrah Filasuf</h3>
-            <div class="jt-nara-univ">Guilin University of Electronic Technology</div>
+            <div class="jt-nara-univ">Guilin University of Electronic Technology — China</div>
           </div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">✨</div><h3>Coming Soon</h3><div class="jt-nara-univ">Segera diumumkan</div></div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">✨</div><h3>Coming Soon</h3><div class="jt-nara-univ">Segera diumumkan</div></div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">✨</div><h3>Coming Soon</h3><div class="jt-nara-univ">Segera diumumkan</div></div>
+          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🕌</div><h3>Coming Soon</h3><div class="jt-nara-univ">Universitas Islam — Madinah</div></div>
+          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇹🇷</div><h3>Coming Soon</h3><div class="jt-nara-univ">Bursa Uludag Universitesi — Turki</div></div>
+          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇹🇷</div><h3>Coming Soon</h3><div class="jt-nara-univ">Istanbul Sahabattih Zaim University — Turki</div></div>
+          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇷🇺</div><h3>Coming Soon</h3><div class="jt-nara-univ">Kosygin University — Rusia</div></div>
         </div>
       </div>
     </section>
@@ -218,7 +185,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="jt-section jt-upcoming">
       <div class="jt-inner">
         <span class="jt-eyebrow" style="color:var(--jt-yellow);">JADWAL SERIES</span>
-        <h2 style="color:white;">7 episode siap tayang.<br>Pilih negara yang menarik buat kamu.</h2>
+        <h2 style="color:white;">8 episode siap tayang.<br>Join buat dapetin insightnya.</h2>
         <p class="jt-lead" style="color:rgba(255,255,255,0.7);">Topik berbeda. Narasumber berbeda. Sama-sama gratis & online.</p>
         <div class="jt-episodes-grid">
           <div class="jt-ep-card current"><div class="ep-num">EPISODE 01</div><div class="ep-flag">🇲🇾</div><div class="ep-title">Malaysia (Universiti Utara Malaysia)</div><div class="ep-status">25 Mei 2026 · Daftar Sekarang</div></div>
@@ -226,8 +193,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="jt-ep-card"><div class="ep-num">EPISODE 03</div><div class="ep-flag">🇹🇼</div><div class="ep-title">Taiwan</div><div class="ep-status">Coming Soon</div></div>
           <div class="jt-ep-card"><div class="ep-num">EPISODE 04</div><div class="ep-flag">🇨🇳</div><div class="ep-title">China</div><div class="ep-status">Coming Soon</div></div>
           <div class="jt-ep-card"><div class="ep-num">EPISODE 05</div><div class="ep-flag">🇹🇷</div><div class="ep-title">Turki</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 06</div><div class="ep-flag">✨</div><div class="ep-title">Coming Soon</div><div class="ep-status">Segera diumumkan</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 07</div><div class="ep-flag">✨</div><div class="ep-title">Coming Soon</div><div class="ep-status">Segera diumumkan</div></div>
+          <div class="jt-ep-card"><div class="ep-num">EPISODE 06</div><div class="ep-flag">🇸🇦</div><div class="ep-title">Saudi Arabia</div><div class="ep-status">Coming Soon</div></div>
+          <div class="jt-ep-card"><div class="ep-num">EPISODE 07</div><div class="ep-flag">🇷🇺</div><div class="ep-title">Rusia</div><div class="ep-status">Coming Soon</div></div>
+          <div class="jt-ep-card"><div class="ep-num">EPISODE 08</div><div class="ep-flag">✨</div><div class="ep-title">Coming Soon</div><div class="ep-status">Segera diumumkan</div></div>
         </div>
       </div>
     </section>
@@ -267,7 +235,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="jt-final-cta-row">
           <a target="_blank" class="jt-btn-final" href="https://forms.gle/placeholder">📝 Daftar via Form</a>
           <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506576?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia">💬 WA Admin 1</a>
-          <a target="_blank" class="jt-btn-wa" href="https://wa.me/628139190363?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia">💬 WA Admin 2</a>
+          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506715?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia">💬 WA Admin 2</a>
         </div>
         <p style="margin-top:24px;opacity:0.85;font-size:14px;color:white;">Sudah tergabung? Bagikan info ini ke teman yang juga lagi nyari info kuliah LN 🌏</p>
       </div>
@@ -296,7 +264,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="jt-foot-col">
           <h5>Kontak</h5>
           <a target="_blank" href="https://wa.me/6281128506576">WA 1: 0811-2850-6576</a>
-          <a target="_blank" href="https://wa.me/628139190363">WA 2: 0813-9190-363</a>
+          <a target="_blank" href="https://wa.me/6281128506715">WA 2: 0811-2850-6715</a>
           <a href="mailto:jagatrip@alfatihah.com">jagatrip@alfatihah.com</a>
         </div>
         <div class="jt-foot-col">
@@ -397,6 +365,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* FEATURED */
   .jt-featured { background:white; }
+  .jt-featured-img { width:100%; max-width:900px; height:auto; border-radius:32px; box-shadow:0 20px 60px rgba(0,0,0,0.12); }
   .jt-featured-card { background:linear-gradient(135deg,var(--jt-primary),var(--jt-primary-dark)); color:white; border-radius:32px; padding:56px 48px; position:relative; overflow:hidden; }
   .jt-featured-card::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,210,63,0.15),transparent 70%); border-radius:50%; }
   .jt-featured-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; position:relative; z-index:1; margin-top:20px; }
