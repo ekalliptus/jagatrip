@@ -55,20 +55,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div style="position:relative;">
           <div class="jt-hero-card">
-            <div class="jt-hero-card-bg" style="background:url('/hero-jagatalk.webp') center/cover no-repeat;">
+            <div class="jt-hero-card-bg">
+              <img src="/hero-jagatalk.webp" alt="JAGATALK Episode Perdana" class="jt-hero-card-img" />
               <span class="jt-hero-card-tag">🚀 EPISODE PERDANA – SLOT TERBATAS!</span>
-              <div class="jt-hero-card-title">
-                <div class="ep">JAGATALK #01</div>
-                <h3>MENGUPAS REALITA & RAHASIA KULIAH DI MALAYSIA</h3>
-              </div>
             </div>
             <div class="jt-hero-card-body">
-              <div class="jt-hero-card-meta">
-                <div class="jt-meta-row"><div class="ico">📅</div><div><div class="lbl">Tanggal</div><div class="val">Senin, 25 Mei 2026</div></div></div>
-                <div class="jt-meta-row"><div class="ico">🕢</div><div><div class="lbl">Waktu</div><div class="val">19.30 – 21.00 WIB</div></div></div>
-                <div class="jt-meta-row"><div class="ico">💻</div><div><div class="lbl">Platform</div><div class="val">Live via Zoom Meeting</div></div></div>
-                <div class="jt-meta-row"><div class="ico">🎫</div><div><div class="lbl">Investasi</div><div class="val">100% GRATIS</div></div></div>
-              </div>
+              <div class="ep" style="color:var(--jt-primary);font-size:12px;font-weight:800;letter-spacing:2px;margin-bottom:4px;">JAGATALK #01</div>
+              <h3 style="font-size:18px;font-weight:900;color:var(--jt-charcoal);line-height:1.2;margin-bottom:14px;">MENGUPAS REALITA & RAHASIA KULIAH DI MALAYSIA</h3>
               <a class="jt-hero-card-cta" href="https://forms.gle/placeholder" target="_blank">🎯 Amankan Kursi Gratis Saya Sekarang! <svg class="jt-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
           </div>
@@ -324,8 +317,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* HERO CARD */
   .jt-hero-card { background:white; border-radius:28px; box-shadow:0 20px 60px rgba(10,31,68,0.15); overflow:hidden; }
-  .jt-hero-card-bg { height:200px; background:linear-gradient(135deg,var(--jt-primary),var(--jt-primary-dark)); position:relative; overflow:hidden; }
-  .jt-hero-card-bg::after { content:'🇲🇾'; position:absolute; top:16px; right:20px; font-size:36px; opacity:0.8; }
+  .jt-hero-card-bg { position:relative; overflow:hidden; border-radius:16px 16px 0 0; }
+  .jt-hero-card-img { width:100%; height:auto; display:block; }
   .jt-hero-card-tag { position:absolute; top:16px; left:20px; background:var(--jt-yellow); color:var(--jt-charcoal); padding:6px 14px; border-radius:999px; font-size:11px; font-weight:900; letter-spacing:1px; }
   .jt-hero-card-title { position:absolute; bottom:20px; left:24px; right:24px; color:white; }
   .jt-hero-card-title .ep { font-size:12px; font-weight:800; letter-spacing:2px; opacity:0.85; }
@@ -365,7 +358,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* FEATURED */
   .jt-featured { background:white; }
-  .jt-featured-img { width:100%; max-width:900px; height:auto; border-radius:32px; box-shadow:0 20px 60px rgba(0,0,0,0.12); }
+  .jt-featured-img { width:100%; max-width:900px; height:auto; border-radius:32px; box-shadow:0 20px 60px rgba(0,0,0,0.12); margin:0 auto; display:block; }
   .jt-featured-card { background:linear-gradient(135deg,var(--jt-primary),var(--jt-primary-dark)); color:white; border-radius:32px; padding:56px 48px; position:relative; overflow:hidden; }
   .jt-featured-card::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,210,63,0.15),transparent 70%); border-radius:50%; }
   .jt-featured-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; position:relative; z-index:1; margin-top:20px; }
