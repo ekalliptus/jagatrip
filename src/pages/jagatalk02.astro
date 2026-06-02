@@ -215,40 +215,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
 
-    <!-- ===== REGISTRATION FORM ===== -->
-    <section class="section registration" id="daftar">
-      <div class="container">
-        <div class="reg-card">
-          <div class="section-tag" style="margin-bottom: 12px; justify-content: center; display: inline-flex; width: 100%;">Pendaftaran</div>
-          <h3>Formulir Pendaftaran</h3>
-          <p>Lengkapi data diri Anda di bawah ini untuk mendaftar. Data pendaftaran Anda akan terekam secara otomatis dan Anda akan langsung diarahkan ke WhatsApp Admin.</p>
-          
-          <form id="reg-form-jagatalk2">
-            <div class="form-group">
-              <label for="nama">Nama Lengkap *</label>
-              <input type="text" id="nama" name="nama" required placeholder="Contoh: Dr. H. Budi Santoso, M.Pd." />
-            </div>
-            
-            <div class="form-group">
-              <label for="instansi">Instansi / Sekolah Asal *</label>
-              <input type="text" id="instansi" name="instansi" required placeholder="Contoh: SMA Negeri 1 Jakarta / Yayasan Pendidikan Budi" />
-            </div>
-            
-            <div class="form-group">
-              <label for="wa">Nomor WhatsApp Aktif *</label>
-              <input type="tel" id="wa" name="wa" required placeholder="Contoh: 08123456789" />
-            </div>
-            
-            <button type="submit" class="btn-submit">
-              Daftar Sekarang <span class="arrow" aria-hidden="true"></span>
-            </button>
-            
-            <div id="reg-status-jagatalk2" class="hidden"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== PRICING / CTA ===== -->
     <section class="section pricing">
       <div class="container">
@@ -263,6 +229,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="urgency">
           <span class="urgency-dot"></span>
           Slot terbatas. Pendaftaran ditutup ketika kuota terpenuhi.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REGISTRATION FORM ===== -->
+    <section class="section registration" id="daftar">
+      <div class="container">
+        <div class="reg-card">
+          <div class="section-tag" style="margin-bottom: 12px; justify-content: center; display: inline-flex; width: 100%;">Pendaftaran</div>
+          <h3>Formulir Pendaftaran</h3>
+          <p>Lengkapi data diri Anda di bawah ini untuk mendaftar. Data pendaftaran Anda akan terekam secara otomatis dan Anda akan langsung diarahkan ke WhatsApp Admin.</p>
+
+          <form id="reg-form-jagatalk2">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap *</label>
+              <input type="text" id="nama" name="nama" required placeholder="Contoh: Dr. H. Budi Santoso, M.Pd." />
+            </div>
+
+            <div class="form-group">
+              <label for="instansi">Instansi / Sekolah Asal *</label>
+              <input type="text" id="instansi" name="instansi" required placeholder="Contoh: SMA Negeri 1 Jakarta / Yayasan Pendidikan Budi" />
+            </div>
+
+            <div class="form-group">
+              <label for="wa">Nomor WhatsApp Aktif *</label>
+              <input type="tel" id="wa" name="wa" required placeholder="Contoh: 08123456789" />
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Daftar Sekarang <span class="arrow" aria-hidden="true"></span>
+            </button>
+
+            <div id="reg-status-jagatalk2" class="hidden"></div>
+          </form>
         </div>
       </div>
     </section>
