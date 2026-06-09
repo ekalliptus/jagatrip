@@ -35,7 +35,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="jt-logo-sub">by JAGATRIP</span>
           </div>
         </a>
-        <a class="jt-nav-cta" href="#final-cta">Daftar Webinar <svg class="jt-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+        <div class="jt-nav-actions">
+          <a class="jt-nav-link-jadwal" href="#jadwal">Jadwal Webinar</a>
+          <a class="jt-nav-cta" href="#final-cta">Daftar Webinar <svg class="jt-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+        </div>
       </div>
     </nav>
 
@@ -48,7 +51,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="jt-hero-sub2"><span class="accent-orange">Dapatkan Cerita Jujur & Strategi Riil Langsung dari Mereka yang Sudah di Sana.</span></p>
           <p class="jt-sub">Saatnya dengar cerita jujur, angka riil, dan pengalaman nyata langsung dari mahasiswa Indonesia yang sedang berjuang di sana. Tanpa sensor, tanpa clickbait.</p>
           <div class="jt-hero-ctas">
-            <a class="jt-btn-primary" href="#final-cta">🎯 Amankan Kursi Gratis Saya Sekarang!</a>
+            <a class="jt-btn-primary" href="#final-cta">🎯 Amankan Kursi Anda Sekarang!</a>
           </div>
           <p style="margin-top:20px; font-size:13px; color:var(--jt-gray);"><strong style="color:var(--jt-charcoal);">100% Gratis</strong> · Online via Zoom · Sertifikat untuk peserta hadir</p>
         </div>
@@ -56,15 +59,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div style="position:relative;">
           <div class="jt-hero-card">
             <div class="jt-hero-card-bg">
-              <img src="/hero-jagatalk.webp" alt="JAGATALK Episode Perdana" class="jt-hero-card-img" />
-            </div>
-            <div class="jt-hero-card-body">
-              <span class="jt-hero-card-tag-inline">🚀 EPISODE PERDANA – SLOT TERBATAS!</span>
-              <div class="ep" style="color:var(--jt-primary);font-size:12px;font-weight:800;letter-spacing:2px;margin-bottom:4px;">JAGATALK #01</div>
-              <h3 style="font-size:18px;font-weight:900;color:var(--jt-charcoal);line-height:1.2;">MENGUPAS REALITA & RAHASIA KULIAH DI MALAYSIA</h3>
+              <img src="/jagatalk-general.webp" alt="JAGATALK — Info & Jadwal Webinar Kuliah Luar Negeri" class="jt-hero-card-img" />
             </div>
           </div>
-          <div class="jt-float-badge">PERDANA!</div>
         </div>
       </div>
     </section>
@@ -72,7 +69,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- STATS -->
     <section class="jt-stats">
       <div class="jt-stats-inner">
-        <div><span class="sn">7+</span><span class="sl">Negara Tujuan Pembahasan</span></div>
+        <div><span class="sn">10+</span><span class="sl">Negara Tujuan Pembahasan</span></div>
         <div><span class="sn">30+</span><span class="sl">Narasumber</span></div>
         <div><span class="sn">100%</span><span class="sl">Gratis & Online</span></div>
         <div><span class="sn">1x</span><span class="sl">Webinar Setiap Minggu</span></div>
@@ -87,51 +84,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="jt-lead">Lupain webinar dengan slide PPT 100 halaman dan motivator yang belum pernah ke luar negeri. JAGATALK menghadirkan suara nyata — dari mahasiswa, alumni, dan praktisi yang sedang atau pernah hidup di negeri tujuan.</p>
         <div class="jt-about-grid">
           <div class="jt-about-card"><div class="jt-about-icon">🎙️</div><h3>Real Voices</h3><p>Narasumber utama adalah mahasiswa & alumni Indonesia yang sedang menjalani kuliah di luar negeri. Cerita yang kamu dengar = pengalaman langsung, bukan teori.</p></div>
-          <div class="jt-about-card"><div class="jt-about-icon jt-ai-orange">🌏</div><h3>7+ Negara Tujuan</h3><p>Setiap minggu bahas 1 negara/topik berbeda: Malaysia, Hongkong, Jepang, Turki, China, boarding school internasional, dan lainnya.</p></div>
+          <div class="jt-about-card"><div class="jt-about-icon jt-ai-orange">🌏</div><h3>10+ Negara Tujuan</h3><p>Setiap minggu bahas 1 negara/topik berbeda: Malaysia, Taiwan, China, Arab Saudi, Turki, boarding school internasional, dan lainnya.</p></div>
           <div class="jt-about-card"><div class="jt-about-icon jt-ai-yellow">🎫</div><h3>Gratis, Konsisten, Bernilai</h3><p>Setiap Jumat malam, free, online via Zoom. Konten berkualitas tanpa biaya — karena tujuan kami memperluas akses informasi pendidikan.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED WEBINAR -->
+    <!-- JADWAL TERDEKAT -->
     <section class="jt-section jt-featured" id="daftar">
-      <div class="jt-inner" style="text-align:center;">
-        <img src="/jagatalk-present.webp" alt="JAGATALK #01: Mengupas Realita & Rahasia Kuliah di Malaysia" class="jt-featured-img" />
+      <div class="jt-inner">
+        <span class="jt-eyebrow" style="text-align:center;display:block;">JADWAL TERDEKAT</span>
+        <h2 style="text-align:center;">Webinar minggu ini.</h2>
+        <div class="jt-terdekat-grid">
+          <img src="/jagatalk-poster-3.webp" alt="Poster JAGATALK pemateri terdekat" class="jt-terdekat-flyer" />
+          <div class="jt-terdekat-info">
+            <div class="jt-terdekat-row"><span class="ico">📅</span><div><span class="lbl">Tanggal</span><span class="val">Jumat, 12 Juni 2026</span></div></div>
+            <div class="jt-terdekat-row"><span class="ico">🕢</span><div><span class="lbl">Waktu</span><span class="val">19.30 – 21.30 WIB</span></div></div>
+            <div class="jt-terdekat-row"><span class="ico">💻</span><div><span class="lbl">Platform</span><span class="val">via Zoom Meeting</span></div></div>
+            <a class="jt-btn-primary" href="#final-cta" style="margin-top:8px;">🎯 Amankan Kursi Anda Sekarang!</a>
+            <p class="jt-terdekat-note">Flyer & jadwal diperbarui setiap minggu.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- LIST NARASUMBER -->
-    <section class="jt-section jt-speakers">
+    <!-- JADWAL WEBINAR JAGATALK -->
+    <section class="jt-section jt-speakers" id="jadwal">
       <div class="jt-inner">
-        <span class="jt-eyebrow">LIST NARASUMBER</span>
+        <span class="jt-eyebrow">JADWAL WEBINAR JAGATALK</span>
         <h2>Ngobrol langsung dengan yang udah ngalamin.</h2>
-        <p class="jt-lead">Mereka bukan motivator. Mereka mahasiswa Indonesia yang sedang menjalani kuliah di luar negeri — dan siap cerita jujur.</p>
-        <div class="jt-narasumber-grid">
-          <div class="jt-nara-card">
-            <div class="jt-nara-avatar">👨‍🎓</div>
-            <h3>Rafie Fadhillah Fatroni</h3>
-            <div class="jt-nara-univ">Universiti Utara Malaysia (UUM) — Malaysia</div>
-          </div>
-          <div class="jt-nara-card">
-            <div class="jt-nara-avatar">👨‍💼</div>
-            <h3>Abqary Nasution</h3>
-            <div class="jt-nara-univ">Malaya University — Malaysia</div>
-          </div>
-          <div class="jt-nara-card">
-            <div class="jt-nara-avatar">🧑‍🎓</div>
-            <h3>Ismail Musyafa</h3>
-            <div class="jt-nara-univ">National Dong Hwa University — Taiwan</div>
-          </div>
-          <div class="jt-nara-card">
-            <div class="jt-nara-avatar">👨‍🏫</div>
-            <h3>Mohammad Yasin Fitrah Filasuf</h3>
-            <div class="jt-nara-univ">Guilin University of Electronic Technology — China</div>
-          </div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🕌</div><h3>Coming Soon</h3><div class="jt-nara-univ">Universitas Islam — Madinah</div></div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇹🇷</div><h3>Coming Soon</h3><div class="jt-nara-univ">Bursa Uludag Universitesi — Turki</div></div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇹🇷</div><h3>Coming Soon</h3><div class="jt-nara-univ">Istanbul Sahabattih Zaim University — Turki</div></div>
-          <div class="jt-nara-card jt-nara-soon"><div class="jt-nara-avatar">🇷🇺</div><h3>Coming Soon</h3><div class="jt-nara-univ">Kosygin University — Rusia</div></div>
+        <p class="jt-lead">Mereka bukan motivator. Mereka mahasiswa Indonesia yang sedang menjalani kuliah di luar negeri — dan siap cerita jujur. Catat tanggalnya, amankan kursimu.</p>
+        <div class="jt-table-wrap">
+          <table class="jt-table">
+            <thead>
+              <tr><th>Seri</th><th>Tanggal</th><th>Pemateri</th><th>Asal Universitas</th></tr>
+            </thead>
+            <tbody>
+              <tr class="past"><td>1</td><td>28 Mei 2026 <span class="jt-badge-done">Selesai</span></td><td>Rafie Fadhillah Fatroni</td><td>Universiti Utara Malaysia (UUM), Malaysia</td></tr>
+              <tr class="past"><td>2</td><td>5 Juni 2026 <span class="jt-badge-done">Selesai</span></td><td>Dedi Gunawan</td><td>Founder IDN Boarding School (Program Sekolah Internasional)</td></tr>
+              <tr class="next"><td>3</td><td>12 Juni 2026 <span class="jt-badge-next">Terdekat</span></td><td>Ismail Musyafa</td><td>National Dong Hwa University, Taiwan</td></tr>
+              <tr><td>4</td><td>19 Juni 2026</td><td>Kegan Adha Fernando</td><td>Harbin Institute of Technology, China</td></tr>
+              <tr><td>5</td><td>3 Juli 2026</td><td>Muhammad Najwan Latief</td><td>Universitas Islam Madinah, Arab Saudi</td></tr>
+              <tr><td>6</td><td>10 Juli 2026</td><td>Mohammad Yasin Fitrah Filasuf</td><td>Guilin University of Electronic Technology, China</td></tr>
+              <tr><td>7</td><td>17 Juli 2026</td><td>Muhammad Nibras Salsabil</td><td>Guilin University of Electronic Technology, China</td></tr>
+              <tr><td>8</td><td>24 Juli 2026</td><td>M Syafiq Robbani</td><td>Cheng Shiu University, Taiwan</td></tr>
+              <tr><td>9</td><td>31 Juli 2026</td><td>Abdullah Mukhlashin</td><td>Universitas Islam Madinah, Arab Saudi</td></tr>
+              <tr><td>10</td><td>7 Agustus 2026</td><td>Abdul Hadi Nukman Zakin</td><td>Istanbul Sabahattin Zaim University, Turki</td></tr>
+            </tbody>
+          </table>
         </div>
+        <p class="jt-table-note">Jadwal dapat berubah menyesuaikan kesiapan pemateri. Pantau IG <a href="https://instagram.com/jagatrip.id" target="_blank">@jagatrip.id</a> untuk update terbaru.</p>
       </div>
     </section>
 
@@ -139,13 +141,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="jt-section jt-how">
       <div class="jt-inner">
         <span class="jt-eyebrow">CARA DAFTAR</span>
-        <h2>4 langkah simple. Beneran gratis.</h2>
-        <p class="jt-lead">Webinar ini gratis, tapi ada syarat kecil: bantu sebarkan info ke 3 grup yang relevan. Karena pendidikan internasional bukan milik segelintir orang saja.</p>
+        <h2>5 langkah simple. Beneran gratis.</h2>
+        <p class="jt-lead">Webinar ini gratis, tapi ada syarat kecil: bantu sebarkan info ke grup/komunitas/sosmed kamu. Karena pendidikan internasional bukan milik segelintir orang saja.</p>
         <div class="jt-how-grid">
-          <div class="jt-how-step"><div class="jt-how-num">1</div><h4>Isi Google Form</h4><p>Klik tombol daftar di atas atau bawah. Isi data dasar (nama, WA, status).</p></div>
-          <div class="jt-how-step"><div class="jt-how-num n2">2</div><h4>Share ke 3 Grup</h4><p>Sebarkan flyer webinar ke minimal 3 grup WhatsApp (keluarga, alumni, sekolah, parenting, komunitas).</p></div>
-          <div class="jt-how-step"><div class="jt-how-num n3">3</div><h4>Upload Screenshot</h4><p>Screenshot bukti share, upload kembali di Google Form sebagai validasi.</p></div>
-          <div class="jt-how-step"><div class="jt-how-num n4">4</div><h4>Dapat Link Zoom H-1</h4><p>Setelah validasi (1×24 jam), link Zoom dikirim via WhatsApp paling lambat satu hari sebelum acara.</p></div>
+          <div class="jt-how-step"><div class="jt-how-num">1</div><h4>Hubungi WA Admin</h4><p>Klik tombol daftar, lalu chat admin via WhatsApp untuk memulai pendaftaran.</p></div>
+          <div class="jt-how-step"><div class="jt-how-num n2">2</div><h4>Share Info Webinar</h4><p>Sebarkan info webinar ke grup, komunitas, atau sosial media kamu untuk bantu menyebarkan akses pendidikan.</p></div>
+          <div class="jt-how-step"><div class="jt-how-num n3">3</div><h4>Isi Google Form</h4><p>Lengkapi data dasar (nama, WA, status) di Google Form pendaftaran.</p></div>
+          <div class="jt-how-step"><div class="jt-how-num n4">4</div><h4>Gabung Grup Webinar</h4><p>Masuk ke grup peserta untuk info, reminder, dan materi webinar.</p></div>
+          <div class="jt-how-step"><div class="jt-how-num n5">5</div><h4>Terima Link Zoom</h4><p>Link Zoom dikirim ke grup/WhatsApp paling lambat H-1 sebelum acara.</p></div>
         </div>
         <div class="jt-viral-note">
           <div class="jt-icon-big">💡</div>
@@ -161,33 +164,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="jt-section jt-why">
       <div class="jt-inner">
         <span class="jt-eyebrow">KENAPA HARUS IKUT</span>
-        <h2>Bukan Sesi Dengar Pasif. Ini yang Akan Kamu Bawa Pulang Setelah 90 Menit:</h2>
+        <h2>Bukan Sesi Dengar Pasif. Ini yang Akan Kamu Bawa Pulang Setelah 120 Menit:</h2>
         <div class="jt-why-grid">
           <div class="jt-why-card"><div class="jt-num-big">01</div><h4>Angka Jujur & Data Riil</h4><p>Bocoran biaya hidup asli, skema beasiswa tersembunyi, timeline pendaftaran, hingga kelengkapan dokumen tanpa ada yang ditutup-tutupi.</p></div>
           <div class="jt-why-card"><div class="jt-num-big">02</div><h4>Koneksi Circle Internasional</h4><p>Jangan cuma nonton. Kamu bisa berjejaring dengan pembicara dan sesama peserta yang punya mimpi besar yang sama. Banyak yang berlanjut konsultasi via DM!</p></div>
           <div class="jt-why-card"><div class="jt-num-big">03</div><h4>Mimbar Tanya Jawab Bebas</h4><p>Alokasi waktu 20-30 menit khusus untuk bertanya apa saja. Dari hal teknis perkuliahan sampai masalah personal/kegalauanmu.</p></div>
-          <div class="jt-why-card"><div class="jt-num-big">04</div><h4>E-Sertifikat Resmi</h4><p>Bukti kehadiran penuh yang diterbitkan resmi oleh JAGATALK, siap mempercantik portofolio dan CV masa depanmu.</p></div>
+          <div class="jt-why-card"><div class="jt-num-big">04</div><h4>E-Sertifikat & Rekaman Webinar</h4><p>Dapatkan e-sertifikat resmi JAGATALK beserta rekaman penuh webinar — khusus untuk peserta yang mengikuti webinar full sesi dan mengisi form kehadiran.</p></div>
           <div class="jt-why-card"><div class="jt-num-big">05</div><h4>Akses Arsip & Resources Eksklusif</h4><p>Slide presentasi beserta tautan penting (resource links) akan dibagikan gratis hanya untuk kamu yang berkomitmen hadir sampai akhir sesi.</p></div>
           <div class="jt-why-card"><div class="jt-num-big">06</div><h4>Jalur Prioritas Edutrip</h4><p>Akses eksklusif dan info tercepat untuk bergabung dalam program study visit internasional premium bersama JAGATRIP ke negara tujuan.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- UPCOMING EPISODES -->
-    <section class="jt-section jt-upcoming">
-      <div class="jt-inner">
-        <span class="jt-eyebrow" style="color:var(--jt-yellow);">JADWAL SERIES</span>
-        <h2 style="color:white;">8 episode siap tayang.<br>Join buat dapetin insightnya.</h2>
-        <p class="jt-lead" style="color:rgba(255,255,255,0.7);">Topik berbeda. Narasumber berbeda. Sama-sama gratis & online.</p>
-        <div class="jt-episodes-grid">
-          <div class="jt-ep-card current"><div class="ep-num">EPISODE 01</div><div class="ep-flag">🇲🇾</div><div class="ep-title">Malaysia (Universiti Utara Malaysia)</div><div class="ep-status">25 Mei 2026 · Daftar Sekarang</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 02</div><div class="ep-flag">🇲🇾</div><div class="ep-title">Malaysia (Malaya University)</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 03</div><div class="ep-flag">🇹🇼</div><div class="ep-title">Taiwan</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 04</div><div class="ep-flag">🇨🇳</div><div class="ep-title">China</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 05</div><div class="ep-flag">🇹🇷</div><div class="ep-title">Turki</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 06</div><div class="ep-flag">🇸🇦</div><div class="ep-title">Saudi Arabia</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 07</div><div class="ep-flag">🇷🇺</div><div class="ep-title">Rusia</div><div class="ep-status">Coming Soon</div></div>
-          <div class="jt-ep-card"><div class="ep-num">EPISODE 08</div><div class="ep-flag">✨</div><div class="ep-title">Coming Soon</div><div class="ep-status">Segera diumumkan</div></div>
         </div>
       </div>
     </section>
@@ -213,7 +197,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <details class="jt-faq-item"><summary>Bagaimana kalau saya nggak bisa hadir live?</summary><p>Recording webinar akan dibagikan ke peserta yang telah mendaftar resmi. Slide & resource link juga dikirim ke grup peserta khusus.</p></details>
           <details class="jt-faq-item"><summary>Apakah peserta dapat sertifikat?</summary><p>Ya, e-sertifikat digital diberikan untuk peserta yang hadir minimal 70% dari durasi webinar.</p></details>
           <details class="jt-faq-item"><summary>Bagaimana sistem share ke 3 grup-nya?</summary><p>Setelah isi Google Form, kamu akan diberikan flyer + template caption. Share ke minimal 3 grup WhatsApp, screenshot bukti share-nya, lalu upload kembali di Google Form.</p></details>
-          <details class="jt-faq-item"><summary>Topik webinar berikutnya apa saja?</summary><p>Tujuh episode pertama: Malaysia, Hongkong, Jepang, Turki, China, Boarding School LN, dan Sharing Hidup di LN. Pantau IG @jagatrip.id untuk update.</p></details>
+          <details class="jt-faq-item"><summary>Topik webinar berikutnya apa saja?</summary><p>Setiap minggu membahas negara/topik berbeda: Malaysia, Taiwan, China, Arab Saudi, Turki, sekolah internasional, dan lainnya. Cek jadwal lengkap di section "Jadwal Webinar JAGATALK" di atas, atau pantau IG @jagatrip.id untuk update.</p></details>
           <details class="jt-faq-item"><summary>Apa hubungannya JAGATALK dengan edutrip JAGATRIP?</summary><p>JAGATALK adalah inisiatif edukasi (gratis) dari JAGATRIP. Peserta JAGATALK yang tertarik program edutrip akan mendapatkan priority info & special offer.</p></details>
         </div>
       </div>
@@ -222,11 +206,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- FINAL CTA -->
     <section class="jt-section jt-final-cta" id="final-cta">
       <div class="jt-inner" style="position:relative;z-index:1;text-align:center;">
-        <h2 style="color:white;">Episode perdana<br>tinggal hitung hari.</h2>
-        <p class="jt-lead" style="color:rgba(255,255,255,0.92);margin:0 auto 32px;">Slot Zoom terbatas. Daftar sekarang, dapet link H-1, dengar langsung dari mahasiswi yang udah di Malaysia.</p>
+        <h2 style="color:white;">Webinar berikutnya<br>tinggal hitung hari.</h2>
+        <p class="jt-lead" style="color:rgba(255,255,255,0.92);margin:0 auto 32px;">Slot Zoom terbatas tiap minggu. Daftar sekarang, dapet link H-1, dengar langsung dari mahasiswa Indonesia yang sedang kuliah di luar negeri.</p>
         <div class="jt-final-cta-row">
-          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506576?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia" onclick="fbq('track','Lead')">💬 WA Admin 1</a>
-          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506715?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20JAGATALK%20%2301%20Kuliah%20di%20Malaysia" onclick="fbq('track','Lead')">💬 WA Admin 2</a>
+          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506576?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20webinar%20JAGATALK" onclick="fbq('track','Lead')">💬 WA Admin 1</a>
+          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506715?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20webinar%20JAGATALK" onclick="fbq('track','Lead')">💬 WA Admin 2</a>
         </div>
         <p style="margin-top:24px;opacity:0.85;font-size:14px;color:white;">Sudah tergabung? Bagikan info ini ke teman yang juga lagi nyari info kuliah LN 🌏</p>
       </div>
@@ -290,6 +274,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-logo-text .jaga { color:var(--jt-primary); }
   .jt-logo-text .talk { color:var(--jt-orange); }
   .jt-logo-sub { font-size:10px; color:var(--jt-gray); font-weight:600; letter-spacing:2px; text-transform:uppercase; display:block; line-height:1; }
+  .jt-nav-actions { display:flex; align-items:center; gap:6px; }
+  .jt-nav-link-jadwal { color:var(--jt-charcoal); font-weight:700; font-size:14px; text-decoration:none; margin-right:8px; transition:color 0.2s; }
+  .jt-nav-link-jadwal:hover { color:var(--jt-primary); }
   .jt-nav-cta { background:var(--jt-primary); color:white; padding:10px 20px; border-radius:999px; text-decoration:none; font-weight:700; font-size:14px; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
   .jt-nav-cta:hover { background:var(--jt-primary-dark); }
   .jt-arrow { width:20px; height:20px; transition:transform 0.2s; }
@@ -354,9 +341,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-about-card h3 { font-size:20px; font-weight:800; color:var(--jt-charcoal); margin-bottom:10px; }
   .jt-about-card p { color:var(--jt-gray); font-size:15px; }
 
-  /* FEATURED */
+  /* FEATURED / JADWAL TERDEKAT */
   .jt-featured { background:white; }
   .jt-featured-img { width:100%; max-width:900px; height:auto; border-radius:32px; box-shadow:0 20px 60px rgba(0,0,0,0.12); margin:0 auto; display:block; }
+  .jt-terdekat-grid { display:grid; grid-template-columns:0.85fr 1fr; gap:40px; align-items:center; margin-top:8px; }
+  .jt-terdekat-flyer { width:100%; max-width:420px; height:auto; border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,0.12); display:block; margin:0 auto; }
+  .jt-terdekat-info { display:flex; flex-direction:column; gap:16px; }
+  .jt-terdekat-row { display:flex; align-items:center; gap:14px; }
+  .jt-terdekat-row .ico { width:48px; height:48px; border-radius:12px; background:var(--jt-cream); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .jt-terdekat-row .lbl { font-size:12px; color:var(--jt-gray); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; display:block; }
+  .jt-terdekat-row .val { font-size:18px; font-weight:800; color:var(--jt-charcoal); display:block; }
+  .jt-terdekat-note { font-size:13px; color:var(--jt-gray); font-style:italic; margin-top:4px; }
   .jt-featured-card { background:linear-gradient(135deg,var(--jt-primary),var(--jt-primary-dark)); color:white; border-radius:32px; padding:56px 48px; position:relative; overflow:hidden; }
   .jt-featured-card::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,210,63,0.15),transparent 70%); border-radius:50%; }
   .jt-featured-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; position:relative; z-index:1; margin-top:20px; }
@@ -383,42 +378,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-date-block .num { font-size:38px; line-height:1; margin:4px 0; }
   .jt-date-block .month { font-size:14px; }
 
-  /* NARASUMBER */
+  /* JADWAL TABLE */
   .jt-speakers { background:var(--jt-cream); }
-  .jt-narasumber-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-  .jt-nara-card { background:white; border-radius:20px; padding:28px 20px; text-align:center; box-shadow:0 8px 24px rgba(0,0,0,0.05); transition:all 0.25s; }
-  .jt-nara-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.1); }
-  .jt-nara-avatar { font-size:56px; line-height:1; margin-bottom:16px; }
-  .jt-nara-card h3 { font-size:16px; font-weight:800; color:var(--jt-charcoal); margin-bottom:6px; line-height:1.2; }
-  .jt-nara-univ { color:var(--jt-primary); font-weight:700; font-size:13px; }
-  .jt-nara-soon { opacity:0.5; }
+  .jt-table-wrap { overflow-x:auto; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,0.06); -webkit-overflow-scrolling:touch; }
+  .jt-table { width:100%; border-collapse:collapse; background:white; min-width:640px; font-size:15px; }
+  .jt-table thead { background:var(--jt-charcoal); }
+  .jt-table thead th { color:white; text-align:left; padding:16px 20px; font-size:13px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+  .jt-table tbody td { padding:16px 20px; border-bottom:1px solid #EFEFEF; color:var(--jt-charcoal); vertical-align:middle; }
+  .jt-table tbody td:first-child { font-weight:900; color:var(--jt-primary); width:56px; }
+  .jt-table tbody td:nth-child(3) { font-weight:700; }
+  .jt-table tbody td:nth-child(4) { color:var(--jt-gray); font-size:14px; }
+  .jt-table tbody tr:nth-child(even) { background:var(--jt-cream); }
+  .jt-table tbody tr:hover { background:#E0F2F4; }
+  /* highlight/dim states — must follow zebra rule to win on equal specificity */
+  .jt-table tbody tr.next { background:rgba(255,210,63,0.18); }
+  .jt-table tbody tr.next:hover { background:rgba(255,210,63,0.28); }
+  .jt-table tbody tr.next td:first-child { color:var(--jt-orange); }
+  .jt-table tbody tr.past { opacity:0.55; }
+  .jt-badge-done { display:inline-block; background:#E5E7EB; color:var(--jt-gray); font-size:10px; font-weight:800; letter-spacing:0.5px; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
+  .jt-badge-next { display:inline-block; background:var(--jt-orange); color:white; font-size:10px; font-weight:800; letter-spacing:0.5px; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
+  .jt-table-note { font-size:13px; color:var(--jt-gray); margin-top:16px; }
+  .jt-table-note a { color:var(--jt-primary); font-weight:700; text-decoration:none; }
+  .jt-table-note a:hover { text-decoration:underline; }
 
   /* HOW */
   .jt-how { background:white; }
-  .jt-how-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
+  .jt-how-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin-top:32px; }
   .jt-how-step { background:var(--jt-cream); padding:28px 20px; border-radius:18px; text-align:center; }
   .jt-how-num { width:48px; height:48px; border-radius:50%; background:var(--jt-primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; margin:0 auto 16px; }
   .jt-how-num.n2 { background:var(--jt-orange); }
   .jt-how-num.n3 { background:var(--jt-yellow); color:var(--jt-charcoal); }
   .jt-how-num.n4 { background:var(--jt-green); }
+  .jt-how-num.n5 { background:var(--jt-primary-dark); }
   .jt-how-step h4 { font-size:16px; font-weight:800; color:var(--jt-charcoal); margin-bottom:8px; }
   .jt-how-step p { color:var(--jt-gray); font-size:13px; }
   .jt-viral-note { background:var(--jt-yellow); color:var(--jt-charcoal); padding:24px 28px; border-radius:18px; margin-top:32px; display:flex; gap:20px; align-items:center; }
   .jt-icon-big { font-size:40px; line-height:1; flex-shrink:0; }
   .jt-viral-note h4 { font-size:18px; font-weight:900; margin-bottom:4px; }
   .jt-viral-note p { font-size:14px; line-height:1.5; }
-
-  /* UPCOMING */
-  .jt-upcoming { background:var(--jt-charcoal); color:white; }
-  .jt-episodes-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:32px; }
-  .jt-ep-card { background:rgba(255,255,255,0.05); backdrop-filter:blur(10px); padding:24px 20px; border-radius:16px; border:1px solid rgba(255,255,255,0.1); transition:all 0.25s; position:relative; }
-  .jt-ep-card:hover { transform:translateY(-4px); background:rgba(255,255,255,0.08); border-color:var(--jt-primary-light); }
-  .jt-ep-card.current { border-color:var(--jt-yellow); background:rgba(255,210,63,0.1); }
-  .jt-ep-card.current::before { content:'LIVE'; position:absolute; top:-10px; right:16px; background:var(--jt-orange); color:white; padding:4px 12px; border-radius:999px; font-size:10px; font-weight:900; letter-spacing:1px; }
-  .ep-num { font-size:11px; color:var(--jt-yellow); font-weight:800; letter-spacing:2px; }
-  .ep-flag { font-size:36px; line-height:1; margin:12px 0 8px; }
-  .ep-title { font-size:17px; font-weight:800; line-height:1.2; margin-bottom:8px; color:white; }
-  .ep-status { font-size:12px; color:rgba(255,255,255,0.6); font-weight:600; }
 
   /* WHY */
   .jt-why { background:var(--jt-cream); }
@@ -481,20 +478,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .jt-about-grid, .jt-why-grid { grid-template-columns:1fr; }
     .jt-featured-grid { grid-template-columns:1fr; }
     .jt-featured-card { padding:36px 24px; }
-    .jt-narasumber-grid { grid-template-columns:1fr 1fr; }
+    .jt-terdekat-grid { grid-template-columns:1fr; gap:28px; }
     .jt-how-grid { grid-template-columns:1fr 1fr; }
-    .jt-episodes-grid { grid-template-columns:1fr 1fr; }
     .jt-foot-inner { grid-template-columns:1fr 1fr; gap:28px; }
     .jt-foot-bot { flex-direction:column; gap:14px; }
     .jt-section { padding:56px 20px; }
     .jt-hero { padding:100px 20px 56px; }
     .jt-nav-cta { padding:8px 14px; font-size:12px; }
+    .jt-nav-link-jadwal { display:none; }
     .jt-feat-meta-grid { grid-template-columns:1fr; }
     .jt-trust-row { gap:20px; }
   }
   @media (max-width:500px) {
-    .jt-how-grid, .jt-episodes-grid { grid-template-columns:1fr; }
-    .jt-narasumber-grid { grid-template-columns:1fr; }
+    .jt-how-grid { grid-template-columns:1fr; }
     .jt-foot-inner { grid-template-columns:1fr; }
   }
 </style>
