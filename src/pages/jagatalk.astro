@@ -61,6 +61,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="jt-hero-card-bg">
               <img src="/jagatalk-general.webp" alt="JAGATALK — Info & Jadwal Webinar Kuliah Luar Negeri" class="jt-hero-card-img" />
             </div>
+            <div class="jt-hero-card-body">
+              <h3 style="font-size:18px;font-weight:900;color:var(--jt-charcoal);line-height:1.2;">MENGUPAS REALITA &amp; RAHASIA KULIAH DI LUAR NEGERI</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -102,7 +105,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="jt-terdekat-row"><span class="ico">🕢</span><div><span class="lbl">Waktu</span><span class="val">19.30 – 21.30 WIB</span></div></div>
             <div class="jt-terdekat-row"><span class="ico">💻</span><div><span class="lbl">Platform</span><span class="val">via Zoom Meeting</span></div></div>
             <a class="jt-btn-primary" href="#final-cta" style="margin-top:8px;">🎯 Amankan Kursi Anda Sekarang!</a>
-            <p class="jt-terdekat-note">Flyer & jadwal diperbarui setiap minggu.</p>
           </div>
         </div>
       </div>
@@ -114,26 +116,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="jt-eyebrow">JADWAL WEBINAR JAGATALK</span>
         <h2>Ngobrol langsung dengan yang udah ngalamin.</h2>
         <p class="jt-lead">Mereka bukan motivator. Mereka mahasiswa Indonesia yang sedang menjalani kuliah di luar negeri — dan siap cerita jujur. Catat tanggalnya, amankan kursimu.</p>
-        <div class="jt-table-wrap">
-          <table class="jt-table">
-            <thead>
-              <tr><th>Seri</th><th>Tanggal</th><th>Pemateri</th><th>Asal Universitas</th></tr>
-            </thead>
-            <tbody>
-              <tr class="past"><td>1</td><td>28 Mei 2026 <span class="jt-badge-done">Selesai</span></td><td>Rafie Fadhillah Fatroni</td><td>Universiti Utara Malaysia (UUM), Malaysia</td></tr>
-              <tr class="past"><td>2</td><td>5 Juni 2026 <span class="jt-badge-done">Selesai</span></td><td>Dedi Gunawan</td><td>Founder IDN Boarding School (Program Sekolah Internasional)</td></tr>
-              <tr class="next"><td>3</td><td>12 Juni 2026 <span class="jt-badge-next">Terdekat</span></td><td>Ismail Musyafa</td><td>National Dong Hwa University, Taiwan</td></tr>
-              <tr><td>4</td><td>19 Juni 2026</td><td>Kegan Adha Fernando</td><td>Harbin Institute of Technology, China</td></tr>
-              <tr><td>5</td><td>3 Juli 2026</td><td>Muhammad Najwan Latief</td><td>Universitas Islam Madinah, Arab Saudi</td></tr>
-              <tr><td>6</td><td>10 Juli 2026</td><td>Mohammad Yasin Fitrah Filasuf</td><td>Guilin University of Electronic Technology, China</td></tr>
-              <tr><td>7</td><td>17 Juli 2026</td><td>Muhammad Nibras Salsabil</td><td>Guilin University of Electronic Technology, China</td></tr>
-              <tr><td>8</td><td>24 Juli 2026</td><td>M Syafiq Robbani</td><td>Cheng Shiu University, Taiwan</td></tr>
-              <tr><td>9</td><td>31 Juli 2026</td><td>Abdullah Mukhlashin</td><td>Universitas Islam Madinah, Arab Saudi</td></tr>
-              <tr><td>10</td><td>7 Agustus 2026</td><td>Abdul Hadi Nukman Zakin</td><td>Istanbul Sabahattin Zaim University, Turki</td></tr>
-            </tbody>
-          </table>
+        <div class="jt-jadwal-grid">
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇲🇾</div>
+            <h3>Rafie</h3>
+            <p class="jt-jadwal-univ">Universiti Utara Malaysia (UUM), Malaysia</p>
+            <div class="jt-jadwal-date">28 Mei 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🎓</div>
+            <h3>Dedi</h3>
+            <p class="jt-jadwal-univ">Founder IDN Boarding School (Program Sekolah Internasional)</p>
+            <div class="jt-jadwal-date">5 Juni 2026</div>
+          </div>
+          <div class="jt-jadwal-box jt-jadwal-next">
+            <div class="jt-jadwal-icon">🇹🇼</div>
+            <h3>Ismail</h3>
+            <p class="jt-jadwal-univ">National Dong Hwa University, Taiwan</p>
+            <div class="jt-jadwal-date">12 Juni 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇨🇳</div>
+            <h3>Kegan</h3>
+            <p class="jt-jadwal-univ">Harbin Institute of Technology, China</p>
+            <div class="jt-jadwal-date">19 Juni 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇸🇦</div>
+            <h3>Najwan</h3>
+            <p class="jt-jadwal-univ">Universitas Islam Madinah, Arab Saudi</p>
+            <div class="jt-jadwal-date">3 Juli 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇨🇳</div>
+            <h3>Yasin</h3>
+            <p class="jt-jadwal-univ">Guilin University of Electronic Technology, China</p>
+            <div class="jt-jadwal-date">10 Juli 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇨🇳</div>
+            <h3>Nibras</h3>
+            <p class="jt-jadwal-univ">Guilin University of Electronic Technology, China</p>
+            <div class="jt-jadwal-date">17 Juli 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇹🇼</div>
+            <h3>Syafiq</h3>
+            <p class="jt-jadwal-univ">Cheng Shiu University, Taiwan</p>
+            <div class="jt-jadwal-date">24 Juli 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇸🇦</div>
+            <h3>Abdullah</h3>
+            <p class="jt-jadwal-univ">Universitas Islam Madinah, Arab Saudi</p>
+            <div class="jt-jadwal-date">31 Juli 2026</div>
+          </div>
+          <div class="jt-jadwal-box">
+            <div class="jt-jadwal-icon">🇹🇷</div>
+            <h3>Abdul Hadi</h3>
+            <p class="jt-jadwal-univ">Istanbul Sabahattin Zaim University, Turki</p>
+            <div class="jt-jadwal-date">7 Agustus 2026</div>
+          </div>
         </div>
-        <p class="jt-table-note">Jadwal dapat berubah menyesuaikan kesiapan pemateri. Pantau IG <a href="https://instagram.com/jagatrip.id" target="_blank">@jagatrip.id</a> untuk update terbaru.</p>
+        <p class="jt-jadwal-note">Jadwal dapat berubah menyesuaikan kesiapan pemateri. Pantau IG <a href="https://instagram.com/jagatrip.id" target="_blank">@jagatrip.id</a> untuk update terbaru.</p>
       </div>
     </section>
 
@@ -351,7 +396,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-terdekat-row .ico { width:48px; height:48px; border-radius:12px; background:var(--jt-cream); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
   .jt-terdekat-row .lbl { font-size:12px; color:var(--jt-gray); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; display:block; }
   .jt-terdekat-row .val { font-size:18px; font-weight:800; color:var(--jt-charcoal); display:block; }
-  .jt-terdekat-note { font-size:13px; color:var(--jt-gray); font-style:italic; margin-top:4px; }
   .jt-featured-card { background:linear-gradient(135deg,var(--jt-primary),var(--jt-primary-dark)); color:white; border-radius:32px; padding:56px 48px; position:relative; overflow:hidden; }
   .jt-featured-card::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,210,63,0.15),transparent 70%); border-radius:50%; }
   .jt-featured-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; position:relative; z-index:1; margin-top:20px; }
@@ -378,28 +422,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-date-block .num { font-size:38px; line-height:1; margin:4px 0; }
   .jt-date-block .month { font-size:14px; }
 
-  /* JADWAL TABLE */
+  /* JADWAL — ICON BOX GRID */
   .jt-speakers { background:var(--jt-cream); }
-  .jt-table-wrap { overflow-x:auto; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,0.06); -webkit-overflow-scrolling:touch; }
-  .jt-table { width:100%; border-collapse:collapse; background:white; min-width:640px; font-size:15px; }
-  .jt-table thead { background:var(--jt-charcoal); }
-  .jt-table thead th { color:white; text-align:left; padding:16px 20px; font-size:13px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
-  .jt-table tbody td { padding:16px 20px; border-bottom:1px solid #EFEFEF; color:var(--jt-charcoal); vertical-align:middle; }
-  .jt-table tbody td:first-child { font-weight:900; color:var(--jt-primary); width:56px; }
-  .jt-table tbody td:nth-child(3) { font-weight:700; }
-  .jt-table tbody td:nth-child(4) { color:var(--jt-gray); font-size:14px; }
-  .jt-table tbody tr:nth-child(even) { background:var(--jt-cream); }
-  .jt-table tbody tr:hover { background:#E0F2F4; }
-  /* highlight/dim states — must follow zebra rule to win on equal specificity */
-  .jt-table tbody tr.next { background:rgba(255,210,63,0.18); }
-  .jt-table tbody tr.next:hover { background:rgba(255,210,63,0.28); }
-  .jt-table tbody tr.next td:first-child { color:var(--jt-orange); }
-  .jt-table tbody tr.past { opacity:0.55; }
-  .jt-badge-done { display:inline-block; background:#E5E7EB; color:var(--jt-gray); font-size:10px; font-weight:800; letter-spacing:0.5px; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
-  .jt-badge-next { display:inline-block; background:var(--jt-orange); color:white; font-size:10px; font-weight:800; letter-spacing:0.5px; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
-  .jt-table-note { font-size:13px; color:var(--jt-gray); margin-top:16px; }
-  .jt-table-note a { color:var(--jt-primary); font-weight:700; text-decoration:none; }
-  .jt-table-note a:hover { text-decoration:underline; }
+  .jt-jadwal-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; }
+  .jt-jadwal-box { background:white; border-radius:18px; padding:28px 20px; text-align:center; box-shadow:0 8px 24px rgba(0,0,0,0.05); border-top:4px solid var(--jt-primary); display:flex; flex-direction:column; transition:all 0.25s; }
+  .jt-jadwal-box:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.1); }
+  .jt-jadwal-icon { font-size:48px; line-height:1; margin-bottom:14px; }
+  .jt-jadwal-box h3 { font-size:18px; font-weight:900; color:var(--jt-charcoal); margin-bottom:8px; line-height:1.15; }
+  .jt-jadwal-univ { color:var(--jt-gray); font-size:13px; line-height:1.4; margin-bottom:14px; flex-grow:1; }
+  .jt-jadwal-date { font-size:13px; font-weight:800; color:var(--jt-primary); background:var(--jt-cream); padding:8px 12px; border-radius:999px; margin-top:auto; }
+  .jt-jadwal-box.jt-jadwal-next { border-top-color:var(--jt-orange); background:linear-gradient(180deg,rgba(255,210,63,0.14),white 60%); }
+  .jt-jadwal-box.jt-jadwal-next .jt-jadwal-date { background:var(--jt-orange); color:white; }
+  .jt-jadwal-note { font-size:13px; color:var(--jt-gray); margin-top:24px; text-align:center; }
+  .jt-jadwal-note a { color:var(--jt-primary); font-weight:700; text-decoration:none; }
+  .jt-jadwal-note a:hover { text-decoration:underline; }
 
   /* HOW */
   .jt-how { background:white; }
@@ -479,6 +515,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .jt-featured-grid { grid-template-columns:1fr; }
     .jt-featured-card { padding:36px 24px; }
     .jt-terdekat-grid { grid-template-columns:1fr; gap:28px; }
+    .jt-jadwal-grid { grid-template-columns:repeat(3,1fr); }
     .jt-how-grid { grid-template-columns:1fr 1fr; }
     .jt-foot-inner { grid-template-columns:1fr 1fr; gap:28px; }
     .jt-foot-bot { flex-direction:column; gap:14px; }
@@ -491,6 +528,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   @media (max-width:500px) {
     .jt-how-grid { grid-template-columns:1fr; }
+    .jt-jadwal-grid { grid-template-columns:1fr 1fr; }
     .jt-foot-inner { grid-template-columns:1fr; }
   }
 </style>
