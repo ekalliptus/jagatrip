@@ -253,10 +253,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="jt-inner" style="position:relative;z-index:1;text-align:center;">
         <h2 style="color:white;">Webinar berikutnya<br>tinggal hitung hari.</h2>
         <p class="jt-lead" style="color:rgba(255,255,255,0.92);margin:0 auto 32px;">Slot Zoom terbatas tiap minggu. Daftar sekarang, dapet link H-1, dengar langsung dari mahasiswa Indonesia yang sedang kuliah di luar negeri.</p>
-        <div class="jt-final-cta-row">
-          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506576?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20webinar%20JAGATALK" onclick="fbq('track','Lead')">💬 WA Admin 1</a>
-          <a target="_blank" class="jt-btn-wa" href="https://wa.me/6281128506715?text=Halo%20JAGATRIP,%20saya%20mau%20daftar%20webinar%20JAGATALK" onclick="fbq('track','Lead')">💬 WA Admin 2</a>
+
+        <div class="jt-reg-card">
+          <h3>Formulir Pendaftaran</h3>
+          <p class="jt-reg-sub">Lengkapi data di bawah ini. Pendaftaran tercatat otomatis dan kamu langsung diarahkan ke WhatsApp Admin.</p>
+          <form id="reg-form-jagatalk">
+            <div class="jt-form-group">
+              <label for="nama">Nama Lengkap *</label>
+              <input type="text" id="nama" name="nama" required placeholder="Contoh: Budi Santoso" />
+            </div>
+            <div class="jt-form-group">
+              <label for="instansi">Asal Instansi *</label>
+              <input type="text" id="instansi" name="instansi" required placeholder="Contoh: SMA Negeri 1 Jakarta / Universitas Indonesia" />
+            </div>
+            <div class="jt-form-group">
+              <label for="wa">Nomor WhatsApp Aktif *</label>
+              <input type="tel" id="wa" name="wa" required placeholder="Contoh: 08123456789" />
+            </div>
+            <button type="submit" class="jt-btn-submit">Daftar Sekarang <svg class="jt-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
+            <div id="reg-status-jagatalk" class="jt-reg-status hidden"></div>
+          </form>
         </div>
+
         <p style="margin-top:24px;opacity:0.85;font-size:14px;color:white;">Sudah tergabung? Bagikan info ini ke teman yang juga lagi nyari info kuliah LN 🌏</p>
       </div>
     </section>
@@ -492,6 +510,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .jt-btn-wa { background:#25D366; color:white; padding:18px 32px; border-radius:999px; text-decoration:none; font-weight:800; font-size:15px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(37,211,102,0.4); transition:all 0.25s; }
   .jt-btn-wa:hover { transform:translateY(-2px); }
 
+  /* REGISTRATION FORM (final CTA) */
+  .jt-reg-card { background:white; border-radius:24px; padding:40px; max-width:520px; margin:0 auto; box-shadow:0 20px 50px rgba(0,0,0,0.2); text-align:left; }
+  .jt-reg-card h3 { font-size:26px; font-weight:900; color:var(--jt-charcoal); text-align:center; margin-bottom:8px; letter-spacing:-0.5px; }
+  .jt-reg-sub { font-size:14px; color:var(--jt-gray); text-align:center; margin-bottom:28px; line-height:1.5; }
+  .jt-form-group { margin-bottom:18px; }
+  .jt-form-group label { display:block; font-size:12px; font-weight:800; color:var(--jt-charcoal); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:7px; }
+  .jt-form-group input { width:100%; padding:14px 18px; font-family:inherit; font-size:15px; color:var(--jt-charcoal); background:var(--jt-cream); border:2px solid transparent; border-radius:12px; transition:border-color 0.2s, box-shadow 0.2s; }
+  .jt-form-group input:focus { outline:none; border-color:var(--jt-primary); box-shadow:0 0 0 4px rgba(14,124,134,0.12); background:white; }
+  .jt-btn-submit { width:100%; background:var(--jt-orange); color:white; padding:16px; border:none; border-radius:999px; font-family:inherit; font-size:16px; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 8px 24px rgba(255,107,26,0.35); transition:all 0.2s; margin-top:8px; }
+  .jt-btn-submit:hover { background:var(--jt-orange-dark); transform:translateY(-2px); box-shadow:0 12px 32px rgba(255,107,26,0.45); }
+  .jt-btn-submit:disabled { background:var(--jt-gray); cursor:not-allowed; transform:none; box-shadow:none; }
+  .jt-reg-status { margin-top:16px; text-align:center; font-size:14px; font-weight:700; }
+  .jt-reg-status.ok { color:var(--jt-green); }
+  .jt-reg-status.err { color:#DC2626; }
+
   /* FOOTER */
   .jt-footer { background:var(--jt-charcoal); color:white; padding:48px 24px 24px; }
   .jt-foot-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; }
@@ -530,5 +563,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .jt-how-grid { grid-template-columns:1fr; }
     .jt-jadwal-grid { grid-template-columns:1fr 1fr; }
     .jt-foot-inner { grid-template-columns:1fr; }
+    .jt-reg-card { padding:28px 20px; }
   }
+
+  .hidden { display:none !important; }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('reg-form-jagatalk') as HTMLFormElement | null;
+    if (!form) return;
+
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const statusEl = document.getElementById('reg-status-jagatalk');
+    const admins = ['6281128506576', '6281128506715'];
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
+
+    function showStatus(type: 'ok' | 'err', msg: string): void {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = `jt-reg-status ${type}`;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nama = (form.querySelector('#nama') as HTMLInputElement | null)?.value.trim();
+      const instansi = (form.querySelector('#instansi') as HTMLInputElement | null)?.value.trim();
+      const wa = (form.querySelector('#wa') as HTMLInputElement | null)?.value.trim();
+
+      if (!nama || !instansi || !wa) {
+        showStatus('err', 'Semua field wajib diisi.');
+        return;
+      }
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Memproses...';
+      }
+
+      // Load balance between the two WhatsApp admin numbers
+      const selectedAdmin = admins[Math.floor(Math.random() * admins.length)];
+      const greeting = `Hai admin JAGATALK, saya ${nama} dari ${instansi} telah mengisi form pendaftaran webinar JAGATALK. Bagaimana langkah selanjutnya?`;
+      const waUrl = `https://wa.me/${selectedAdmin}?text=${encodeURIComponent(greeting)}`;
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            _sheet: 'LP_Jagatalk',
+            nama,
+            instansi,
+            wa,
+            source: 'JAGATALK Landing Page (/jagatalk)',
+            timestamp: new Date().toISOString(),
+          }),
+        });
+      } catch (err) {
+        console.error('Error logging lead to Google Sheet:', err);
+      }
+
+      const win = window as any;
+      if (win.fbq) {
+        try { win.fbq('track', 'Lead'); } catch (e) { console.error('FB Pixel error:', e); }
+      }
+
+      showStatus('ok', 'Pendaftaran berhasil! Mengalihkan ke WhatsApp...');
+      setTimeout(() => { window.location.href = waUrl; }, 500);
+    });
+  });
+</script>

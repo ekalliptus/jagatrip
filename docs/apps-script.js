@@ -424,7 +424,7 @@ function doGet() {
     .createTextOutput(JSON.stringify({
       status: 'ok',
       service: 'JAGATRIP Registration API',
-      sheets: [SHEET_NAME, REG_SHEET_NAME, 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk02'],
+      sheets: [SHEET_NAME, REG_SHEET_NAME, 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk02', 'LP_Jagatalk'],
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
