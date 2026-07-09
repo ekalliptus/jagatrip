@@ -1,4 +1,5 @@
 import { SITE } from '../data/site';
+import { getUtm } from './utm';
 
 declare global {
   interface Window {
@@ -50,6 +51,7 @@ export function initRegistrationForm(): void {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...payload,
+        ...getUtm(),
         timestamp: new Date().toISOString(),
         source: window.location.href,
       }),

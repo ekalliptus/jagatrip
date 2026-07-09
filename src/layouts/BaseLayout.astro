@@ -85,6 +85,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <slot />
     <script>
       import { initZarazEvents } from '../lib/zaraz-events';
+      import { captureUtm } from '../lib/utm';
+      captureUtm();
       initZarazEvents();
     </script>
   </body>

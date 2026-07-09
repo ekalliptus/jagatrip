@@ -252,6 +252,7 @@ import Footer from '../components/layout/Footer.astro';
 
 <script>
   import { SITE } from '../data/site';
+  import { getUtm } from '../lib/utm';
 
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
 
@@ -277,7 +278,7 @@ import Footer from '../components/layout/Footer.astro';
 
       fetch(APPS_SCRIPT_URL, {
         method: 'POST', mode: 'no-cors',
-        body: JSON.stringify({ _sheet: 'LP1_Nonformal', ...payload, timestamp: new Date().toISOString(), source: window.location.href }),
+        body: JSON.stringify({ _sheet: 'LP1_Nonformal', ...payload, ...getUtm(), timestamp: new Date().toISOString(), source: window.location.href }),
       }).catch(() => {});
 
       if ((window as any).fbq) { (window as any).fbq('track', 'Lead'); }

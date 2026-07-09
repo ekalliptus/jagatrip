@@ -1,4 +1,5 @@
 import { SITE } from '../data/site';
+import { getUtm } from './utm';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
 
@@ -134,6 +135,7 @@ export function initRegisterForm(): void {
         body: JSON.stringify({
           _sheet: 'Registrasi',
           ...payload,
+          ...getUtm(),
           timestamp: new Date().toISOString(),
           source: window.location.href,
         }),

@@ -29,6 +29,32 @@ var COL_WIDTHS = {
   8:150, 9:160, 10:200, 11:100, 12:200, 13:100, 14:250
 };
 
+// ── UTM / click-ID tracking (kolom tambahan di akhir tiap sheet) ──────────
+var UTM_HEADERS = [
+  'utm_source', 'utm_medium', 'utm_campaign',
+  'utm_term', 'utm_content', 'gclid', 'fbclid'
+];
+
+// Nilai UTM berurutan sesuai UTM_HEADERS, untuk di-append ke row.
+function utmValues(data) {
+  return [
+    data.utm_source || '', data.utm_medium || '', data.utm_campaign || '',
+    data.utm_term || '', data.utm_content || '', data.gclid || '', data.fbclid || ''
+  ];
+}
+
+// Auto-heal: pastikan header UTM ada di kolom setelah kolom dasar.
+// baseCols = jumlah kolom non-UTM (sebelum blok UTM). Idempotent.
+function ensureUtmHeaders(sheet, baseCols) {
+  var need = baseCols + UTM_HEADERS.length;
+  var lastCol = sheet.getLastColumn();
+  if (lastCol < need) {
+    sheet.getRange(1, baseCols + 1, 1, UTM_HEADERS.length).setValues([UTM_HEADERS]);
+    sheet.getRange(1, baseCols + 1, 1, UTM_HEADERS.length)
+      .setFontWeight('bold').setFontSize(9).setHorizontalAlignment('center');
+  }
+}
+
 // ═══════════════════════════════════════════════════════════════════════
 // SETUP — Jalankan SEKALI
 // ═══════════════════════════════════════════════════════════════════════
@@ -327,6 +353,9 @@ function handlePendaftaran(ss, data) {
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = ss.getActiveSheet();
 
+  // Auto-heal: tambah header UTM di akhir (setelah kolom dasar HEADERS).
+  ensureUtmHeaders(sheet, HEADERS.length);
+
   var lastRow = sheet.getLastRow();
   var no = lastRow <= 1 ? 1 : lastRow;
 
@@ -337,7 +366,7 @@ function handlePendaftaran(ss, data) {
     data.jabatan || '', data.sekolah || '', data.kota_asal || '',
     data.kota_berangkat || '', data.program || '', data.peserta || '',
     data.catatan || '', 'Baru', data.source || '',
-  ]);
+  ].concat(utmValues(data)));
 
   updateSummary();
 
@@ -352,6 +381,9 @@ function handleRegistrasi(ss, data) {
     setupRegistrasiSheet();
     sheet = ss.getSheetByName(REG_SHEET_NAME);
   }
+
+  // Auto-heal: tambah header UTM di akhir (setelah kolom dasar REG_HEADERS).
+  ensureUtmHeaders(sheet, REG_HEADERS.length);
 
   var lastRow = sheet.getLastRow();
   var no = lastRow <= 1 ? 1 : lastRow;
@@ -373,7 +405,7 @@ function handleRegistrasi(ss, data) {
     linkBukti, data.status_bayar || '',
     data.instansi || '', data.jabatan || '', data.instagram || '', data.motivasi || '',
     'Baru', data.source || '',
-  ]);
+  ].concat(utmValues(data)));
 
   return ContentService
     .createTextOutput(JSON.stringify({ status: 'ok', sheet: REG_SHEET_NAME, row: no }))
@@ -385,10 +417,11 @@ function handleRegistrasi(ss, data) {
 // ═══════════════════════════════════════════════════════════════════════
 
 function handleGenericLead(ss, sheetName, data) {
+  var BASE_HEADERS = ['No', 'Timestamp', 'Nama', 'WhatsApp', 'Email', 'Jabatan', 'Sekolah', 'Kota Asal', 'Catatan', 'Status', 'Source'];
   var sheet = ss.getSheetByName(sheetName);
   if (!sheet) {
     sheet = ss.insertSheet(sheetName);
-    var headers = ['No', 'Timestamp', 'Nama', 'WhatsApp', 'Email', 'Jabatan', 'Sekolah', 'Kota Asal', 'Catatan', 'Status', 'Source'];
+    var headers = BASE_HEADERS.concat(UTM_HEADERS);
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
     sheet.getRange(1, 1, 1, headers.length)
       .setBackground('#0A1F44').setFontColor('#FFFFFF').setFontWeight('bold')
@@ -396,6 +429,9 @@ function handleGenericLead(ss, sheetName, data) {
     sheet.setFrozenRows(1);
     sheet.setRowHeight(1, 36);
   }
+
+  // Auto-heal: sheet lama (dibuat sebelum UTM) → tambah header UTM.
+  ensureUtmHeaders(sheet, BASE_HEADERS.length);
 
   var lastRow = sheet.getLastRow();
   var no = lastRow <= 1 ? 1 : lastRow;
@@ -412,7 +448,7 @@ function handleGenericLead(ss, sheetName, data) {
     data.catatan || '',
     'Baru',
     data.source || '',
-  ]);
+  ].concat(utmValues(data)));
 
   return ContentService
     .createTextOutput(JSON.stringify({ status: 'ok', sheet: sheetName, row: no }))
