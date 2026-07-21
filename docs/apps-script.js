@@ -333,6 +333,11 @@ function doPost(e) {
       return handleRegistrasi(ss, data);
     }
 
+    // ── Route: Landing Page Batch 3 ──
+    if (targetSheet === 'Batch3') {
+      return handleBatch3(ss, data);
+    }
+
     // ── Route: Landing Page leads (LP1_Nonformal, LP2_Promo, LP_Jagatalk02, …) ──
     // Setiap _sheet berawalan "LP" diarahkan ke generic handler (auto-create sheet).
     if (targetSheet.indexOf('LP') === 0) {
@@ -413,6 +418,48 @@ function handleRegistrasi(ss, data) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// BATCH 3 LEAD HANDLER — Malaysia · Thailand · Singapura
+// ═══════════════════════════════════════════════════════════════════════
+
+function handleBatch3(ss, data) {
+  var sheetName = 'Batch3';
+  var BASE_HEADERS = ['No', 'Timestamp', 'Nama Lengkap', 'WhatsApp', 'Instansi', 'Domisili', 'Paket', 'Status', 'Source'];
+  var sheet = ss.getSheetByName(sheetName);
+
+  if (!sheet) {
+    sheet = ss.insertSheet(sheetName);
+    var headers = BASE_HEADERS.concat(UTM_HEADERS);
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setBackground('#E8611F').setFontColor('#FFFFFF').setFontWeight('bold')
+      .setFontSize(10).setHorizontalAlignment('center').setWrap(true);
+    sheet.setFrozenRows(1);
+    sheet.setRowHeight(1, 36);
+  }
+
+  ensureUtmHeaders(sheet, BASE_HEADERS.length);
+
+  var lastRow = sheet.getLastRow();
+  var no = lastRow <= 1 ? 1 : lastRow;
+
+  sheet.appendRow([
+    no,
+    data.timestamp ? new Date(data.timestamp) : new Date(),
+    data.nama || '',
+    data.wa || '',
+    data.instansi || '',
+    data.domisili || '',
+    data.paket || '',
+    'Baru',
+    data.source || '',
+  ].concat(utmValues(data)));
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: 'ok', sheet: sheetName, row: no }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // GENERIC LEAD HANDLER — untuk LP forms (otomatis buat sheet jika belum ada)
 // ═══════════════════════════════════════════════════════════════════════
 
@@ -460,7 +507,7 @@ function doGet() {
     .createTextOutput(JSON.stringify({
       status: 'ok',
       service: 'JAGATRIP Registration API',
-      sheets: [SHEET_NAME, REG_SHEET_NAME, 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk02', 'LP_Jagatalk'],
+      sheets: [SHEET_NAME, REG_SHEET_NAME, 'Batch3', 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk02', 'LP_Jagatalk'],
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
