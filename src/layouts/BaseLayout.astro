@@ -85,9 +85,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <slot />
     <script>
       import { initZarazEvents } from '../lib/zaraz-events';
+      import { initRevealMotion } from '../lib/reveal';
       import { captureUtm } from '../lib/utm';
       captureUtm();
       initZarazEvents();
+      initRevealMotion();
     </script>
   </body>
 </html>

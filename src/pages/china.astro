@@ -9,7 +9,7 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero" data-reveal="hero">
       <div class="hero-copy">
         <p class="kicker"><span></span> JAGATRIP #2 · EDUCATION MISSION</p>
         <h1>Belajar dari <em>kelas dunia,</em> bukan sekadar melihatnya.</h1>
@@ -25,32 +25,32 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
       </aside>
     </section>
 
-    <section class="proof" aria-label="Fakta program">{p.facts.map(([number,label]) => <div><strong>{number}</strong><span>{label}</span></div>)}</section>
+    <section class="proof" aria-label="Fakta program" data-reveal="section">{p.facts.map(([number,label]) => <div><strong>{number}</strong><span>{label}</span></div>)}</section>
 
-    <section class="section intro" id="program">
+    <section class="section intro" id="program" data-reveal="section">
       <div class="section-head"><p class="kicker dark"><span></span> MENGAPA PROGRAM INI</p><h2>Akses yang tidak selesai di pintu pameran.</h2><p>Program disusun untuk pemimpin pendidikan yang ingin melihat kebijakan, teknologi, dan praktik langsung dalam satu perjalanan.</p></div>
       <div class="reasons">{p.differentiators.map(([title,body],i) => <article><span>0{i+1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
     </section>
 
-    <section class="section journey">
+    <section class="section journey" data-reveal="section">
       <div class="section-head light"><p class="kicker"><span></span> RUTE MISI</p><h2>Dua kota. Dua sudut pandang.</h2></div>
-      <div class="city-grid">{p.cities.map((city,i) => <article class:list={{ city:true, hangzhou:i===1 }}><div class="city-meta"><span>{city.code}</span><small>{city.date}</small></div><p class="cn" aria-hidden="true">{city.cn}</p><h3>{city.name}</h3><p class="city-note">{city.note}</p><ul>{city.items.map(item => <li>{item}</li>)}</ul></article>)}</div>
+      <div class="city-grid" data-reveal-group>{p.cities.map((city,i) => <article class:list={{ city:true, hangzhou:i===1 }}><div class="city-meta"><span>{city.code}</span><small>{city.date}</small></div><p class="cn" aria-hidden="true">{city.cn}</p><h3>{city.name}</h3><p class="city-note">{city.note}</p><ul>{city.items.map(item => <li>{item}</li>)}</ul></article>)}</div>
       <div class="train"><span>BEIJING</span><i></i><b>KERETA CEPAT · ±4,5 JAM</b><i></i><span>HANGZHOU</span></div>
     </section>
 
-    <section class="section outcomes">
+    <section class="section outcomes" data-reveal="section">
       <div class="section-head"><p class="kicker dark"><span></span> YANG DIBAWA PULANG</p><h2>Fasilitas terukur. Dampak yang bertumbuh.</h2></div>
-      <div class="outcome-grid"><article><header><span>A</span><div><small>FASILITAS</small><h3>Yang Anda terima</h3></div></header><ul>{p.physicalBenefits.map(x => <li>{x}</li>)}</ul></article><article class="impact"><header><span>B</span><div><small>PROFESIONAL</small><h3>Yang Anda bawa</h3></div></header><ul>{p.professionalBenefits.map(x => <li>{x}</li>)}</ul></article></div>
+      <div class="outcome-grid" data-reveal-group><article><header><span>A</span><div><small>FASILITAS</small><h3>Yang Anda terima</h3></div></header><ul>{p.physicalBenefits.map(x => <li>{x}</li>)}</ul></article><article class="impact"><header><span>B</span><div><small>PROFESIONAL</small><h3>Yang Anda bawa</h3></div></header><ul>{p.professionalBenefits.map(x => <li>{x}</li>)}</ul></article></div>
     </section>
 
-    <section class="section packages">
+    <section class="section packages" data-reveal="section">
       <div class="section-head light"><p class="kicker"><span></span> OPSI KEBERANGKATAN</p><h2>Pilih cara berangkatnya. Pengalamannya tetap utuh.</h2></div>
-      <div class="package-grid">{p.packages.map(([name,body],i) => <article><span>{i===0?'ALL-IN':'FLEXIBLE'}</span><h3>{name}</h3><p>{body}</p><a href="#form">Minta rincian biaya →</a></article>)}</div>
+      <div class="package-grid" data-reveal-group>{p.packages.map(([name,body],i) => <article><span>{i===0?'ALL-IN':'FLEXIBLE'}</span><h3>{name}</h3><p>{body}</p><a href="#form">Minta rincian biaya →</a></article>)}</div>
     </section>
 
-    <section class="section faq"><div class="section-head"><p class="kicker dark"><span></span> FAQ</p><h2>Sebelum Anda berangkat.</h2></div><div class="faq-list">{p.faqs.map(([q,a]) => <details><summary>{q}<span></span></summary><p>{a}</p></details>)}</div></section>
+    <section class="section faq" data-reveal="section"><div class="section-head"><p class="kicker dark"><span></span> FAQ</p><h2>Sebelum Anda berangkat.</h2></div><div class="faq-list">{p.faqs.map(([q,a]) => <details><summary>{q}<span></span></summary><p>{a}</p></details>)}</div></section>
 
-    <section class="form-section" id="form">
+    <section class="form-section" id="form" data-reveal="section">
       <div class="form-copy"><p class="kicker"><span></span> PENDAFTARAN MINAT</p><h2>Satu langkah menuju ruang kelas berikutnya.</h2><p>Isi data singkat. Setelah dikirim, WhatsApp terbuka dengan pesan yang sudah disiapkan untuk admin.</p><div class="quota"><strong>{p.quota}</strong><span>kursi<br/>delegasi</span></div></div>
       <form class="lead-form" data-china-form><label>Nama lengkap<input name="nama" required minlength="3" autocomplete="name" placeholder="Nama lengkap Anda"></label><label>Asal lembaga / domisili<input name="asal" required minlength="2" autocomplete="organization" placeholder="Lembaga atau kota"></label><label>Nomor WhatsApp<input name="whatsapp" type="tel" required pattern="[0-9+() -]{8,20}" inputmode="tel" autocomplete="tel" placeholder="0812 3456 7890"></label><button>Kirim & buka WhatsApp</button><small>Data Anda hanya diteruskan melalui pesan WhatsApp yang Anda kirim.</small></form>
     </section>

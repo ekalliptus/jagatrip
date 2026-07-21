@@ -40,7 +40,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
   <main id="main">
 
     <!-- HERO -->
-    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden bg-jaga-bg">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden bg-jaga-bg" data-reveal="hero">
       <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
         <span class="inline-block py-2 px-5 rounded-full bg-jaga-orange/10 text-jaga-orange font-bold text-sm mb-6 tracking-widest uppercase shadow-sm">
           📝 Registrasi Ulang
@@ -56,7 +56,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
     </section>
 
     <!-- FORM -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-12 md:py-20 bg-white" data-reveal="section">
       <div class="max-w-3xl mx-auto px-6">
         <form id="register-form" novalidate class="space-y-10">
 
@@ -71,7 +71,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
                 <label for="r-nama" class={lc}>Nama Lengkap (+gelar jika ada) *</label>
                 <input id="r-nama" name="nama_lengkap" type="text" required placeholder="cth: Ahmad Fathullah, S.Pd." class={ic} />
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-panggilan" class={lc}>Nama Panggilan *</label>
                   <input id="r-panggilan" name="nama_panggilan" type="text" required placeholder="cth: Ahmad" class={ic} />
@@ -99,7 +99,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
               Dokumen
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-paspor-no" class={lc}>Nomor Paspor *</label>
                   <input id="r-paspor-no" name="no_paspor" type="text" required placeholder="A1234567" class={ic} />
@@ -109,7 +109,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
                   <input id="r-paspor-exp" name="expired_paspor" type="date" required class={ic} />
                 </div>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-file-paspor" class={lc}>Upload Paspor (foto/scan) *</label>
                   <input id="r-file-paspor" name="file_paspor" type="file" accept="image/*,.pdf" required class={fc} />
@@ -130,7 +130,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
               Keberangkatan
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-kota-asal" class={lc}>Kota Asal *</label>
                   <input id="r-kota-asal" name="kota_asal" type="text" required placeholder="cth: Semarang" class={ic} />
@@ -171,7 +171,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
               Operasional
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-kaos" class={lc}>Ukuran Kaos *</label>
                   <select id="r-kaos" name="ukuran_kaos" required class={ic}>
@@ -226,7 +226,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
               Profil
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-reveal-group>
                 <div>
                   <label for="r-instansi" class={lc}>Instansi / Sekolah Asal *</label>
                   <input id="r-instansi" name="instansi" type="text" required placeholder="cth: SMA Negeri 1 Semarang" class={ic} />

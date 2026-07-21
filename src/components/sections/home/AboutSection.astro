@@ -8,7 +8,7 @@ const bullets = [
 ];
 ---
 
-<section class="py-24 bg-jaga-bg border-t border-gray-200">
+<section class="py-24 bg-jaga-bg border-t border-gray-200" data-reveal="section">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-10 tracking-tight">Apa Itu JAGATRIP?</h2>
 
@@ -27,7 +27,7 @@ const bullets = [
 
     <p class="text-xl text-gray-800 font-bold mb-8">JAGATRIP menggabungkan:</p>
 
-    <div class="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto" data-reveal-group>
       {bullets.map((item, i) => (
         <div class={`flex items-start bg-white p-5 rounded-2xl border border-gray-100 shadow-sm${i === bullets.length - 1 ? ' md:col-span-2 md:mx-auto md:w-1/2' : ''}`}>
           <span class="text-jaga-orange font-black text-xl mr-4 shrink-0">✓</span>

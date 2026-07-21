@@ -43,7 +43,7 @@ const audiences = [
 ];
 ---
 
-<section class="py-24 bg-white border-t border-gray-200">
+<section class="py-24 bg-white border-t border-gray-200" data-reveal="section">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
@@ -51,7 +51,7 @@ const audiences = [
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" data-reveal-group>
       {audiences.map((item) => (
         <div class="bg-jaga-bg border border-gray-100 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
           <div class="text-4xl mb-4">{item.icon}</div>

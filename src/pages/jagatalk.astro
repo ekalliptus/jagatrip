@@ -44,7 +44,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </nav>
 
     <!-- HERO -->
-    <section class="jt-hero">
+    <section class="jt-hero" data-reveal="hero">
       <div class="jt-hero-inner">
         <div>
           <div class="jt-hero-tag"><span class="jt-dot"></span> WEBINAR GRATIS · SETIAP MINGGU</div>
@@ -71,7 +71,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- STATS -->
-    <section class="jt-stats">
+    <section class="jt-stats" data-reveal="section">
       <div class="jt-stats-inner">
         <div><span class="sn">10+</span><span class="sl">Negara Tujuan Pembahasan</span></div>
         <div><span class="sn">30+</span><span class="sl">Narasumber</span></div>
@@ -81,12 +81,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ABOUT -->
-    <section class="jt-section" id="about">
+    <section class="jt-section" id="about" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow">APA ITU JAGATALK</span>
         <h2>Bukan webinar generic.<br>Ini ngobrol nyata sama yang sudah di sana.</h2>
         <p class="jt-lead">Lupain webinar dengan slide PPT 100 halaman dan motivator yang belum pernah ke luar negeri. JAGATALK menghadirkan suara nyata — dari mahasiswa, alumni, dan praktisi yang sedang atau pernah hidup di negeri tujuan.</p>
-        <div class="jt-about-grid">
+        <div class="jt-about-grid" data-reveal-group>
           <div class="jt-about-card"><div class="jt-about-icon">🎙️</div><h3>Real Voices</h3><p>Narasumber utama adalah mahasiswa & alumni Indonesia yang sedang menjalani kuliah di luar negeri. Cerita yang kamu dengar = pengalaman langsung, bukan teori.</p></div>
           <div class="jt-about-card"><div class="jt-about-icon jt-ai-orange">🌏</div><h3>10+ Negara Tujuan</h3><p>Setiap minggu bahas 1 negara/topik berbeda: Malaysia, Taiwan, China, Arab Saudi, Turki, boarding school internasional, dan lainnya.</p></div>
           <div class="jt-about-card"><div class="jt-about-icon jt-ai-yellow">🎫</div><h3>Gratis, Konsisten, Bernilai</h3><p>Setiap Jumat malam, free, online via Zoom. Konten berkualitas tanpa biaya — karena tujuan kami memperluas akses informasi pendidikan.</p></div>
@@ -95,11 +95,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- JADWAL TERDEKAT -->
-    <section class="jt-section jt-featured" id="daftar">
+    <section class="jt-section jt-featured" id="daftar" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow" style="text-align:center;display:block;">JADWAL TERDEKAT</span>
         <h2 style="text-align:center;">Webinar minggu ini.</h2>
-        <div class="jt-terdekat-grid">
+        <div class="jt-terdekat-grid" data-reveal-group>
           <img src="/jagatalk-webinar-6.webp" alt="Poster JAGATALK Webinar #6 — Dari Networking ke AI, Muhammad Nibras Salsabil, Guilin University of Electronic Technology (China)" class="jt-terdekat-flyer" />
           <div class="jt-terdekat-info">
             <div class="jt-terdekat-row"><span class="ico">🎯</span><div><span class="lbl">Topik</span><span class="val">Dari Networking ke AI: Menyiapkan Talenta Digital Masa Depan</span></div></div>
@@ -114,12 +114,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- JADWAL WEBINAR JAGATALK -->
-    <section class="jt-section jt-speakers" id="jadwal">
+    <section class="jt-section jt-speakers" id="jadwal" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow">JADWAL WEBINAR JAGATALK</span>
         <h2>Ngobrol langsung dengan yang udah ngalamin.</h2>
         <p class="jt-lead">Mereka bukan motivator. Mereka mahasiswa Indonesia yang sedang menjalani kuliah di luar negeri — dan siap cerita jujur. Catat tanggalnya, amankan kursimu.</p>
-        <div class="jt-jadwal-grid">
+        <div class="jt-jadwal-grid" data-reveal-group>
           <div class="jt-jadwal-box">
             <div class="jt-jadwal-icon">👨‍🎓</div>
             <h3>Kak Rafie</h3>
@@ -186,12 +186,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="jt-section jt-how">
+    <section class="jt-section jt-how" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow">CARA DAFTAR</span>
         <h2>5 langkah simple. Beneran gratis.</h2>
         <p class="jt-lead">Webinar ini gratis, tapi ada syarat kecil: bantu sebarkan info ke grup/komunitas/sosmed kamu. Karena pendidikan internasional bukan milik segelintir orang saja.</p>
-        <div class="jt-how-grid">
+        <div class="jt-how-grid" data-reveal-group>
           <div class="jt-how-step"><div class="jt-how-num">1</div><h4>Hubungi WA Admin</h4><p>Klik tombol daftar, lalu chat admin via WhatsApp untuk memulai pendaftaran.</p></div>
           <div class="jt-how-step"><div class="jt-how-num n2">2</div><h4>Share Info Webinar</h4><p>Sebarkan info webinar ke grup, komunitas, atau sosial media kamu untuk bantu menyebarkan akses pendidikan.</p></div>
           <div class="jt-how-step"><div class="jt-how-num n3">3</div><h4>Isi Google Form</h4><p>Lengkapi data dasar (nama, WA, status) di Google Form pendaftaran.</p></div>
@@ -209,11 +209,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- WHY -->
-    <section class="jt-section jt-why">
+    <section class="jt-section jt-why" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow">KENAPA HARUS IKUT</span>
         <h2>Bukan Sesi Dengar Pasif. Ini yang Akan Kamu Bawa Pulang Setelah 120 Menit:</h2>
-        <div class="jt-why-grid">
+        <div class="jt-why-grid" data-reveal-group>
           <div class="jt-why-card"><div class="jt-num-big">01</div><h4>Angka Jujur & Data Riil</h4><p>Bocoran biaya hidup asli, skema beasiswa tersembunyi, timeline pendaftaran, hingga kelengkapan dokumen tanpa ada yang ditutup-tutupi.</p></div>
           <div class="jt-why-card"><div class="jt-num-big">02</div><h4>Koneksi Circle Internasional</h4><p>Jangan cuma nonton. Kamu bisa berjejaring dengan pembicara dan sesama peserta yang punya mimpi besar yang sama. Banyak yang berlanjut konsultasi via DM!</p></div>
           <div class="jt-why-card"><div class="jt-num-big">03</div><h4>Mimbar Tanya Jawab Bebas</h4><p>Alokasi waktu 20-30 menit khusus untuk bertanya apa saja. Dari hal teknis perkuliahan sampai masalah personal/kegalauanmu.</p></div>
@@ -225,7 +225,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- TRUST -->
-    <section class="jt-section jt-trust">
+    <section class="jt-section jt-trust" data-reveal="section">
       <div class="jt-trust-inner">
         <div class="jt-trust-logo"><svg><use href="#jagatrip-logo"></use></svg></div>
         <span class="jt-eyebrow" style="color:var(--jt-yellow);">BACKED BY JAGATRIP</span>
@@ -234,7 +234,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- FAQ -->
-    <section class="jt-section jt-faq">
+    <section class="jt-section jt-faq" data-reveal="section">
       <div class="jt-inner">
         <span class="jt-eyebrow" style="text-align:center;display:block;">PERTANYAAN UMUM</span>
         <h2 style="text-align:center;">Yang sering ditanyakan.</h2>
@@ -250,7 +250,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- FINAL CTA -->
-    <section class="jt-section jt-final-cta" id="final-cta">
+    <section class="jt-section jt-final-cta" id="final-cta" data-reveal="section">
       <div class="jt-inner" style="position:relative;z-index:1;text-align:center;">
         <h2 style="color:white;">Webinar berikutnya<br>tinggal hitung hari.</h2>
         <p class="jt-lead" style="color:rgba(255,255,255,0.92);margin:0 auto 32px;">Slot Zoom terbatas tiap minggu. Daftar sekarang, dapet link H-1, dengar langsung dari mahasiswa Indonesia yang sedang kuliah di luar negeri.</p>

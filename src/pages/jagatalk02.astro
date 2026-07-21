@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="hero" data-reveal="hero">
       <svg class="hero-decor tr" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <circle cx="200" cy="200" r="180" fill="none" stroke="#FF6B1A" stroke-width="2"/>
         <circle cx="200" cy="200" r="120" fill="none" stroke="#FF6B1A" stroke-width="2"/>
@@ -63,7 +63,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== PAIN POINT ===== -->
-    <section class="section pain">
+    <section class="section pain" data-reveal="section">
       <div class="container">
         <h2>Banyak sekolah punya potensi besar, tapi mentok di hal yang sama.</h2>
         <p class="lead">Inilah pola yang berulang di hampir setiap sekolah Indonesia yang ingin berkembang ke kelas internasional:</p>
@@ -84,13 +84,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== STRATEGY ===== -->
-    <section class="section strategy">
+    <section class="section strategy" data-reveal="section">
       <div class="container">
         <div class="section-tag">Yang Akan Dibahas</div>
         <h2>Strategi Praktis yang Sudah Dijalankan &amp; Bisa Diadopsi.</h2>
         <p class="lead">Bukan teori akademis. Bukan motivasi kosong. Strategi konkret dari sekolah yang sudah membuktikan hasilnya.</p>
 
-        <div class="strategy-grid">
+        <div class="strategy-grid" data-reveal-group>
           <div class="strategy-card">
             <div class="strategy-num">STRATEGI 01</div>
             <h3 class="strategy-title">Kerjasama &amp; Kolaborasi dengan Sekolah Luar Negeri</h3>
@@ -125,7 +125,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== SPEAKER ===== -->
-    <section class="section speaker">
+    <section class="section speaker" data-reveal="section">
       <div class="container">
         <h2>Praktisi, bukan teoretisi.</h2>
 
@@ -162,12 +162,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== AUDIENCE ===== -->
-    <section class="section audience">
+    <section class="section audience" data-reveal="section">
       <div class="container">
         <div class="section-tag">Khusus Untuk</div>
         <h2>Praktisi pendidikan yang serius mau naikkan kelas sekolahnya.</h2>
 
-        <div class="audience-grid">
+        <div class="audience-grid" data-reveal-group>
           <div class="audience-card">
             <div class="icon">
               <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -216,7 +216,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
     <!-- ===== PRICING / CTA ===== -->
-    <section class="section pricing">
+    <section class="section pricing" data-reveal="section">
       <div class="container">
         <div class="pricing-card-wrapper" style="max-width: 500px; margin: 0 auto 30px;">
           <img src="/jagatalk02-2.webp" alt="Flyer Poster JAGATALK Episode 02 Halaman 2" class="pricing-flyer-img" />
@@ -234,7 +234,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== REGISTRATION FORM ===== -->
-    <section class="section registration" id="daftar">
+    <section class="section registration" id="daftar" data-reveal="section">
       <div class="container">
         <div class="reg-card">
           <div class="section-tag" style="margin-bottom: 12px; justify-content: center; display: inline-flex; width: 100%;">Pendaftaran</div>
@@ -268,7 +268,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section class="section faq">
+    <section class="section faq" data-reveal="section">
       <div class="container">
         <div class="section-tag">Pertanyaan Umum</div>
         <h2>Yang sering ditanyakan calon peserta.</h2>

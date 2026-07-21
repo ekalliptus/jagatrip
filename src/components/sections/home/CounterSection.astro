@@ -6,9 +6,9 @@ const counters = [
 ];
 ---
 
-<section class="py-12 md:py-16 bg-white border-t border-gray-100">
+<section class="py-12 md:py-16 bg-white border-t border-gray-100" data-reveal="section">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="grid grid-cols-3 gap-4 md:gap-8">
+    <div class="grid grid-cols-3 gap-4 md:gap-8" data-reveal-group>
       {counters.map((c) => (
         <div class="text-center">
           <p class="text-5xl md:text-7xl font-black text-jaga-orange tracking-tight leading-none">{c.value}</p>
