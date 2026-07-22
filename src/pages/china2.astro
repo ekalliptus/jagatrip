@@ -4,7 +4,7 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
 ---
 <BaseLayout title={`JAGATRIP #2 — ${p.title}`} description={`Program studi banding pendidikan ke Beijing dan Hangzhou, ${p.date}. Dua expo, kunjungan sekolah, kuota ${p.quota} peserta.`} canonical="https://jagatrip.com/china2" ogType="website" extraSchemas={[chinaEventSchema]}>
   <header class="nav">
-    <a href="/" aria-label="JAGATRIP"><img src="/images/china/jagatrip-logo.png" width="2094" height="570" alt="JAGATRIP Mitra Edukasi"></a>
+    <a href="/" aria-label="JAGATRIP"><img src="/images/logo-horizontal.webp" width="2188" height="460" alt="JAGATRIP Mitra Edukasi"></a>
     <a class="nav-cta" href="#form">Daftar minat</a>
   </header>
 
@@ -18,7 +18,7 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
         <p class="micro">Tidak mengikat pembayaran · Kuota hanya {p.quota} peserta</p>
       </div>
       <aside class="pass" aria-label="Ringkasan perjalanan">
-        <div class="pass-top"><span>MISSION PASS / 02</span><img src="/images/china/jagatrip-mark.png" width="702" height="764" alt=""></div>
+        <div class="pass-top"><span>MISSION PASS / 02</span><img src="/images/logo-icon.webp" width="702" height="764" alt=""></div>
         <div class="route"><div><small>FROM</small><strong>BJS</strong><span>Beijing</span></div><div class="rail"><i></i><b>4.5H</b></div><div><small>TO</small><strong>HGH</strong><span>Hangzhou</span></div></div>
         <div class="pass-cut"></div>
         <dl><div><dt>Tanggal</dt><dd>{p.date}</dd></div><div><dt>Status</dt><dd><span class="live"></span> Pendaftaran minat</dd></div><div><dt>Agenda</dt><dd>2 expo · 3–6 sekolah</dd></div><div><dt>Kapasitas</dt><dd>{p.quota} delegasi</dd></div></dl>
@@ -55,15 +55,21 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
       <form class="lead-form" data-china-form><label>Nama lengkap<input name="nama" required minlength="3" autocomplete="name" placeholder="Nama lengkap Anda"></label><label>Asal lembaga / domisili<input name="asal" required minlength="2" autocomplete="organization" placeholder="Lembaga atau kota"></label><label>Nomor WhatsApp<input name="whatsapp" type="tel" required pattern="[0-9+() -]{8,20}" inputmode="tel" autocomplete="tel" placeholder="0812 3456 7890"></label><button>Kirim & buka WhatsApp</button><small>Data Anda hanya diteruskan melalui pesan WhatsApp yang Anda kirim.</small></form>
     </section>
   </main>
-  <footer><img src="/images/china/jagatrip-logo.png" width="2094" height="570" alt="JAGATRIP Mitra Edukasi"><p>© 2026 PT Jagatrip Mitra Edukasi</p><div><a href="/privacy">Privasi</a><a href="/terms">Syarat & Ketentuan</a></div></footer>
+  <footer><img src="/images/logo-horizontal.webp" width="2188" height="460" alt="JAGATRIP Mitra Edukasi"><p>© 2026 PT Jagatrip Mitra Edukasi</p><div><a href="/privacy">Privasi</a><a href="/terms">Syarat & Ketentuan</a></div></footer>
 
   <script>
+    import { getUtm } from '../lib/utm';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
     document.querySelector<HTMLFormElement>('[data-china-form]')?.addEventListener('submit', event => {
       event.preventDefault(); const form=event.currentTarget; if(!form.reportValidity()) return;
       const data=new FormData(form), nama=String(data.get('nama')).trim(), asal=String(data.get('asal')).trim(), whatsapp=String(data.get('whatsapp')).trim();
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors',
+        body: JSON.stringify({ _sheet: 'China2', nama, asal, wa: whatsapp, ...getUtm(), timestamp: new Date().toISOString(), source: window.location.href }),
+      }).catch(() => {});
       const message=`Halo Admin, saya ${nama} dari ${asal} tertarik ikut Jagatrip ke China dan sudah mengisi form. Nomor WhatsApp saya ${whatsapp}. Bagaimana selanjutnya?`;
       const cs=['628139190363','6281128506576'], nomor=cs[Math.floor(Math.random()*cs.length)];
-      location.href=`https://wa.me/${nomor}?text=${encodeURIComponent(message)}`;
+      setTimeout(() => { location.href=`https://wa.me/${nomor}?text=${encodeURIComponent(message)}`; }, 300);
     });
   </script>
 </BaseLayout>
