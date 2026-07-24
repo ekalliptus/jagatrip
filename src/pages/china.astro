@@ -47,6 +47,7 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
       event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;
       const d=new FormData(form),nama=String(d.get('nama')).trim(),asal=String(d.get('asal')).trim(),wa=String(d.get('whatsapp')).trim();
       fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({_sheet:'China',nama,asal,wa,...getUtm(),timestamp:new Date().toISOString(),source:window.location.href})}).catch(()=>{});
+      if(typeof (window as any).fbq==='function')(window as any).fbq('track','Lead',{content_name:'China'});
       const message=`Halo Admin, saya ${nama} dari ${asal} tertarik ikut Jagatrip ke China dan sudah mengisi form. Nomor WhatsApp saya ${wa}. Bagaimana selanjutnya?`;
       const cs=['628139190363','6281128506576'],nomor=cs[Math.floor(Math.random()*cs.length)];
       setTimeout(()=>{location.href=`https://wa.me/${nomor}?text=${encodeURIComponent(message)}`;},300);
