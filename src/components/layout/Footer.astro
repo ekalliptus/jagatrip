@@ -54,8 +54,9 @@ const trips = (await getCollection('trips'))
         <p class="text-white font-bold text-base mb-5" role="heading" aria-level="2">Program 2026</h4>
         <ul class="space-y-3">
           {trips.map((trip) => {
-            const isRedirected = trip.slug === 'malaysia-thailand';
-            const href = isRedirected ? '/' : `/${trip.slug}`;
+            const slug = trip.data.slug ?? trip.slug;
+            const isRedirected = slug === 'malaysia-thailand';
+            const href = isRedirected ? '/' : `/${slug}`;
             return (
               <li>
                 <a href={href} class="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors">
