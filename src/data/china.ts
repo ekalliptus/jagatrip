@@ -13,7 +13,7 @@ export const chinaProgram = {
     ['Akses ke ruang kelas', 'Dialog langsung dengan manajemen sekolah, didampingi penerjemah dan agenda kunjungan resmi.'],
     ['Datang sebagai delegasi', 'Setiap pertemuan dirancang untuk membuka percakapan profesional dan peluang kerja sama lanjutan.'],
   ],
-  physicalBenefits: ['Hotel 4★ di dua kota', 'Kereta cepat Beijing–Hangzhou', 'Transportasi program', 'Konsumsi halal', 'Pengurusan visa', 'Asuransi perjalanan', 'Sertifikat dan dokumentasi'],
+  physicalBenefits: ['Hotel bintang 3 di dua kota', 'Kereta cepat Beijing–Hangzhou', 'Transportasi program', 'Konsumsi halal', 'Pengurusan visa', 'Asuransi perjalanan', 'Sertifikat dan dokumentasi'],
   professionalBenefits: ['Delegasi CIFTIS & Worlddidac', 'Kunjungan 3 sekolah', 'Business matching', 'Networking internasional', 'Referensi EdTech Asia', 'Wawasan kebijakan pendidikan', 'Jaringan pascaprogram'],
   cities: [
     { code: 'BJS', name: 'Beijing', cn: '北京', date: '12–15 September', note: 'Kebijakan & skala', items: ['CIFTIS 2026', 'Kunjungan sekolah Beijing', 'Forum kebijakan & business matching'] },
@@ -35,6 +35,7 @@ export const chinaProgram = {
   packages: [
     {
       name: 'Paket Land Tour',
+      price: 'Rp 28.500.000',
       tagline: 'Fasilitas program lengkap, tanpa tiket pesawat & visa.',
       facilities: [
         ['Makan 3x sehari', true],
@@ -50,6 +51,7 @@ export const chinaProgram = {
     },
     {
       name: 'Paket All In',
+      price: 'Rp 35.000.000',
       tagline: 'Seluruh fasilitas termasuk tiket pesawat & visa.',
       facilities: [
         ['Makan 3x sehari', true],
