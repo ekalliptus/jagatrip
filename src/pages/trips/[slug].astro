@@ -17,6 +17,12 @@ export async function getStaticPaths() {
 }
 
 const { trip } = Astro.props;
+
+// Program Malaysia-Thailand sudah berakhir → redirect ke homepage
+if (trip.data.slug === 'malaysia-thailand') {
+  return Astro.redirect('/', 301);
+}
+
 const { data } = trip;
 
 // Date formatting

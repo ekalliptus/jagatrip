@@ -31,8 +31,8 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
 ---
 
 <BaseLayout
-  title="Formulir Registrasi Ulang — JAGATRIP Malaysia-Thailand Juni 2026"
-  description="Form registrasi ulang peserta JAGATRIP Malaysia-Thailand 24-28 Juni 2026. Lengkapi data identitas, dokumen, dan keberangkatan."
+  title="Formulir Registrasi — JAGATRIP #2 China (12–18 September 2026)"
+  description="Form registrasi peserta JAGATRIP #2 China, Beijing & Hangzhou 12-18 September 2026. Lengkapi data identitas, dokumen, dan keberangkatan."
   extraSchemas={extraSchemas}
 >
   <Nav />
@@ -49,7 +49,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
           Formulir Registrasi Peserta
         </h1>
         <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-          Konfirmasi keikutsertaan Anda di <strong class="text-gray-900">JAGATRIP Malaysia-Thailand</strong>, 24–28 Juni 2026.
+          Konfirmasi keikutsertaan Anda di <strong class="text-gray-900">JAGATRIP #2 China</strong>, 12–18 September 2026 (Beijing & Hangzhou).
           Lengkapi semua data berikut untuk finalisasi pendaftaran.
         </p>
       </div>
@@ -123,10 +123,46 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
             </div>
           </fieldset>
 
+          <!-- ═══ VISA ═══ -->
+          <fieldset>
+            <legend class="text-lg font-black text-gray-900 mb-2 flex items-center gap-2">
+              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">3</span>
+              Persyaratan Visa China
+            </legend>
+            <p class="text-sm text-gray-500 mb-4 leading-relaxed">Siapkan & unggah dokumen berikut untuk pengurusan visa Tiongkok. Pengajuan visa minimal H-30 hari sebelum keberangkatan.</p>
+            <div class="space-y-4 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
+              <ol class="space-y-3 text-sm text-gray-600 list-decimal pl-5">
+                <li><strong class="text-gray-900">Pas Foto</strong> — Ukuran 33 mm × 48 mm berlatar belakang putih, tidak pakai baju putih, dahi dan telinga harus terlihat jelas.</li>
+                <li><strong class="text-gray-900">Identitas Diri</strong> — Fotokopi KTP dan Kartu Keluarga (KK).</li>
+                <li><strong class="text-gray-900">Rencana Perjalanan</strong> — Cetak tiket pesawat pulang-pergi, bukti reservasi hotel, serta rincian kegiatan (itinerary) selama di China.</li>
+                <li><strong class="text-gray-900">Dokumen Keuangan</strong> — Bukti saldo rekening tabungan yang mencukupi (umumnya disarankan minimal Rp30–50 juta).</li>
+              </ol>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-gray-200" data-reveal-group>
+                <div>
+                  <label for="r-file-foto" class={lc}>Upload Pas Foto Visa *</label>
+                  <input id="r-file-foto" name="file_pas_foto_visa" type="file" accept="image/*" required class={fc} />
+                </div>
+                <div>
+                  <label for="r-file-kk" class={lc}>Upload KTP & KK *</label>
+                  <input id="r-file-kk" name="file_ktp_kk" type="file" accept="image/*,.pdf" required class={fc} />
+                </div>
+                <div>
+                  <label for="r-file-itinerary" class={lc}>Upload Itinerary / Hotel *</label>
+                  <input id="r-file-itinerary" name="file_itinerary_visa" type="file" accept="image/*,.pdf" required class={fc} />
+                </div>
+                <div>
+                  <label for="r-file-saldo" class={lc}>Upload Bukti Saldo *</label>
+                  <input id="r-file-saldo" name="file_saldo_rekening" type="file" accept="image/*,.pdf" required class={fc} />
+                </div>
+              </div>
+              <p class="text-xs text-gray-400">Format: JPG, PNG, atau PDF. Maksimal 5MB per file.</p>
+            </div>
+          </fieldset>
+
           <!-- ═══ KEBERANGKATAN ═══ -->
           <fieldset>
             <legend class="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
-              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">3</span>
+              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">4</span>
               Keberangkatan
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
@@ -167,7 +203,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
           <!-- ═══ OPERASIONAL ═══ -->
           <fieldset>
             <legend class="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
-              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">4</span>
+              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">5</span>
               Operasional
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
@@ -199,7 +235,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
           <!-- ═══ ADMIN ═══ -->
           <fieldset>
             <legend class="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
-              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">5</span>
+              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">6</span>
               Admin & Pembayaran
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">
@@ -222,7 +258,7 @@ const fc = 'w-full px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 b
           <!-- ═══ PROFIL ═══ -->
           <fieldset>
             <legend class="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
-              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">6</span>
+              <span class="w-8 h-8 rounded-full bg-jaga-orange text-white flex items-center justify-center text-sm font-black">7</span>
               Profil
             </legend>
             <div class="space-y-3 bg-jaga-bg rounded-3xl p-5 md:p-6 border border-gray-100">

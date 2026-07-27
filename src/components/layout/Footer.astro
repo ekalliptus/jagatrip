@@ -30,9 +30,6 @@ const trips = (await getCollection('trips'))
           Program Edu-Tourism premium untuk praktisi pendidikan yang ingin benchmarking
           langsung ke sekolah-sekolah terbaik di dunia.
         </p>
-        <p class="text-xs text-gray-600 mb-6">
-          Bermitra dengan <span class="text-gray-500">Alfatihah Tour &amp; Travel</span>
-        </p>
         <div class="flex space-x-2">
           <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-jaga-orange transition-colors" aria-label="Instagram">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -56,15 +53,19 @@ const trips = (await getCollection('trips'))
       <div>
         <p class="text-white font-bold text-base mb-5" role="heading" aria-level="2">Program 2026</h4>
         <ul class="space-y-3">
-          {trips.map((trip) => (
-            <li>
-              <div class="flex items-center gap-2 text-gray-400 text-sm">
-                <span aria-hidden="true" class="shrink-0 inline-flex items-center gap-0.5"><FlagIcon flag={trip.data.flag} class="inline-block h-3 w-auto rounded-[2px] align-middle" /></span>
-                <span class="truncate min-w-0">{trip.data.destination}</span>
-                <span class="ml-auto shrink-0 text-xs text-gray-600">{trip.data.month}</span>
-              </div>
-            </li>
-          ))}
+          {trips.map((trip) => {
+            const isRedirected = trip.slug === 'malaysia-thailand';
+            const href = isRedirected ? '/' : `/${trip.slug}`;
+            return (
+              <li>
+                <a href={href} class="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors">
+                  <span aria-hidden="true" class="shrink-0 inline-flex items-center gap-0.5"><FlagIcon flag={trip.data.flag} class="inline-block h-3 w-auto rounded-[2px] align-middle" /></span>
+                  <span class="truncate min-w-0">{trip.data.destination}</span>
+                  <span class="ml-auto shrink-0 text-xs text-gray-600">{trip.data.month}</span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
