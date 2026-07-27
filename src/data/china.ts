@@ -35,8 +35,8 @@ export const chinaProgram = {
   packages: [
     {
       name: 'Paket Land Tour',
-      price: 'Rp 28.500.000',
-      tagline: 'Fasilitas program lengkap, tanpa tiket pesawat & visa.',
+      price: 'Rp 17,5 Juta',
+      tagline: 'Exclude tiket pesawat pulang-pergi. Fasilitas program lengkap.',
       facilities: [
         ['Makan 3x sehari', true],
         ['Hotel penginapan bintang 3', true],
@@ -51,8 +51,8 @@ export const chinaProgram = {
     },
     {
       name: 'Paket All In',
-      price: 'Rp 35.000.000',
-      tagline: 'Seluruh fasilitas termasuk tiket pesawat & visa.',
+      price: 'Rp 24,9 Juta',
+      tagline: 'Termasuk tiket pesawat pulang-pergi & seluruh fasilitas.',
       facilities: [
         ['Makan 3x sehari', true],
         ['Hotel penginapan', true],
