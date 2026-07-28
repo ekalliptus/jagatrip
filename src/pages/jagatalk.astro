@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/layout/Nav.astro';
 import Footer from '../components/layout/Footer.astro';
 import FloatingWA from '../components/layout/FloatingWA.astro';
 
@@ -52,9 +51,24 @@ const faqs = [
   canonical="https://jagatrip.com/jagatalk"
   ogType="website"
 >
-  <Nav />
-
   <main id="main" class="jw">
+    <!-- HEADER (logo jagatalk, mengikuti /jagatalk02) -->
+    <header class="jw-topbar">
+      <div class="jw-container jw-topbar-inner">
+        <a href="/" class="jw-brand" aria-label="JAGATALK — kembali ke beranda">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 5 C30 5, 15 10, 12 25 L12 55 C12 78, 30 92, 50 95 C70 92, 88 78, 88 55 L88 25 C85 10, 70 5, 50 5 Z" fill="none" stroke="#0E7C86" stroke-width="6" stroke-linejoin="round"/>
+            <rect x="30" y="34" width="40" height="26" rx="7" fill="#FF6B1A"/>
+            <path d="M36 60 L32 70 L46 60 Z" fill="#FF6B1A"/>
+            <circle cx="42" cy="47" r="2.5" fill="white"/><circle cx="50" cy="47" r="2.5" fill="white"/><circle cx="58" cy="47" r="2.5" fill="white"/>
+          </svg>
+          <span class="jw-brand-text"><span class="c1">jaga</span><span class="c2">talk</span></span>
+          <span class="jw-brand-badge">PREMIUM</span>
+        </a>
+        <a href="#final-cta" class="jw-nav-cta">Daftar Sekarang</a>
+      </div>
+    </header>
+
     <!-- HERO -->
     <section class="jw-hero">
       <div class="jw-container jw-hero-inner">
@@ -324,16 +338,34 @@ const faqs = [
   .jw a{color:inherit;text-decoration:none}
   .jw-container{max-width:1140px;margin:0 auto;padding:0 24px}
 
+  /* HEADER */
+  .jw-topbar{position:sticky;top:0;z-index:100;background:rgba(253,246,235,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,93,31,.15);padding:12px 0}
+  .jw-topbar-inner{display:flex;justify-content:space-between;align-items:center}
+  .jw-brand{display:flex;align-items:center;gap:8px}
+  .jw-brand svg{width:40px;height:40px;display:block;flex-shrink:0}
+  .jw-brand-text{font-weight:800;font-size:22px;letter-spacing:-.5px}
+  .jw-brand-text .c1{color:#0E7C86}
+  .jw-brand-text .c2{color:#FF6B1A}
+  .jw-brand-badge{background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px;margin-left:4px;letter-spacing:.5px}
+  .jw a.jw-nav-cta{background:var(--orange);color:#fff;padding:9px 20px;border-radius:24px;font-size:13px;font-weight:600;transition:background .2s}
+  .jw a.jw-nav-cta:hover{background:var(--orange-dark)}
+  @media (max-width:520px){
+    .jw-brand svg{width:34px;height:34px}
+    .jw-brand-text{font-size:19px}
+    .jw-brand-badge{display:none}
+    .jw a.jw-nav-cta{padding:8px 14px;font-size:12px}
+  }
+
   /* HERO */
-  .jw-hero{padding:128px 0 80px;background:radial-gradient(ellipse at top right,rgba(232,93,31,.10),transparent 60%),radial-gradient(ellipse at bottom left,rgba(27,58,107,.06),transparent 60%),var(--cream)}
+  .jw-hero{padding:56px 0 80px;background:radial-gradient(ellipse at top right,rgba(232,93,31,.10),transparent 60%),radial-gradient(ellipse at bottom left,rgba(27,58,107,.06),transparent 60%),var(--cream)}
   .jw-hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
   .jw-eyebrow{display:inline-block;background:rgba(232,93,31,.12);color:var(--orange);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
   .jw-hero h1{font-size:clamp(30px,5vw,44px);line-height:1.15;color:var(--dark-blue);font-weight:700;margin-bottom:18px}
   .jw-hero h1 span{color:var(--orange)}
   .jw-hero-desc{font-size:17px;color:#444;margin-bottom:22px}
   .jw-hero-lead{font-size:15px;color:var(--gray);border-left:3px solid var(--orange);padding-left:14px;margin-bottom:28px}
-  .jw-cta{display:inline-block;background:var(--orange);color:var(--white);padding:16px 32px;border-radius:30px;font-weight:600;font-size:16px;transition:all .2s;box-shadow:0 8px 24px rgba(232,93,31,.35)}
-  .jw-cta:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,93,31,.45)}
+  .jw a.jw-cta{display:inline-block;background:var(--orange);color:var(--white);padding:16px 32px;border-radius:30px;font-weight:600;font-size:16px;transition:all .2s;box-shadow:0 8px 24px rgba(232,93,31,.35)}
+  .jw a.jw-cta:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,93,31,.45)}
   .jw-hero-meta{margin-top:22px;font-size:14px;color:var(--gray);display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
   .jw-hero-meta strong{color:var(--dark-blue);font-weight:700}
   .jw-price-tag{display:inline-flex;align-items:center;gap:8px;background:var(--dark-blue);color:var(--white);padding:8px 16px;border-radius:20px;font-size:15px;font-weight:700}
@@ -462,7 +494,7 @@ const faqs = [
     .jw-stats-inner{grid-template-columns:repeat(2,1fr);gap:32px}
   }
   @media (max-width:520px){
-    .jw-hero{padding:110px 0 56px}
+    .jw-hero{padding:40px 0 56px}
     .jw-form-card{padding:28px 22px}
     .jw-price-cta{padding:44px 24px}
     .jw-next-poster{padding:32px}
