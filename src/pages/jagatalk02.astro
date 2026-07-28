@@ -501,7 +501,7 @@ import Footer from '../components/layout/Footer.astro';
 
   .hero h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 52px;
+    font-size: clamp(32px, 6vw, 52px);
     font-weight: 800;
     color: var(--navy);
     line-height: 1.05;
@@ -650,7 +650,7 @@ import Footer from '../components/layout/Footer.astro';
 
   .section h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px);
     font-weight: 800;
     color: var(--navy);
     line-height: 1.1;
@@ -819,7 +819,7 @@ import Footer from '../components/layout/Footer.astro';
 
   .speaker-info h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 36px;
+    font-size: clamp(26px, 4vw, 36px);
     font-weight: 800;
     color: var(--navy);
     line-height: 1.05;
@@ -949,7 +949,7 @@ import Footer from '../components/layout/Footer.astro';
 
   .reg-card h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 32px;
+    font-size: clamp(24px, 3.5vw, 32px);
     font-weight: 800;
     color: var(--navy);
     line-height: 1.1;
@@ -1231,12 +1231,11 @@ import Footer from '../components/layout/Footer.astro';
     .hero-meta { justify-content: center; }
     .hero-flyer-wrapper { max-width: 320px; transform: none; margin: 0 auto; }
 
-    .hero h1 { font-size: 36px; }
     .hero-sub { font-size: 17px; }
     .section { padding: 60px 0; }
-    .section h2 { font-size: 30px; }
     .pain-list { grid-template-columns: 1fr; }
     .strategy-grid { grid-template-columns: 1fr; }
+    .strategy-card.full-width { grid-column: auto; }
     .speaker-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 28px; }
     .speaker-photo { width: 100%; max-width: 280px; height: 320px; margin: 0 auto; }
     .audience-grid { grid-template-columns: 1fr 1fr; }
@@ -1246,7 +1245,6 @@ import Footer from '../components/layout/Footer.astro';
     .mobile-cta { display: block; }
     body { padding-bottom: 80px; }
     .reg-card { padding: 32px 20px; }
-    .reg-card h3 { font-size: 26px; }
   }
 </style>
 
