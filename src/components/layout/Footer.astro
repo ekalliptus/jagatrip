@@ -3,6 +3,12 @@ import { SITE, waLink } from '../../data/site';
 import { getCollection } from 'astro:content';
 import FlagIcon from '../brand/FlagIcon.astro';
 
+interface Props {
+  /** Saat true, tampilkan logo + deskripsi JAGATALK di sebelah logo JAGATRIP (footer /jagatalk) */
+  jagatalk?: boolean;
+}
+
+const { jagatalk = false } = Astro.props;
 const wa = waLink();
 const trips = (await getCollection('trips'))
   .sort((a, b) => a.data.monthNum - b.data.monthNum);
@@ -17,19 +23,37 @@ const trips = (await getCollection('trips'))
 
       <!-- Col 1: Brand -->
       <div class="flex flex-col items-start">
-        <a href="/" aria-label="JAGATRIP — kembali ke beranda">
-          <img
-            src="/images/logo-horizontal.webp"
-            alt="JAGATRIP"
-            class="h-9 w-auto mb-6 brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
-            width="180"
-            height="36"
-          />
-        </a>
+        <div class="flex items-center flex-wrap gap-x-5 gap-y-2 mb-6">
+          <a href="/" aria-label="JAGATRIP — kembali ke beranda">
+            <img
+              src="/images/logo-horizontal.webp"
+              alt="JAGATRIP"
+              class="h-9 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+              width="180"
+              height="36"
+            />
+          </a>
+          {jagatalk && (
+            <a href="/jagatalk" aria-label="JAGATALK" class="inline-flex items-center gap-1.5 pt-0.5">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" aria-hidden="true">
+                <path d="M50 5 C30 5, 15 10, 12 25 L12 55 C12 78, 30 92, 50 95 C70 92, 88 78, 88 55 L88 25 C85 10, 70 5, 50 5 Z" fill="none" stroke="#5EBDC4" stroke-width="6" stroke-linejoin="round"/>
+                <rect x="30" y="34" width="40" height="26" rx="7" fill="#FF6B1A"/>
+                <path d="M36 60 L32 70 L46 60 Z" fill="#FF6B1A"/>
+                <circle cx="42" cy="47" r="2.5" fill="white"/><circle cx="50" cy="47" r="2.5" fill="white"/><circle cx="58" cy="47" r="2.5" fill="white"/>
+              </svg>
+              <span class="font-extrabold text-[18px] leading-none tracking-tight"><span style="color:#5EBDC4">jaga</span><span style="color:#FF8A45">talk</span></span>
+            </a>
+          )}
+        </div>
         <p class="leading-relaxed text-gray-400 font-medium mb-4 text-sm">
           Program Edu-Tourism premium untuk praktisi pendidikan yang ingin benchmarking
           langsung ke sekolah-sekolah terbaik di dunia.
         </p>
+        {jagatalk && (
+          <p class="leading-relaxed text-gray-400 font-medium mb-4 text-sm">
+            <strong class="text-gray-300 font-semibold">JAGATALK</strong> — Serial webinar berbasis real talk dan insight lintas negara untuk para calon mahasiswa, siswa, orangtua siswa, guru pendidik, kepala sekolah, pendiri dan penggerak pendidikan di Indonesia dan mancanegara.
+          </p>
+        )}
         <div class="flex space-x-2">
           <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-jaga-orange transition-colors" aria-label="Instagram">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
