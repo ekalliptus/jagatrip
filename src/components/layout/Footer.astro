@@ -10,6 +10,10 @@ interface Props {
 
 const { jagatalk = false } = Astro.props;
 const wa = waLink();
+// Saat footer jagatalk aktif, brand column lebih tinggi → geser heading kolom lain ke bawah agar sejajar
+const colHeadingClass = jagatalk
+  ? 'text-white font-bold text-base mb-5 mt-6 lg:mt-8'
+  : 'text-white font-bold text-base mb-5';
 const trips = (await getCollection('trips'))
   .sort((a, b) => a.data.monthNum - b.data.monthNum);
 ---
@@ -23,7 +27,7 @@ const trips = (await getCollection('trips'))
 
       <!-- Col 1: Brand -->
       <div class="flex flex-col items-start">
-        <div class="flex items-center flex-wrap gap-x-5 gap-y-2 mb-6">
+        <div class="flex items-center gap-x-5 gap-y-2 mb-6">
           <a href="/" aria-label="JAGATRIP — kembali ke beranda">
             <img
               src="/images/logo-horizontal.webp"
@@ -34,7 +38,7 @@ const trips = (await getCollection('trips'))
             />
           </a>
           {jagatalk && (
-            <a href="/jagatalk" aria-label="JAGATALK" class="inline-flex items-center gap-1.5 pt-0.5">
+            <a href="/jagatalk" aria-label="JAGATALK" class="inline-flex items-center gap-1.5 pt-0.5 whitespace-nowrap">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" aria-hidden="true">
                 <path d="M50 5 C30 5, 15 10, 12 25 L12 55 C12 78, 30 92, 50 95 C70 92, 88 78, 88 55 L88 25 C85 10, 70 5, 50 5 Z" fill="none" stroke="#5EBDC4" stroke-width="6" stroke-linejoin="round"/>
                 <rect x="30" y="34" width="40" height="26" rx="7" fill="#FF6B1A"/>
@@ -75,7 +79,7 @@ const trips = (await getCollection('trips'))
 
       <!-- Col 2: Program 2026 (7 trips) -->
       <div>
-        <p class="text-white font-bold text-base mb-5" role="heading" aria-level="2">Program 2026</h4>
+        <p class={colHeadingClass} role="heading" aria-level="2">Program 2026</p>
         <ul class="space-y-3">
           {trips.map((trip) => {
             const slug = trip.data.slug ?? trip.slug;
@@ -96,7 +100,7 @@ const trips = (await getCollection('trips'))
 
       <!-- Col 3: Menu -->
       <div>
-        <p class="text-white font-bold text-base mb-5" role="heading" aria-level="2">Menu</h4>
+        <p class={colHeadingClass} role="heading" aria-level="2">Menu</p>
         <ul class="space-y-1">
           {[
             { label: 'Beranda',   href: '/' },
@@ -118,7 +122,7 @@ const trips = (await getCollection('trips'))
 
       <!-- Col 4: Info & Kontak -->
       <div>
-        <p class="text-white font-bold text-base mb-5" role="heading" aria-level="2">Info & Kontak</h4>
+        <p class={colHeadingClass} role="heading" aria-level="2">Info & Kontak</p>
         <ul class="space-y-4">
           <li>
                 <a href={wa} target="_blank" rel="noopener noreferrer" class="flex items-start gap-3 text-gray-400 hover:text-white transition-colors group text-sm py-1.5">
