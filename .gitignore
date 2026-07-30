@@ -36,3 +36,4 @@ docs/
 *.pdf
 LP1-*.html
 LP2-*.html
+.zcode/

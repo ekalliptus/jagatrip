@@ -36,7 +36,7 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
 
     <section class="access" data-reveal="section"><p class="chapter">03 / SCHOOL ACCESS</p><div class="access-title"><h2>Masuk ke<br/>sekolahnya.</h2><p>Nilai paling langka dari perjalanan ini bukan kartu masuk expo. Ini kesempatan duduk bersama pengelola sekolah, melihat fasilitas, lalu bertanya langsung tentang keputusan di balik praktik mereka.</p></div><div class="school-numbers"><div><strong>3</strong><span>sekolah<br/>kunjungan</span></div></div><ol><li>Sambutan tuan rumah</li><li>Tur fasilitas</li><li>Dialog manajemen</li><li>Dokumentasi</li><li>Pertukaran cinderamata</li></ol><blockquote>Anda datang sebagai delegasi,<br/><em>bukan turis yang kebetulan lewat.</em></blockquote></section>
 
-    <section class="itinerary" data-reveal="section"><header><p class="chapter">04 / SEVEN DAYS</p><h2>Catatan perjalanan.</h2><p>Kerangka agenda dapat menyesuaikan konfirmasi partner dan penyelenggara expo.</p></header><div class="days">{p.itinerary.map(([day,date,title,body]) => <details><summary><span>{day}</span><small>{date}</small><strong>{title}</strong><i></i></summary><p>{body}</p></details>)}</div></section>
+    <section class="itinerary" id="itinerary" data-reveal="section"><header><p class="chapter">04 / SEVEN DAYS</p><h2>Catatan perjalanan.</h2><p>Kerangka agenda dapat menyesuaikan konfirmasi partner dan penyelenggara expo.</p></header><div class="days">{p.itinerary.map(([day,date,title,body]) => <details><summary><span>{day}</span><small>{date}</small><strong>{title}</strong><i></i></summary><p>{body}</p></details>)}</div></section>
 
     <section class="founder" data-reveal="section">
       <p class="chapter">EDUTRIP BERSAMA</p>
@@ -53,14 +53,14 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
 
     <section class="fit" data-reveal="section"><div><p class="chapter">05 / WHO SHOULD JOIN</p><h2>Untuk mereka yang memimpin perubahan.</h2></div><ul>{p.audience.map((x,i) => <li><span>0{i+1}</span>{x}</li>)}</ul><aside><strong>CATATAN PENTING</strong><p>Agenda dimulai pagi dan sebagian besar waktu berada di sekolah serta ruang pameran. Program ini dirancang untuk belajar dan membangun jaringan, bukan berbelanja.</p></aside></section>
 
-    <section class="packages" data-reveal="section"><header><p class="chapter">06 / DEPARTURE OPTIONS</p><h2>Dua cara berangkat.<br/><em>Satu pengalaman utuh.</em></h2></header>
+    <section class="packages" id="pricing" data-reveal="section"><header><p class="chapter">06 / DEPARTURE OPTIONS</p><h2>Dua cara berangkat.<br/><em>Satu pengalaman utuh.</em></h2></header>
       <div>{p.packages.map((pkg,i) => <article><span>OPTION 0{i+1}</span><h3>{pkg.name}</h3><p class="price">{pkg.price}</p><p>{pkg.tagline}</p><ul class="facilities">{pkg.facilities.map(([label,ok]) => <li class={ok ? 'ok' : 'no'}>{ok ? '✓' : '✕'} {label}</li>)}</ul><a href="#form">Minta rincian biaya ↗</a></article>)}</div>
       <p class="visa-note">⚠ {p.visaNote}</p>
     </section>
 
-    <section class="faq" data-reveal="section"><header><p class="chapter">07 / QUESTIONS</p><h2>Sebelum<br/>berangkat.</h2></header><div>{p.faqs.map(([q,a]) => <details><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
+    <section class="faq" id="faq" data-reveal="section"><header><p class="chapter">07 / QUESTIONS</p><h2>Sebelum<br/>berangkat.</h2></header><div>{p.faqs.map(([q,a]) => <details><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
 
-    <section class="closing" id="form" data-reveal="section"><div class="closing-copy"><p class="chapter">FINAL NOTE / YOUR MOVE</p><h2>The next class<br/>is in <em>China.</em></h2><p>Isi data minat. WhatsApp akan terbuka dengan pesan siap kirim ke admin JAGATRIP.</p></div><form data-china-form><label><span>01</span> Nama lengkap<input name="nama" required minlength="3" autocomplete="name"></label><label><span>02</span> Asal lembaga / domisili<input name="asal" required minlength="2" autocomplete="organization"></label><label><span>03</span> Nomor WhatsApp<input name="whatsapp" type="tel" required pattern="[0-9+() -]{8,20}" inputmode="tel" autocomplete="tel"></label><button>Kirim minat <span>↗</span></button><small>Tidak mengikat pembayaran. Data hanya diteruskan lewat pesan yang Anda kirim.</small></form></section>
+    <section class="closing" id="form" data-reveal="section"><a id="daftar" class="anchor-offset" aria-hidden="true"></a><div class="closing-copy"><p class="chapter">FINAL NOTE / YOUR MOVE</p><h2>The next class<br/>is in <em>China.</em></h2><p>Isi data minat. WhatsApp akan terbuka dengan pesan siap kirim ke admin JAGATRIP.</p></div><form data-china-form><label><span>01</span> Nama lengkap<input name="nama" required minlength="3" autocomplete="name"></label><label><span>02</span> Asal lembaga / domisili<input name="asal" required minlength="2" autocomplete="organization"></label><label><span>03</span> Nomor WhatsApp<input name="whatsapp" type="tel" required pattern="[0-9+() -]{8,20}" inputmode="tel" autocomplete="tel"></label><button>Kirim minat <span>↗</span></button><small>Tidak mengikat pembayaran. Data hanya diteruskan lewat pesan yang Anda kirim.</small></form></section>
   </main>
   <Footer />
   <script>

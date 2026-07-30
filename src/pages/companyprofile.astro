@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/layout/Nav.astro';
+import Footer from '../components/layout/Footer.astro';
+import HomeHero           from '../components/sections/home/HomeHero.astro';
+import CounterSection     from '../components/sections/home/CounterSection.astro';
+import ProblemSection     from '../components/sections/home/ProblemSection.astro';
+import AboutSection       from '../components/sections/home/AboutSection.astro';
+import AudienceSection    from '../components/sections/home/AudienceSection.astro';
+import WhySection         from '../components/sections/home/WhySection.astro';
+import ComingUpSection    from '../components/sections/home/ComingUpSection.astro';
+import BenefitSection     from '../components/sections/home/BenefitSection.astro';
+import TimelineSection    from '../components/sections/home/TimelineSection.astro';
+import FounderSection     from '../components/sections/home/FounderSection.astro';
+import IncludesSection    from '../components/sections/home/IncludesSection.astro';
+import PricingSection     from '../components/sections/home/PricingSection.astro';
+import EarlyBirdSection   from '../components/sections/home/EarlyBirdSection.astro';
+import CtaBannerSection   from '../components/sections/home/CtaBannerSection.astro';
+import KonsultasiFormSection from '../components/sections/home/KonsultasiFormSection.astro';
+import FaqSection         from '../components/sections/home/FaqSection.astro';
+
+import { travelAgencySchema } from '../data/schemas/travelAgency';
+import { breadcrumbSchema }   from '../data/schemas/breadcrumb';
+---
+
+<BaseLayout
+  title="JAGATRIP — Ekspedisi Benchmarking Internasional"
+  description="Program Edu-Tourism premium untuk praktisi pendidikan Indonesia. Benchmarking sekolah-sekolah mancanegara. JAGATRIP TO MALAYSIA - THAILAND, 24-28 Juni 2026."
+  canonical="https://jagatrip.com/companyprofile"
+  extraSchemas={[travelAgencySchema(), breadcrumbSchema([])]}
+>
+  <Nav />
+
+  <main id="main">
+    <HomeHero />
+    <CounterSection />
+    <ProblemSection />
+    <AboutSection />
+    <AudienceSection />
+    <WhySection />
+    <ComingUpSection />
+    <BenefitSection />
+    <TimelineSection />
+    <FounderSection />
+    <IncludesSection />
+    <PricingSection />
+    <EarlyBirdSection />
+    <CtaBannerSection />
+    <KonsultasiFormSection />
+    <FaqSection />
+  </main>
+
+  <Footer />
+</BaseLayout>
