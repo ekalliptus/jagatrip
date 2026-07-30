@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/layout/Footer.astro';
 import { chinaEventSchema, chinaProgram as p } from '../data/china';
 ---
-<BaseLayout title={`JAGATRIP #2 — ${p.title}`} description={`Program studi banding pendidikan ke Beijing dan Hangzhou, ${p.date}. Dua expo, kunjungan sekolah, kuota ${p.quota} peserta.`} canonical="https://jagatrip.com/china2" ogType="website" extraSchemas={[chinaEventSchema]}>
+<BaseLayout title={`JAGATRIP #2 — ${p.title}`} description={`Program studi banding pendidikan ke Beijing dan Hangzhou, ${p.date}. Dua expo, kunjungan sekolah, kuota ${p.quota} peserta.`} canonical="https://jagatrip.com/china2" ogType="website" extraSchemas={[chinaEventSchema]} gtmId="GTM-NX2FVX9X" gtmId2="GTM-NR8XFKP9">
   <header class="nav">
     <a href="/" aria-label="JAGATRIP"><img src="/images/logo-horizontal.webp" width="2188" height="460" alt="JAGATRIP Mitra Edukasi"></a>
     <a class="nav-cta" href="#form">Daftar minat</a>
