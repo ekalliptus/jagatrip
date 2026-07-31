@@ -333,19 +333,19 @@ function doPost(e) {
       return handleRegistrasi(ss, data);
     }
 
-    // ── Route: Landing Page Batch 3 ──
-    if (targetSheet === 'Batch3') {
-      return handleBatch3(ss, data);
+    // ── Route: Landing Page Batch 3 (Batch3, Batch3MYTH) ──
+    if (targetSheet === 'Batch3' || targetSheet === 'Batch3MYTH') {
+      return handleBatch3(ss, targetSheet, data);
     }
 
-    // ── Route: Landing Page China (/china → 'China', /china2 → 'China2') ──
-    if (targetSheet === 'China' || targetSheet === 'China2') {
+    // ── Route: Landing Page China (China, China2, China_Utama) ──
+    if (targetSheet === 'China' || targetSheet === 'China2' || targetSheet === 'China_Utama') {
       return handleChina(ss, targetSheet, data);
     }
 
-    // ── Route: Landing Page leads (LP1_Nonformal, LP2_Promo, LP_Jagatalk02, …) ──
-    // Setiap _sheet berawalan "LP" diarahkan ke generic handler (auto-create sheet).
-    if (targetSheet.indexOf('LP') === 0) {
+    // ── Route: Landing Page leads (LP* atau CompanyProfile) ──
+    // _sheet berawalan "LP" atau 'CompanyProfile' → generic handler (auto-create sheet).
+    if (targetSheet.indexOf('LP') === 0 || targetSheet === 'CompanyProfile') {
       return handleGenericLead(ss, targetSheet, data);
     }
 
@@ -426,8 +426,8 @@ function handleRegistrasi(ss, data) {
 // BATCH 3 LEAD HANDLER — Malaysia · Thailand · Singapura
 // ═══════════════════════════════════════════════════════════════════════
 
-function handleBatch3(ss, data) {
-  var sheetName = 'Batch3';
+function handleBatch3(ss, sheetName, data) {
+  sheetName = sheetName || 'Batch3';
   var BASE_HEADERS = ['No', 'Timestamp', 'Nama Lengkap', 'WhatsApp', 'Instansi', 'Domisili', 'Paket', 'Status', 'Source'];
   var sheet = ss.getSheetByName(sheetName);
 
@@ -551,7 +551,7 @@ function doGet() {
     .createTextOutput(JSON.stringify({
       status: 'ok',
       service: 'JAGATRIP Registration API',
-      sheets: [SHEET_NAME, REG_SHEET_NAME, 'Batch3', 'China', 'China2', 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk02', 'LP_Jagatalk'],
+      sheets: [SHEET_NAME, REG_SHEET_NAME, 'Batch3', 'Batch3MYTH', 'China', 'China2', 'China_Utama', 'LP1_Nonformal', 'LP2_Promo', 'LP_Jagatalk', 'LP_Jagatalk02', 'LP_Jagatalk_Premium', 'CompanyProfile'],
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
