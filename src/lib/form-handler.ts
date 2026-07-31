@@ -36,10 +36,10 @@ export function initRegistrationForm(): void {
     const msg = [
       `Halo admin JAGATRIP! 👋`,
       ``,
-      `Saya ${payload.nama}, tertarik daftar Edutrip Malaysia-Thailand Juni 2026.`,
-      `(Dari halaman: Homepage)`,
+      `Saya ${payload.nama}, tertarik dengan program JAGATRIP.`,
+      `(Dari halaman: Company Profile)`,
       ``,
-      `Mohon konfirmasi pendaftaran saya. Terima kasih! 🙏`,
+      `Mohon info detail program & pendaftaran. Terima kasih! 🙏`,
     ].join('\n');
 
     const waUrl = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
@@ -50,6 +50,7 @@ export function initRegistrationForm(): void {
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        _sheet: 'CompanyProfile',
         ...payload,
         ...getUtm(),
         timestamp: new Date().toISOString(),
