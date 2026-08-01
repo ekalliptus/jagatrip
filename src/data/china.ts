@@ -65,7 +65,7 @@ export const chinaProgram = {
       ],
     },
   ],
-  visaNote: 'Visa diajukan minimal H-30 hari. Lebih dari itu, peserta mengurus visa sendiri dengan konfirmasi ke admin JAGATRIP terlebih dahulu, dan akan ada pengurangan biaya paket.',
+  visaNote: 'Pengurusan VISA ditanggung oleh masing-masing peserta. Jika ingin dibantu pengurusan visa oleh tim Jagatrip, mohon membaca S&K dan konfirmasi ke Admin Jagatrip.',
   founder: {
     name: 'Mr. Dedi Gunawan',
     role: 'CEO',

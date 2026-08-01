@@ -343,13 +343,14 @@ function doPost(e) {
       return handleChina(ss, targetSheet, data);
     }
 
-    // ── Route: Landing Page leads (LP* atau CompanyProfile) ──
-    // _sheet berawalan "LP" atau 'CompanyProfile' → generic handler (auto-create sheet).
-    if (targetSheet.indexOf('LP') === 0 || targetSheet === 'CompanyProfile') {
+    // ── Route: Landing Page leads (LP*, CompanyProfile, China_SK, atau _sheet eksplisit lainnya) ──
+    // Setiap _sheet yang ditentukan eksplisit (bukan default Pendaftaran) → generic handler (auto-create sheet).
+    // Ini future-proof: sheet baru tinggal kirim _sheet, tab akan otomatis dibuat.
+    if (data._sheet && targetSheet !== SHEET_NAME) {
       return handleGenericLead(ss, targetSheet, data);
     }
 
-    // ── Route: Pendaftaran (default) ──
+    // ── Route: Pendaftaran (default — tidak ada _sheet) ──
     return handlePendaftaran(ss, data);
 
   } catch (err) {
