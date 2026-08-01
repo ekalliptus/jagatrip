@@ -13,11 +13,11 @@ export const chinaProgram = {
     ['Akses ke ruang kelas', 'Dialog langsung dengan manajemen sekolah, didampingi penerjemah dan agenda kunjungan resmi.'],
     ['Datang sebagai delegasi', 'Setiap pertemuan dirancang untuk membuka percakapan profesional dan peluang kerja sama lanjutan.'],
   ],
-  physicalBenefits: ['Hotel bintang 3 di dua kota', 'Kereta cepat Beijing–Hangzhou', 'Transportasi program', 'Konsumsi halal', 'Pengurusan visa', 'Asuransi perjalanan', 'Sertifikat dan dokumentasi'],
+  physicalBenefits: ['Hotel bintang 3 di dua kota', 'Kereta cepat Beijing–Hangzhou', 'Transportasi program', 'Konsumsi halal', 'Asuransi perjalanan', 'Dokumentasi kegiatan'],
   professionalBenefits: ['Delegasi CIFTIS & Worlddidac', 'Kunjungan 3 sekolah', 'Business matching', 'Networking internasional', 'Referensi EdTech Asia', 'Wawasan kebijakan pendidikan', 'Jaringan pascaprogram'],
   cities: [
     { code: 'BJS', name: 'Beijing', cn: '北京', date: '12–15 September', note: 'Kebijakan & skala', items: ['CIFTIS 2026', 'Kunjungan sekolah Beijing', 'Forum kebijakan & business matching'] },
-    { code: 'HGH', name: 'Hangzhou', cn: '杭州', date: '15–18 September', note: 'Teknologi & praktik', items: ['Worlddidac Asia 2026', 'West Lake & Hefang Street', 'Ekosistem teknologi pendidikan'] },
+    { code: 'HGH', name: 'Hangzhou', cn: '杭州', date: '15–18 September', note: 'Teknologi & praktik', items: ['Worlddidac Asia 2026', 'West Lake / Hefang Street', 'Ekosistem teknologi pendidikan'] },
   ],
   expos: [
     { chapter: '01', city: 'Beijing', name: 'CIFTIS 2026', longName: 'China International Fair for Trade in Services', date: '12–15 September 2026', venue: 'Shougang Exhibition Center', body: 'Rombongan hadir penuh untuk menjelajahi smart education, forum kebijakan, dan business matching.', stats: [['2.400+', 'exhibitor lintas sektor'], ['110.000 m²', 'area pameran'], ['CIFTIS', 'full']] },
@@ -35,7 +35,7 @@ export const chinaProgram = {
   packages: [
     {
       name: 'Paket Land Tour',
-      price: 'Rp 17,5 Juta',
+      price: 'Rp 16.400.000',
       tagline: 'Exclude tiket pesawat pulang-pergi. Fasilitas program lengkap.',
       facilities: [
         ['Makan 3x sehari', true],
@@ -45,13 +45,13 @@ export const chinaProgram = {
         ['2 agensi lokal', true],
         ['Tour guide lokal', true],
         ['Penerjemah di pameran', true],
-        ['Visa (baca term & condition)', false],
         ['Tiket pesawat', false],
+        ['Visa (baca term & condition)', false],
       ],
     },
     {
       name: 'Paket All In',
-      price: 'Rp 24,9 Juta',
+      price: 'Rp 23.800.000',
       tagline: 'Termasuk tiket pesawat pulang-pergi & seluruh fasilitas.',
       facilities: [
         ['Makan 3x sehari', true],
@@ -60,8 +60,8 @@ export const chinaProgram = {
         ['Kereta cepat', true],
         ['Beijing – Hangzhou', true],
         ['2 agensi lokal', true],
-        ['Visa (baca term & condition)', true],
         ['Tiket pesawat', true],
+        ['Visa (baca term & condition)', false],
       ],
     },
   ],
