@@ -1,5 +1,6 @@
 import { SITE } from '../data/site';
 import { getUtm } from './utm';
+import { initFormGuard, lockForm } from './form-guard';
 
 declare global {
   interface Window {
@@ -12,6 +13,9 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflc
 export function initRegistrationForm(): void {
   const form = document.getElementById('daftar-form') as HTMLFormElement | null;
   if (!form) return;
+
+  // Anti-spam: kunci form jika sudah pernah di-submit
+  initFormGuard(form, 'daftar-form', '✓ Anda sudah mengirim data pendaftaran. Tim JAGATRIP akan segera menghubungi Anda.');
 
   const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
   const statusEl = document.getElementById('form-status');
@@ -59,6 +63,9 @@ export function initRegistrationForm(): void {
     }).catch(() => {});
 
     if (window.fbq) { window.fbq('track', 'Lead'); }
+
+    // Kunci form agar tidak bisa diisi lagi
+    lockForm(form, 'daftar-form');
 
     // Redirect ke WA (delay 300ms biar pixel sempat fire)
     setTimeout(() => {

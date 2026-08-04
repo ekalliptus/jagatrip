@@ -1,5 +1,6 @@
 import { SITE } from '../data/site';
 import { getUtm } from './utm';
+import { initFormGuard, lockForm } from './form-guard';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
 
@@ -36,6 +37,9 @@ const STEPS = [
 export function initRegisterForm(): void {
   const form = document.getElementById('register-form') as HTMLFormElement | null;
   if (!form) return;
+
+  // Anti-spam: kunci form jika sudah pernah di-submit
+  initFormGuard(form, 'register-form', '✓ Anda sudah mengirim pendaftaran. Tim JAGATRIP akan menghubungi Anda untuk langkah selanjutnya.');
 
   const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
   const statusEl = document.getElementById('register-status');
@@ -164,6 +168,7 @@ export function initRegisterForm(): void {
       ].join('\n');
 
       await sleep(1000);
+      lockForm(form, 'register-form');
       window.location.href = `https://wa.me/${SITE.waNumber}?text=${encodeURIComponent(msg)}`;
 
     } catch {

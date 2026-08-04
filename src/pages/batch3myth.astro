@@ -272,6 +272,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <script>
   import { getUtm } from '../lib/utm';
+  import { initFormGuard, lockForm } from '../lib/form-guard';
 
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
   const NOMOR_WA_ADMIN = '628139190363'; // Admin JAGATRIP (0813-9190-363)
@@ -285,6 +286,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     const form = document.getElementById('regForm') as HTMLFormElement | null;
     if (!form) return;
+    initFormGuard(form, 'batch3myth-form', '✓ Pendaftaran Anda sudah terkirim. Tim JAGATRIP akan menghubungi Anda.');
     const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const statusEl = document.getElementById('regStatus');
 
@@ -323,6 +325,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const pesan = `Halo Admin JAGATRIP, saya ingin mendaftar JAGATRIP #3 (Malaysia–Thailand, 14–18 Des 2026).\n\nNama Lengkap: ${nama}\nDomisili: ${domisili}\nNo. WhatsApp: ${wa}`;
       const waUrl = `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesan)}`;
       showStatus('ok', 'Pendaftaran berhasil! Mengalihkan ke WhatsApp...');
+      lockForm(form, 'batch3myth-form');
       setTimeout(() => { window.location.href = waUrl; }, 500);
     });
   });

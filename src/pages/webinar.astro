@@ -534,10 +534,12 @@ import Footer from '../components/layout/Footer.astro';
 
 <script>
   import { getUtm } from '../lib/utm';
+  import { initFormGuard, lockForm } from '../lib/form-guard';
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('reg-form-jagatalk') as HTMLFormElement | null;
     if (!form) return;
+    initFormGuard(form, 'webinar-form', '✓ Pendaftaran Anda sudah terkirim. Admin JAGATALK akan menghubungi Anda.');
 
     const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const statusEl = document.getElementById('reg-status-jagatalk');
@@ -598,6 +600,7 @@ import Footer from '../components/layout/Footer.astro';
       }
 
       showStatus('ok', 'Pendaftaran berhasil! Mengalihkan ke WhatsApp...');
+      lockForm(form, 'webinar-form');
       setTimeout(() => { window.location.href = waUrl; }, 500);
     });
   });

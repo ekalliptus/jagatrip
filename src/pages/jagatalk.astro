@@ -249,10 +249,12 @@ const faqs = [
 
 <script>
   import { getUtm } from '../lib/utm';
+  import { initFormGuard, lockForm } from '../lib/form-guard';
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('reg-form-jagatalk-premium') as HTMLFormElement | null;
     if (!form) return;
+    initFormGuard(form, 'jagatalk-premium-form', '✓ Pendaftaran Anda sudah terkirim. Admin JAGATALK akan menghubungi Anda.');
 
     const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const statusEl = document.getElementById('reg-status-jagatalk-premium');
@@ -313,6 +315,7 @@ const faqs = [
       }
 
       showStatus('ok', 'Pendaftaran berhasil! Mengalihkan ke WhatsApp...');
+      lockForm(form, 'jagatalk-premium-form');
       setTimeout(() => { window.location.href = waUrl; }, 500);
     });
   });

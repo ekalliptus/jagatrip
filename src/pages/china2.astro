@@ -60,8 +60,11 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
 
   <script>
     import { getUtm } from '../lib/utm';
+    import { initFormGuard, lockForm } from '../lib/form-guard';
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
-    document.querySelector<HTMLFormElement>('[data-china-form]')?.addEventListener('submit', event => {
+    const cform=document.querySelector<HTMLFormElement>('[data-china-form]');
+    if(cform){initFormGuard(cform,'china2-form','✓ Data Anda sudah terkirim. Tim JAGATRIP akan menghubungi Anda.');
+    cform.addEventListener('submit', event => {
       event.preventDefault(); const form=event.currentTarget; if(!form.reportValidity()) return;
       const data=new FormData(form), nama=String(data.get('nama')).trim(), asal=String(data.get('asal')).trim(), whatsapp=String(data.get('whatsapp')).trim();
       fetch(APPS_SCRIPT_URL, {
@@ -71,8 +74,9 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
       if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Lead', { content_name: 'China2' });
       const message=`Halo Admin, saya ${nama} dari ${asal} tertarik ikut Jagatrip ke China dan sudah mengisi form. Nomor WhatsApp saya ${whatsapp}. Bagaimana selanjutnya?`;
       const cs=['628139190363','6281128506576'], nomor=cs[Math.floor(Math.random()*cs.length)];
+      lockForm(form,'china2-form');
       setTimeout(() => { location.href=`https://wa.me/${nomor}?text=${encodeURIComponent(message)}`; }, 300);
-    });
+    })}
   </script>
 </BaseLayout>
 

@@ -80,16 +80,20 @@ import { chinaEventSchema, chinaProgram as p } from '../data/china';
   <Footer />
   <script>
     import { getUtm } from '../lib/utm';
+    import { initFormGuard, lockForm } from '../lib/form-guard';
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrwCUYnuIUCflczefMlYAHdCnOD-5PMqVEL94QTPWy6Hkds6SiOQLfyo7PZpVoqtjiZg/exec';
-    document.querySelector<HTMLFormElement>('[data-china-form]')?.addEventListener('submit',event=>{
+    const cform=document.querySelector<HTMLFormElement>('[data-china-form]');
+    if(cform){initFormGuard(cform,'china-form','✓ Data Anda sudah terkirim. Tim JAGATRIP akan menghubungi Anda.');
+    cform.addEventListener('submit',event=>{
       event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;
       const d=new FormData(form),nama=String(d.get('nama')).trim(),asal=String(d.get('asal')).trim(),wa=String(d.get('whatsapp')).trim();
       fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({_sheet:'China',nama,asal,wa,...getUtm(),timestamp:new Date().toISOString(),source:window.location.href})}).catch(()=>{});
       if(typeof (window as any).fbq==='function')(window as any).fbq('track','Lead',{content_name:'China'});
       const message=`Halo Admin, saya ${nama} dari ${asal} tertarik ikut Jagatrip ke China dan sudah mengisi form. Nomor WhatsApp saya ${wa}. Bagaimana selanjutnya?`;
       const cs=['628139190363','6281128506576'],nomor=cs[Math.floor(Math.random()*cs.length)];
+      lockForm(form,'china-form');
       setTimeout(()=>{location.href=`https://wa.me/${nomor}?text=${encodeURIComponent(message)}`;},300);
-    })</script>
+    })}</script>
 </BaseLayout>
 <style>
   :global(body){margin:0;background:#f4eee5;color:#191512;font-family:Outfit,ui-sans-serif,sans-serif}:global(*){box-sizing:border-box}.nav{height:76px;padding:0 max(24px,calc((100vw - 1240px)/2));display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:2px solid #FF6B36;position:sticky;top:0;background:rgba(244,238,229,.94);backdrop-filter:blur(12px);z-index:30}.nav img{width:165px;height:auto;display:block}.nav>span{font-size:10px;letter-spacing:.2em}.nav>a:last-child{justify-self:end;color:#191512;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.12em;text-underline-offset:6px}
